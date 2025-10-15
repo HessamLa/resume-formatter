@@ -1,0 +1,292 @@
+# Resume - Hessam Alizadeh (Hamidreza Lotfalizadeh, Ph.D.)
+
+personal_info:
+  _type: contact
+  name: Hessam Alizadeh
+  # full_name: (Hamidreza Lotfalizadeh, Ph.D.)
+  location: My location
+  email: MyEmail@gmail.com
+  linkedin: linkedin.com/in/hessamla/
+  github: github.com/hessamla/
+  scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
+
+# PAGE 1 SECTIONS
+summary:
+  _type: summary
+  _title: Summary
+  content: |
+    ML researcher and engineer. Seeking a role in ML, Data science, or GenAI, with an affinity for systems design and engineering and system programming. Demonstrated ability to integrate ML innovations into complex environments through effective cross-functional collaboration.
+
+# ==================== EDUCATION ====================
+education:
+  _type: education
+  _title: Education
+  _labels:
+    degree: Degree
+    institution: Institution
+    campus: Campus
+    graduation_date: Graduation Date
+  items:
+    - degree: PhD in Computer Engineering
+      institution: Purdue University
+      campus: Main Campus
+      graduation_date: "Dec 2024"
+    
+    - degree: MSc in Computer Engineering
+      institution: Amirkabir University
+      graduation_date: "Feb 2011"
+    
+    - degree: BS in Computer Engineering
+      institution: Azad University
+      graduation_date: "Jul 2008"
+
+# ==================== SKILLS ====================      
+skills:
+  _type: skills
+  _title: Skills
+  
+  proficient:
+    _title: Proficient
+    _items:
+      - Python
+      - C/C++
+  
+  programming_languages:
+    _title: Programming Languages
+    _items:
+      - C#
+      - Java
+      - JavaScript
+      - Rust
+      - TypeScript
+      - Gremlin
+  
+  programming_paradigms_and_tools:
+    _title: Programming Paradigms & Tools
+    _items:
+      - OOP
+      - Functional
+      - Concurrent & Parallel Programming
+      - Multi-threaded Applications
+      - Embedded
+      - Linux
+      - Bash
+      - Shell
+      - Make
+      - WAF
+      - Gradle
+      - Spring Boot
+      - Real-time data streaming
+  
+  ai_ml:
+    _title: AI/ML
+    _items:
+      - PyTorch
+      - Tensorflow
+      - CUDA
+      - Numpy
+      - Pandas
+      - SciPy
+      - Scikit-Learn
+      - MLFlow
+      - Experiment tracking
+      - Node2Vec
+      - NodeForce
+      - CNN
+      - RNN
+      - CRNN
+      - GNN
+      - GCN
+  
+  nlp_llm:
+    _title: NLP/LLM
+    _items:
+      - Fine-Tuning
+      - PEFT
+      - RAG
+      - LangChain
+      - LangGraph
+      - Prompt Engineering
+      - Transformers
+  
+  statistical_analysis:
+    _title: Statistical Analysis
+    _items:
+      - Design of Experiments
+      - Time series analysis
+      - Entropy analysis
+      - Statistical modeling
+  
+  infrastructure_and_devops:
+    _title: Infrastructure and DevOps
+    _items:
+      - Computer architecture
+      - Distributed systems architecture
+      - SLURM
+      - CI/CD
+      - Git
+      - AWS
+      - Neptune
+      - GCP
+      - OCI
+      - Spark
+      - SQL
+      - RESTful web services
+      - Docker
+      - Podman
+      - Kubernetes
+      - Real-time streaming (MQTT)
+
+# ==================== WORK EXPERIENCE (PAGE 2) ====================
+work_experience:
+  _type: work
+  _title: Work Experience
+  _labels:
+    title: Title
+    company: Company
+    duration: Duration
+    responsibilities: Responsibilities
+  items:
+    - title: Graph Networks Specialist
+      company: Inertia Systems
+      duration: Jul 2025 - present
+      responsibilities:
+        - Inherently a knowledge science project. Developed a graph-based system for construction tech, project data as knowledge graph.
+        - Employed Neptune graph database for the KG. Improved conflict detection and resolution.
+        - Developed a graph querying system using Gremlin, as well as a graph visualization UI for enhanced operability.
+        - The KG graph and features that I added to the product helped the marketing team to attract more investment.
+    
+    - title: Postdoctoral Researcher
+      company: Indiana University
+      duration: Apr 2025 - Jul 2025
+      responsibilities:
+        - Researched diffusion models on dynamic graphs to simulate structural changes.
+        - Researched graph diffusion models for simulating infection disease propagation over the graph.
+        - Used graph diffusion model for solving graph alignment tasks. The results to be published.
+    
+    - title: AI/ML Intern
+      company: Eli Lilly
+      duration: May 2024 - Aug 2024
+      responsibilities:
+        - Intern in AADS group. Extensively used Python, JavaScript, and TypeScript.
+        - Researched machine learning and LLM methods for large-scale graph analysis, developing a query-based exploration tool for enterprise-level knowledge graphs.
+        - Used a fusion of RAG and graph traversal algorithms for subgraph extraction.
+        - Employed supervised and unsupervised methods. Supervised methods showed up to 80% better performance.
+        - Optimized the tool to handle graphs with over 1 million nodes, ensuring web-based real-time interactions with large graphs.
+        - Collaborated with cross-functional and international teams to integrate the tool into the company's knowledge management ecosystem, potentially impacting decision-making processes for field experts.
+        - Implemented a user-friendly web interface to add interactive features to the tool.
+    
+    - title: Data Science Researcher
+      company: Purdue University
+      duration: Dec 2019 - Apr 2022
+      responsibilities:
+        - Conducted research with FireEvac group on time series data analysis and prediction models for early detection of incidents in urban buildings by analyzing IoT collected environment sensing data.
+        - Architected and implemented scalable real-time streaming data pipeline using MQTT protocol to ingest, process, and transform high-rate IoT sensor data into structured multivariate time series for downstream analytics.
+        - Built fault-tolerant distributed data processing system supporting concurrent multi-threaded operations for real-time classification and prediction procedures across multiple data streams.
+    
+    - title: Software Developer
+      company: Purdue University
+      duration: May 2018 - Aug 2020
+      responsibilities:
+        - With TASI group, Developed internet connection between server and simulated client nodes.
+        - Socket programming with Python and web server implementation with Django.
+    
+    - title: System Software Engr.
+      company: Parsian e-Commerce Co.
+      duration: Sep 2013 - Aug 2016
+      responsibilities:
+        - Maintained Linux based legacy codebase for POS (Point-of-Sale) devices.
+        - Developed and maintained LAN and dial-up embedded applications, USSD connections, reconfigurable embedded printer, and POS to web-app and desktop application connection.
+
+# ==================== RESEARCH EXPERIENCE ====================
+research_experience:
+  _type: research
+  _title: Research Experience
+  _labels:
+    title: Title
+    references: References
+    institution: Institution
+    type: Type
+    description: Description
+    technical_environment: Technical Environment
+    applied_methods: Applied Methods
+  items:
+    - title: Graph Embedding and Graph ML
+      # references: "[1,2]"
+      institution: Purdue University
+      type: PhD Thesis
+      description: |
+        My PhD thesis at Purdue University. Researched graph embedding methods. Invented a graph embedding methodology using force-directed approach and provided a mathematical proof-of-convergence using Brouwer's fixed point theorem. Optimized complexity of the method from O(n2) to O(n log n). This method can be employed in supervised or unsupervised learning schemes. Made extensive use of PyTorch framework, CUDA library, GPU unit and memory optimization methods. Implemented parallelized algorithms for multi-GPU execution using SLURM. Improved graph task metrics (link prediction, node classification, etc.) by over 6% compared to state-of-the-art methods. Developed a library to optimize the memory utilization by searching for an optimum batch count during run time. Used "wrapper" design pattern to implement a Python decorator for the batch-count optimizer during run-time. Implemented an experiment tracking system using MLFlow.
+      technical_environment: |
+        Deployed models on multi-GPU clusters using SLURM for resource management
+      applied_methods:
+        - Force-Directed approach
+        - PyTorch
+        - CUDA
+        - Memory optimization
+        - Multi-GPU scaling
+        - SLURM job orchestration
+        - Experiment tracking
+    
+    - title: Large-Scale Knowledge Graph Processing
+      institution: Eli Lilly and Company
+      type: Internship Project
+      description: |
+        An internship project at Eli Lilly and Company. Researched optimized methods for extracting subgraphs from large-scale knowledge graph and visualizing it. The objective was to provide a KG tool with search and visual exploration features, helping the user better explore the KG. The users of this tool were scientists and domain experts from various departments (chemistry/pharma, finance, marketing, etc.). In addition, for enhancing user experience, a smooth transition between various levels of visualization granularities was implemented.
+      applied_methods:
+        - Force-Directed
+        - ForceAtlas
+        - Community detection
+        - Clustering
+        - GraphViz
+    
+    - title: DDoS attack detection and mitigation in SDN
+      # references: "[3,4]"
+      institution: Purdue University
+      type: Research Project
+      description: |
+        A research project at Purdue University. Researching on DDoS attacks and development of methods for their detection and mitigation. In this research the network traffic flows were collected in set intervals. Then they were compiled into time series data for processing using entropy analysis and neural network models for classification and prediction. Proposed the idea of partitioning incoming traffic based on various parameters. Then, each partition was effectively a separate time series data.
+      applied_methods:
+        - Entropy analysis
+        - Group testing
+        - RNN and CRNN
+    
+    - title: Quantum Computer Scheduler
+      institution: Amirkabir University (QDA group)
+      type: Master's Thesis
+      description: |
+        A master's thesis at Amirkabir University. Designed and implemented a method and algorithm for scheduling ion-trap quantum computers with the goal of reducing execution latency of quantum program. Reduced the scheduling latency by 50% average compared to the state-of-the-art methods.
+      applied_methods:
+        - OOP in C++
+        - Lee's maze routing
+
+# ==================== CERTIFICATES ====================
+certificates:
+  _type: certificates
+  _title: Certificates
+  _labels:
+    name: Certificate Name
+    institution: Institution
+    verification_url: Verification
+  items:
+    - name: Machine learning specialization
+      institution: Stanford University.
+      verification_url: https://coursera.org/verify/specialization/HMWE8SJ5U82M
+    
+    - name: MLOps
+      institution: Duke University.
+      verification_url: https://coursera.org/verify/specialization/ENSE7V7CKMU7
+    
+    - name: Deep learning specialization
+      institution: Stanford University.
+      # verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
+
+# ==================== PUBLICATIONS ====================
+publications:
+  _type: publications
+  _title: Publications
+  _labels:
+    note: Note
+    scholar_url: Google Scholar
+  note: "Under the name \"Hamidreza Lotfalizadeh\""
+  scholar_url: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en

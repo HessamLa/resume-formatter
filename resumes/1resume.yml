@@ -1,0 +1,256 @@
+# Resume - Hessam Alizadeh (Hamidreza Lotfalizadeh, Ph.D.)
+
+personal_info:
+  _type: contact
+  name: Hessam Alizadeh
+  full_name: (Hamidreza Lotfalizadeh, Ph.D.)
+  location: Austin, TX area (Willing to relocate)  # Update as needed
+  email: hamidla.ap@gmail.com
+  linkedin: linkedin.com/in/hessamla/
+  github: github.com/hessamla/
+  scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
+
+# PAGE 1 SECTIONS
+summary:
+  _type: summary
+  _title: Summary
+  content: |
+    **AI/ML engineer with expertise in LLM orchestration, edge deployment, and mission-critical systems.** PhD from Purdue University with proven experience implementing **RAG and LangChain-based agent systems** for enterprise knowledge graphs at Eli Lilly. Strong background in **real-time distributed systems** (MQTT streaming, multi-threaded processing) and **model optimization** (reduced complexity from O(n²) to O(n log n), CUDA optimization). Experience with **safety-critical applications** including real-time anomaly detection for urban buildings and DDoS mitigation. Seeking to leverage my expertise in **agent reasoning systems and edge computing** to advance autonomous system capabilities.
+
+# ==================== EDUCATION ====================
+education:
+  _type: education
+  _title: Education
+  _labels:
+    degree: Degree
+    institution: Institution
+    campus: Campus
+    graduation_date: Graduation Date
+  items:
+    - degree: PhD in Computer Engineering
+      institution: Purdue University
+      campus: Main Campus
+      graduation_date: "Dec 2024"
+    
+    - degree: MSc in Computer Engineering
+      institution: Amirkabir University
+      graduation_date: "Feb 2011"
+    
+    - degree: BS in Computer Engineering
+      institution: Azad University
+      graduation_date: "Jul 2008"
+
+# ==================== SKILLS ====================      
+skills:
+  _type: skills
+  _title: Technical Skills (Top 30)
+  
+  proficient:
+    _title: LLM & AI Orchestration
+    _items:
+      - LangChain & LangGraph
+      - RAG implementation
+      - PyTorch & Transformers
+      - Prompt Engineering
+      - MLFlow
+      - PEFT & Fine-Tuning
+  
+  programming_languages:
+    _title: Programming
+    _items:
+      - Python (8+ years)
+      - C/C++
+      - JavaScript/TypeScript
+      - CUDA
+  
+  programming_paradigms_and_tools:
+    _title: Edge & Distributed Systems
+    _items:
+      - Real-time streaming (MQTT)
+      - Multi-threaded programming
+      - Distributed computing (SLURM)
+      - Memory optimization
+  
+  ai_ml:
+    _title: Machine Learning
+    _items:
+      - Model optimization
+      - Graph Neural Networks (GNN, GCN)
+      - Deep Learning (RNN, CRNN)
+      - Time series analysis
+  
+  nlp_llm:
+    _title: Deployment & MLOps
+    _items:
+      - Docker & Kubernetes
+      - CI/CD pipelines
+      - Real-time inference
+      - Performance monitoring
+      - Git
+  
+  statistical_analysis:
+    _title: Safety & Reliability
+    _items:
+      - Safety-critical systems
+      - Fault-tolerant architecture
+      - Anomaly detection
+  
+  infrastructure_and_devops:
+    _title: Cloud & Data
+    _items:
+      - AWS (Neptune, SageMaker)
+      - Graph databases
+      - RESTful APIs
+      - Microservices
+
+# ==================== WORK EXPERIENCE (PAGE 2) ====================
+work_experience:
+  _type: work
+  _title: Work Experience
+  _labels:
+    title: Title
+    company: Company
+    duration: Duration
+    responsibilities: Responsibilities
+  items:
+    - title: Graph Networks Specialist
+      company: Inertia Systems
+      duration: Jul 2025 - present
+      responsibilities:
+        - "Developing **production knowledge graph system** for construction technology with real-time graph analysis capabilities"
+        - "Implementing **Neptune graph database** with Gremlin query optimization for mission-critical decision support"
+        - "Improving **conflict detection and resolution** through graph-based reasoning algorithms"
+        - "Creating **interactive visualization UI** for graph exploration with smooth rendering of complex graph structures"
+        - "Collaborating with cross-functional teams to integrate graph-based intelligence into production systems"
+    
+    - title: Postdoctoral Researcher
+      company: Indiana University
+      duration: Apr 2025 - Jul 2025
+      responsibilities:
+        - "Researching **diffusion models on dynamic graphs** for simulating structural changes in complex systems"
+        - "Developing models for **disease propagation simulation** over graphs - applicable to network security and threat modeling"
+        - "Applying graph diffusion models to **alignment tasks** with results pending publication"
+    
+    - title: AI/ML Intern - Enterprise Knowledge Systems
+      company: Eli Lilly
+      duration: May 2024 - Aug 2024
+      responsibilities:
+        - "Developed **LLM-powered exploration tool** for enterprise knowledge graphs with over 1 million nodes"
+        - "Implemented **RAG and graph traversal fusion** for intelligent subgraph extraction and reasoning"
+        - "Built **real-time web interface** using TypeScript for interactive graph exploration with sub-second response times"
+        - "Applied **supervised learning** achieving 80% performance improvement over baseline methods"
+        - "**Optimized system for edge constraints** enabling web-based real-time interactions with large graphs"
+        - "Collaborated with **international cross-functional teams** to deploy tool into production knowledge management ecosystem"
+    
+    - title: Data Science Researcher - Safety-Critical Systems
+      company: Purdue University
+      duration: Dec 2019 - Apr 2022
+      responsibilities:
+        - "Built **real-time anomaly detection system** for urban building safety using IoT sensor networks"
+        - "Architected **fault-tolerant MQTT streaming pipeline** for mission-critical incident detection"
+        - "Implemented **distributed multi-threaded processing** system for concurrent real-time classification"
+        - "Developed **ensemble models** (RNN, CRNN) for time series prediction with high reliability requirements"
+        - "Designed system to handle **high-velocity sensor data** streams with minimal latency"
+    
+    - title: Software Developer - Distributed Systems
+      company: Purdue University
+      duration: May 2018 - Aug 2020
+      responsibilities:
+        - "Developed **distributed simulation framework** for multi-client coordination and testing"
+        - "Implemented **Python socket programming** for reliable client-server communication"
+        - "Built **Django REST APIs** for system integration and control interfaces"
+
+# ==================== RESEARCH EXPERIENCE ====================
+research_experience:
+  _type: research
+  _title: Research Experience
+  _labels:
+    title: Title
+    references: References
+    institution: Institution
+    type: Type
+    description: Description
+    technical_environment: Technical Environment
+    applied_methods: Applied Methods
+  items:
+    - title: Graph ML with Edge Optimization
+      # references: "[1,2]"
+      institution: Purdue University
+      type: PhD Thesis
+      description: |
+        Developed **force-directed graph embedding** methodology with mathematical proof of convergence. **Optimized algorithm complexity from O(n²) to O(n log n)** enabling deployment on resource-constrained systems. Implemented **CUDA optimization** and **memory-efficient batching** for edge deployment scenarios. Created **Python decorator pattern** for dynamic batch optimization during runtime. Achieved **6% improvement over state-of-the-art** methods while reducing computational requirements. Integrated **MLFlow for model versioning** and experiment tracking across distributed training runs.
+      technical_environment: |
+        Multi-GPU clusters with SLURM, PyTorch distributed training, CUDA optimization
+      applied_methods:
+        - Model optimization and quantization techniques
+        - CUDA kernel programming for acceleration
+        - Memory-optimized batching for edge constraints
+        - Distributed training with multi-GPU scaling
+        - MLOps practices for production deployment
+    
+    - title: Enterprise-Scale Agent Systems
+      institution: Eli Lilly and Company
+      type: Internship Project
+      description: |
+        Researched and deployed **LLM-based agent system** for knowledge graph exploration. Implemented **multi-step reasoning** for complex queries across million-node graphs. Developed **tool integration framework** for agent-database interaction. Created **explainable AI interfaces** for domain experts across multiple departments. Optimized for **real-time inference** with resource constraints.
+      applied_methods:
+        - RAG and LLM orchestration
+        - Agent reasoning frameworks
+        - Real-time optimization
+        - Human-in-the-loop workflows
+        - Performance monitoring systems
+    
+    - title: Real-Time Threat Detection in Networks
+      # references: "[3,4]"
+      institution: Purdue University
+      type: Research Project
+      description: |
+        Developed **real-time DDoS detection system** for software-defined networks. Implemented **streaming data analysis** with entropy-based anomaly detection. Applied **neural network models** (RNN, CRNN) for pattern recognition in network traffic. Designed **distributed processing architecture** for handling high-throughput data streams. System designed for **mission-critical network defense** with low false positive rates.
+      applied_methods:
+        - Real-time stream processing
+        - Entropy analysis for anomaly detection
+        - Neural network deployment
+        - Distributed system design
+        - Safety-critical validation
+    
+    - title: Quantum Computer Resource Scheduling
+      institution: Amirkabir University (QDA group)
+      type: Master's Thesis
+      description: |
+        Designed **scheduling algorithm** for resource-constrained quantum computers. Achieved **50% latency reduction** through optimization techniques. Implemented in **C++ with OOP** for performance-critical applications. Applied **constraint solving** and routing algorithms for optimal resource allocation.
+      applied_methods:
+        - Constraint solving algorithms
+        - C++ system programming
+        - Performance optimization
+        - Resource scheduling
+
+# ==================== CERTIFICATES ====================
+certificates:
+  _type: certificates
+  _title: Certificates
+  _labels:
+    name: Certificate Name
+    institution: Institution
+    verification_url: Verification
+  items:
+    - name: Machine Learning Specialization
+      institution: Stanford University
+      verification_url: https://coursera.org/verify/specialization/HMWE8SJ5U82M
+    
+    - name: MLOps Specialization
+      institution: Duke University
+      verification_url: https://coursera.org/verify/specialization/ENSE7V7CKMU7
+    
+    - name: Deep Learning Specialization
+      institution: Stanford University
+      # verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
+
+# ==================== PUBLICATIONS ====================
+publications:
+  _type: publications
+  _title: Publications
+  _labels:
+    note: Note
+    scholar_url: Google Scholar
+  note: "Under the name \"Hamidreza Lotfalizadeh\" | U.S. Citizen [Update if applicable]"
+  scholar_url: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en

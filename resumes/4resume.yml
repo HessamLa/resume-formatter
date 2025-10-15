@@ -4,7 +4,7 @@ personal_info:
   _type: contact
   name: Hessam Alizadeh
   full_name: (Hamidreza Lotfalizadeh, Ph.D.)
-  location: Bryan, TX (willing to relocate)  # Update as needed
+  location: Austin, TX area (willing to relocate)  # Update as needed
   email: hamidla.ap@gmail.com
   linkedin: linkedin.com/in/hessamla/
   github: github.com/hessamla/
@@ -237,7 +237,7 @@ certificates:
     
     - name: Deep Learning Specialization
       institution: Stanford University
-      # verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
+      verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
 
 # ==================== PUBLICATIONS ====================
 publications:

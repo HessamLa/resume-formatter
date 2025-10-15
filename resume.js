@@ -21,9 +21,16 @@ async function loadResume() {
         
         // Show save buttons
         document.getElementById('save-buttons').style.display = 'flex';
-        
+
+        // Show control sliders
+        document.getElementById('font-size-control').style.display = 'flex';
+        document.getElementById('margin-control').style.display = 'flex';
+
         // Attach save button handlers
         setupSaveButtons();
+
+        // Setup control sliders
+        setupControlSliders();
         
     } catch (error) {
         document.querySelector('.loading').innerHTML = `
@@ -182,7 +189,7 @@ function renderSkills(data, title, labels) {
         html += `
             <div class="skills-category">
                 <strong>${escapeHtml(categoryTitle)}:</strong>
-                <span class="skills-list">${categoryItems.map(escapeHtml).join(', ')}</span>
+                <span class="skills-list">${categoryItems.map(parseFormatting).join(', ')}</span>
             </div>
         `;
     }
@@ -398,6 +405,51 @@ function setupSaveButtons() {
     document.getElementById('save-pdf-btn').addEventListener('click', saveAsPDF);
 }
 
+// Setup control sliders
+function setupControlSliders() {
+    // Font size schemes: 1=[10,11,16], 2=[9,10,14], 3=[11,12,18]
+    const fontSchemes = {
+        1: { base: '9pt', medium: '10pt', large: '14pt', label: 'Small' },
+        2: { base: '10pt', medium: '11pt', large: '16pt', label: 'Medium' },
+        3: { base: '11pt', medium: '12pt', large: '18pt', label: 'Large' }
+    };
+
+    // Margin options: [0.2, 0.3, 0.4, 0.5]
+    const marginOptions = ['0.2in', '0.3in', '0.4in', '0.5in'];
+
+    // Font size slider
+    const fontSlider = document.getElementById('font-size-slider');
+    const fontLabel = document.getElementById('font-size-label');
+
+    fontSlider.addEventListener('input', (e) => {
+        const value = e.target.value;
+        const scheme = fontSchemes[value];
+
+        // Update CSS variables
+        document.documentElement.style.setProperty('--font-base', scheme.base);
+        document.documentElement.style.setProperty('--font-medium', scheme.medium);
+        document.documentElement.style.setProperty('--font-large', scheme.large);
+
+        // Update label
+        fontLabel.textContent = scheme.label;
+    });
+
+    // Margin slider
+    const marginSlider = document.getElementById('margin-slider');
+    const marginLabel = document.getElementById('margin-label');
+
+    marginSlider.addEventListener('input', (e) => {
+        const value = parseInt(e.target.value);
+        const margin = marginOptions[value];
+
+        // Update container padding
+        document.getElementById('resume-container').style.padding = margin;
+
+        // Update label
+        marginLabel.textContent = margin;
+    });
+}
+
 // Save as HTML file
 function saveAsHTML() {
     // Get the resume content
@@ -423,8 +475,11 @@ function saveAsHTML() {
     <style>
         ${cssContent}
         
-        /* Remove save buttons from saved HTML */
-        #save-buttons {
+        /* Remove save buttons and sliders from saved HTML */
+        #save-buttons,
+        .control-slider,
+        #font-size-control,
+        #margin-control {
             display: none !important;
         }
         

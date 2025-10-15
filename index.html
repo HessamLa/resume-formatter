@@ -11,10 +11,24 @@
 <body>
     <div class="loading">Loading resume...</div>
     
-    <!-- Save Buttons (hidden until resume loads) -->
+    <!-- Save Buttons and Controls (hidden until resume loads) -->
     <div id="save-buttons" style="display: none;">
         <button id="save-html-btn" class="save-btn">💾 Save as HTML</button>
         <button id="save-pdf-btn" class="save-btn">📄 Save as PDF</button>
+    </div>
+
+    <!-- Font Size Slider (hidden until resume loads) -->
+    <div id="font-size-control" class="control-slider" style="display: none;">
+        <label for="font-size-slider">Font Size:</label>
+        <input type="range" id="font-size-slider" min="1" max="3" value="2" step="1">
+        <span id="font-size-label">Medium</span>
+    </div>
+
+    <!-- Margin Slider (hidden until resume loads) -->
+    <div id="margin-control" class="control-slider" style="display: none;">
+        <label for="margin-slider">Margins:</label>
+        <input type="range" id="margin-slider" min="0" max="3" value="1" step="1">
+        <span id="margin-label">0.3in</span>
     </div>
     
     <div id="resume-container" style="display: none;">
