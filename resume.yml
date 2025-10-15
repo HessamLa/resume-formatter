@@ -3,9 +3,9 @@
 personal_info:
   _type: contact
   name: Hessam Alizadeh
-  full_name: (Hamidreza Lotfalizadeh, Ph.D.)
-  location: Bryan, Texas
-  email: HamidLA.AP@gmail.com
+  # full_name: (Hamidreza Lotfalizadeh, Ph.D.)
+  location: My location
+  email: MyEmail@gmail.com
   linkedin: linkedin.com/in/hessamla/
   github: github.com/hessamla/
   scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
