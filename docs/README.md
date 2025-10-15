@@ -1,9 +1,65 @@
 # Resume Generator
 
-A lightweight client-side resume generator that converts YAML to HTML and PDF.
+**Your Resume, Without the Headache**
+
+Tired of fighting with Word to make your resume look professional? This tool does the formatting for you—just fill in your information and get a polished PDF resume in minutes.
+
+## What You Get
+
+**You write this in a simple text file:**
+```yaml
+name: Jane Smith
+summary: Software engineer with 5 years experience
+work_experience:
+  - title: Senior Engineer
+    company: Tech Corp
+    responsibilities:
+      - Built cool features
+      - Led a team of 5
+```
+
+**You get this:**
+A beautifully formatted PDF resume, ready to send to employers. No design skills needed!
+
+---
+
+## Why Use This?
+
+**Instead of Word or Google Docs:**
+
+- ✨ **No formatting fights** - The styling is already done for you
+- 🎯 **Focus on content** - Just write your experience, not wrestle with margins
+- 🔄 **Easy updates** - Change your info in one place, instantly see the results
+- 📄 **Perfect PDFs every time** - No "why does this look different when I print it?" moments
+- 🎨 **Consistent professional look** - Works for any industry
+- 🔀 **Multiple versions** - Easily create different resumes for different jobs
+
+**Perfect for:**
+
+- 👨‍💼 Job seekers who want a clean resume without design skills
+- 🎓 Academics maintaining CVs with publications and research
+- 💻 Developers/tech folks who prefer text files over Word
+- 🔄 Anyone who updates their resume frequently
+- 🎯 People applying to different roles (academic vs. industry, etc.)
+
+---
+
+## What Makes This Special?
+
+Unlike rigid templates, this tool gives you **control and flexibility**:
+
+1. **Smart sections** - Rearrange your resume by moving text around. Want skills before experience? Just reorder it.
+2. **Text formatting** - Make words **bold** or *italic* right in your content using simple `**bold**` syntax
+3. **Custom labels** - Call it "Position" instead of "Title", "Achievements" instead of "Responsibilities"
+4. **Multiple section types** - Have two skills sections, split work experience by time period, etc.
+5. **Always perfect** - Edit once, generate PDF anytime, always looks professional
+
+---
+
+## Quick Links
 
 > **🚀 Just want to get started?** See [QUICKSTART.md](QUICKSTART.md) for a condensed guide.
-> 
+>
 > **📖 Want to understand the flexible system?** See [FLEXIBLE-SYSTEM.md](FLEXIBLE-SYSTEM.md) for detailed documentation.
 
 ## Requirements
@@ -255,6 +311,50 @@ section_name:
   _labels:                 # Optional: customize field labels
     field_name: Custom Label
   # ... section data follows
+```
+
+### Text Formatting
+
+**Markdown-style formatting** is supported in long text fields (descriptions, responsibilities, summaries):
+
+| Syntax | Output | Example |
+|--------|--------|---------|
+| `**text**` | **bold** | `**Seeking**` → **Seeking** |
+| `*text*` | *italic* | `*Data science*` → *Data science* |
+| `__text__` | underline | `__important__` → <u>important</u> |
+
+**Where formatting works:**
+- ✅ Summary content
+- ✅ Work experience responsibilities
+- ✅ Research descriptions and technical environment
+- ✅ Publication notes
+
+**Where formatting does NOT work (by design):**
+- ❌ Names, titles, job titles
+- ❌ Company names, institutions
+- ❌ Dates, locations
+- ❌ Skills lists (could break items like "C++")
+- ❌ URLs, emails
+
+**Example:**
+```yaml
+summary:
+  _type: summary
+  _title: Summary
+  content: |
+    ML researcher and engineer. **Seeking** a role in *ML*, *Data science*,
+    or *GenAI*, with demonstrated ability to integrate __ML innovations__
+    into complex environments.
+
+work_experience:
+  _type: work
+  _title: Work Experience
+  items:
+    - title: Software Engineer
+      company: Tech Corp
+      responsibilities:
+        - Led development of **machine learning pipeline** with *PyTorch*
+        - Improved performance by __40%__ through optimization
 
 # Example - Contact:
 personal_info:

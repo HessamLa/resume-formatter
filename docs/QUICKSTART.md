@@ -89,6 +89,31 @@ section_name:
   # ... your data
 ```
 
+## Text Formatting (NEW!)
+
+**Use markdown-style formatting in long text fields:**
+
+```yaml
+# Bold: **text**
+# Italic: *text*
+# Underline: __text__
+
+summary:
+  _type: summary
+  _title: Summary
+  content: |
+    **Seeking** a role in *Data science* or __Machine Learning__.
+
+work_experience:
+  items:
+    - responsibilities:
+        - Improved **system performance** by *40%*
+        - Deployed __production-ready__ ML models
+```
+
+**Works in:** Summary content, responsibilities, research descriptions, publication notes
+**Doesn't work in:** Names, titles, dates, skills (by design - prevents breaking "C++" etc.)
+
 **Skills section format (NEW):**
 ```yaml
 core_skills:

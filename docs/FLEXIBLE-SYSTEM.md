@@ -8,6 +8,7 @@ This resume generator uses a **type-based rendering system with full content con
 2. **Styling in JavaScript**: HTML generation and CSS classes only
 3. **Type-based rendering**: `_type` determines format
 4. **Customizable labels**: `_labels` overrides default field names
+5. **Markdown-style formatting**: Use `**bold**`, `*italic*`, `__underline__` in long text fields
 
 ## Section Structure
 
@@ -20,6 +21,85 @@ section_name:
     field_name: Custom Label
   # ... your data follows
 ```
+
+## Text Formatting Feature
+
+**Markdown-style formatting** is available in long text/description fields for emphasis:
+
+### Syntax
+
+| Syntax | Output | Example |
+|--------|--------|---------|
+| `**text**` | **bold** | `**Seeking**` renders as **Seeking** |
+| `*text*` | *italic* | `*ML*` renders as *ML* |
+| `__text__` | underline | `__key point__` renders as <u>key point</u> |
+
+### Where It Works
+
+Formatting is applied to **prose/narrative content only**:
+
+✅ **Supported fields:**
+- `summary` → `content` field
+- `work` → `responsibilities` array items
+- `research` → `description` field
+- `research` → `technical_environment` field
+- `publications` → `note` field
+
+❌ **Not supported (by design):**
+- Names, titles, job titles
+- Company names, institutions
+- Dates, locations, durations
+- Section headings
+- Skills lists (prevents breaking "C++", "Node.js", etc.)
+- URLs, emails
+
+### Examples
+
+```yaml
+# Summary with formatting
+summary:
+  _type: summary
+  _title: Summary
+  content: |
+    ML researcher and engineer. **Seeking** a role in *ML*, *Data science*,
+    or *GenAI*, with demonstrated ability to integrate __ML innovations__
+    into complex environments.
+
+# Work responsibilities with formatting
+work_experience:
+  _type: work
+  _title: Work Experience
+  items:
+    - title: Software Engineer
+      company: Tech Corp
+      responsibilities:
+        - Led development of **machine learning pipeline** using *PyTorch*
+        - Improved system **performance by 40%** through __optimization__
+        - Deployed *production-ready* models to __AWS infrastructure__
+
+# Research description with formatting
+research_experience:
+  _type: research
+  _title: Research
+  items:
+    - title: Graph Neural Networks
+      institution: University
+      description: |
+        Researched **graph embedding methods** for *large-scale networks*.
+        Achieved __6% improvement__ over *state-of-the-art* methods.
+      technical_environment: |
+        Deployed models on **multi-GPU clusters** using *SLURM* for
+        __resource management__.
+```
+
+### Security Note
+
+The formatting system is **secure by design**:
+1. All text is HTML-escaped first (prevents XSS attacks)
+2. Then markdown-style patterns are converted to HTML tags
+3. Users cannot inject raw HTML through the YAML file
+
+---
 
 ## Available Section Types
 
@@ -58,11 +138,13 @@ summary:
     Your multi-line summary text goes here.
     Use the | character for multi-line content.
     Each line can be a separate paragraph.
+    **Bold**, *italic*, and __underline__ formatting supported!
 ```
 
 **Customization:**
 - Change `_title` to "Executive Summary", "Profile", "About Me", etc.
 - Use `|` for multi-line text preservation
+- **Formatting supported:** Use `**bold**`, `*italic*`, `__underline__` for emphasis
 
 ---
 
@@ -219,7 +301,7 @@ work_experience:
 - `title` - Job title (required)
 - `company` - Company name (required)
 - `duration` - Time period (required)
-- `responsibilities` - Array of bullet points (optional)
+- `responsibilities` - Array of bullet points (optional, **formatting supported**)
 
 **Customization examples:**
 ```yaml
@@ -294,8 +376,8 @@ research_experience:
 - `references` - Citation references (optional)
 - `institution` - Where research was conducted (required)
 - `type` - Type of project (e.g., "PhD Thesis", "Research Project") (optional)
-- `description` - Detailed description (optional)
-- `technical_environment` - Technical setup details (optional)
+- `description` - Detailed description (optional, **formatting supported**)
+- `technical_environment` - Technical setup details (optional, **formatting supported**)
 - `applied_methods` - Array of methods/technologies used (optional)
 
 **Customization examples:**
@@ -374,7 +456,7 @@ publications:
 ```
 
 **Available fields:**
-- `note` - Additional note about publications (optional)
+- `note` - Additional note about publications (optional, **formatting supported**)
 - `scholar_url` - Link to Google Scholar profile (optional)
 
 **Customization examples:**
