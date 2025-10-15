@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hessam Alizadeh - Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- YAML Parser from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+</head>
+<body>
+    <div class="loading">Loading resume...</div>
+    
+    <!-- Save Buttons (hidden until resume loads) -->
+    <div id="save-buttons" style="display: none;">
+        <button id="save-html-btn" class="save-btn">💾 Save as HTML</button>
+        <button id="save-pdf-btn" class="save-btn">📄 Save as PDF</button>
+    </div>
+    
+    <div id="resume-container" style="display: none;">
+        <!-- Resume content will be injected here by JavaScript -->
+    </div>
+    
+    <script src="resume.js"></script>
+</body>
+</html>
