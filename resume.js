@@ -128,7 +128,7 @@ function renderContact(data, title, labels) {
 function renderSummary(data, title, labels) {
     return `
         <p class="summary-inline">
-            <strong>${escapeHtml(title)}:</strong> ${escapeHtml(data.content)}
+            <strong>${escapeHtml(title)}:</strong> ${parseFormatting(data.content)}
         </p>
     `;
 }
@@ -215,7 +215,7 @@ function renderWork(data, title, labels) {
             </div>
             ${exp.responsibilities && exp.responsibilities.length > 0 ? `
                 <ul class="responsibilities">
-                    ${exp.responsibilities.map(r => `<li>${escapeHtml(r)}</li>`).join('')}
+                    ${exp.responsibilities.map(r => `<li>${parseFormatting(r)}</li>`).join('')}
                 </ul>
             ` : ''}
         </div>
@@ -265,15 +265,15 @@ function renderResearch(data, title, labels) {
         
         // Description
         if (exp.description) {
-            html += `<div class="research-description">${escapeHtml(exp.description)}</div>`;
+            html += `<div class="research-description">${parseFormatting(exp.description)}</div>`;
         }
-        
+
         // Technical environment with italic label
         if (exp.technical_environment) {
             html += `
                 <div class="applied-methods">
-                    <em>${escapeHtml(finalLabels.technical_environment)}:</em> 
-                    ${escapeHtml(exp.technical_environment)}
+                    <em>${escapeHtml(finalLabels.technical_environment)}:</em>
+                    ${parseFormatting(exp.technical_environment)}
                 </div>
             `;
         }
@@ -346,7 +346,7 @@ function renderPublications(data, title, labels) {
     let html = `<div class="section"><h2 class="section-title">${escapeHtml(title)}</h2>`;
     
     if (data.note) {
-        html += `<div class="publications-note">${escapeHtml(data.note)}</div>`;
+        html += `<div class="publications-note">${parseFormatting(data.note)}</div>`;
     }
     
     if (data.scholar_url) {
@@ -369,6 +369,25 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text.toString();
     return div.innerHTML;
+}
+
+/**
+ * Parse markdown-style formatting syntax into HTML tags
+ * Supports: **bold**, *italic*, __underline__
+ * Security: Text is first escaped, then formatting applied
+ */
+function parseFormatting(text) {
+    if (!text) return '';
+
+    // First escape HTML for security
+    text = escapeHtml(text);
+
+    // Then apply markdown-style formatting
+    text = text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');  // **bold**
+    text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');              // *italic*
+    text = text.replace(/__(.+?)__/g, '<u>$1</u>');                // __underline__
+
+    return text;
 }
 
 // ==================== SAVE FUNCTIONS ====================
