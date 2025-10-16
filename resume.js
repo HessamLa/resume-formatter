@@ -416,19 +416,52 @@ function escapeHtml(text) {
 
 /**
  * Parse markdown-style formatting syntax into HTML tags
- * Supports: **bold**, *italic*, __underline__
- * Security: Text is first escaped, then formatting applied
+ * Supports: **bold**, *italic*, __underline__, `monospace`, $$LaTeX math$$
+ * Security: Math is processed first, then text is escaped, then formatting applied
  */
 function parseFormatting(text) {
     if (!text) return '';
 
-    // First escape HTML for security
+    // Process LaTeX math expressions BEFORE escaping HTML
+    // Use placeholders to protect math content from escaping and other replacements
+    const mathPlaceholders = [];
+    text = text.replace(/\$\$(.+?)\$\$/g, (_, mathContent) => {
+        const placeholder = `LATEX_${mathPlaceholders.length}_MATH`;
+        try {
+            // Check if KaTeX is available
+            if (typeof katex === 'undefined') {
+                mathPlaceholders.push(`<span class="math-error" title="KaTeX library not loaded">${escapeHtml(mathContent)}</span>`);
+                return placeholder;
+            }
+
+            // Render LaTeX using KaTeX (inline mode)
+            const rendered = katex.renderToString(mathContent, {
+                throwOnError: false,
+                displayMode: false,
+                output: 'html'
+            });
+            mathPlaceholders.push(rendered);
+        } catch (e) {
+            // If KaTeX fails, store the original content with error styling
+            const errorMsg = e.message || 'Unknown error';
+            mathPlaceholders.push(`<span class="math-error" title="LaTeX Error: ${errorMsg}">${escapeHtml(mathContent)}</span>`);
+        }
+        return placeholder;
+    });
+
+    // Now escape HTML for security (after extracting math)
     text = escapeHtml(text);
 
     // Then apply markdown-style formatting
-    text = text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');  // **bold**
+    text = text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');            // **bold**
     text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');              // *italic*
     text = text.replace(/__(.+?)__/g, '<u>$1</u>');                // __underline__
+    text = text.replace(/`(.+?)`/g, '<code class="monospace">$1</code>');  // `monospace`
+
+    // Restore math placeholders (they contain already-rendered HTML from KaTeX)
+    mathPlaceholders.forEach((rendered, index) => {
+        text = text.replace(`LATEX_${index}_MATH`, rendered);
+    });
 
     return text;
 }

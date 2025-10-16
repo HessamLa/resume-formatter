@@ -410,6 +410,32 @@ body {
     border-radius: 4px;
 }
 
+/* ==================== FORMATTING STYLES ==================== */
+
+/* Monospace code styling */
+code.monospace {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.95em;
+    color: #2c3e50;
+    border: 1px solid #e0e0e0;
+}
+
+/* Mathematical notation styling - KaTeX renders its own styles */
+/* Error styling for invalid LaTeX */
+.math-error {
+    color: #e74c3c;
+    background-color: #fce4e4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    border: 1px solid #e74c3c;
+    cursor: help;
+}
+
 /* ==================== HEADER ==================== */
 .header {
     text-align: center;
