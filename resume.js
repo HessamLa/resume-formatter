@@ -22,19 +22,18 @@ async function loadResume() {
         // Hide loading, show resume
         document.querySelector('.loading').style.display = 'none';
         document.getElementById('resume-container').style.display = 'block';
-        
-        // Show save buttons
-        document.getElementById('save-buttons').style.display = 'flex';
 
-        // Show control sliders
-        document.getElementById('font-size-control').style.display = 'flex';
-        document.getElementById('margin-control').style.display = 'flex';
+        // Show control pane
+        document.getElementById('control-pane').style.display = 'block';
 
         // Attach save button handlers
         setupSaveButtons();
 
         // Setup control sliders
         setupControlSliders();
+
+        // Setup pane toggle
+        setupPaneToggle();
         
     } catch (error) {
         document.querySelector('.loading').innerHTML = `
@@ -454,6 +453,16 @@ function setupControlSliders() {
     });
 }
 
+// Setup pane toggle functionality
+function setupPaneToggle() {
+    const toggleBtn = document.getElementById('toggle-pane-btn');
+    const paneContent = document.getElementById('pane-content');
+
+    toggleBtn.addEventListener('click', () => {
+        paneContent.classList.toggle('collapsed');
+    });
+}
+
 // Save as HTML file
 function saveAsHTML() {
     // Get the resume content
@@ -479,9 +488,12 @@ function saveAsHTML() {
     <style>
         ${cssContent}
         
-        /* Remove save buttons and sliders from saved HTML */
+        /* Remove control pane from saved HTML */
+        #control-pane,
         #save-buttons,
         .control-slider,
+        .toggle-btn,
+        .pane-content,
         #font-size-control,
         #margin-control {
             display: none !important;
