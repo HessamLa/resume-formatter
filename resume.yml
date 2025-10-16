@@ -11,14 +11,13 @@ personal_info:
   scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
 
 # PAGE 1 SECTIONS
-summary:
+section_summary:
   _type: summary
   _title: Summary
   content: |
-    **PhD in Computer Engineering** with proven expertise in **Python and SQL** for large-scale data analysis and ML model development. Experience building ML systems that achieved **80% performance improvement** using supervised methods at Eli Lilly. Strong background in **statistical modeling, experiment design**, and ML libraries including **Scikit-Learn and PyTorch**. Demonstrated ability to handle **graphs with over 1 million nodes** and implement **real-time data pipelines**. Skilled in **MLFlow for experiment tracking** and cross-functional collaboration with stakeholders across multiple departments. Seeking to apply quantitative expertise to drive measurable business impact through pricing and recommendation systems.
-
+    ML researcher and engineer. Seeking a role in **ML**, **Data science**, or **GenAI**, with an affinity for systems design and engineering and system programming. Demonstrated ability to integrate ML innovations into complex environments through effective cross-functional collaboration. 
 # ==================== EDUCATION ====================
-education:
+section_edu:
   _type: education
   _title: Education
   _labels:
@@ -27,7 +26,7 @@ education:
     campus: Campus
     graduation_date: Graduation Date
   items:
-    - degree: PhD in Computer Engineering (Quantitative Methods)
+    - degree: PhD in Computer Engineering
       institution: Purdue University
       campus: Main Campus
       graduation_date: "Dec 2024"
@@ -41,10 +40,9 @@ education:
       graduation_date: "Jul 2008"
 
 # ==================== TECHNICAL SKILLS ====================      
-skills:
+section_skills:
   _type: skills
   _title: Technical Skills
-
   skillset1:
       _title: Proficient
       _items: Python, C, C++
@@ -68,7 +66,7 @@ skills:
       _items: Computer architecture, Distributed systems architecture, SLURM, CI/CD, Git, AWS, Neptune, GCP, OCI, Spark, SQL, RESTful web services, Distributed systems architecture, SQL, Docker, Podman, Kubernetes, Real-time streaming (MQTT)
 
 # ==================== WORK EXPERIENCE ====================
-work_experience:
+section_work:
   _type: work
   _title: Work Experience
   _labels:
@@ -81,38 +79,39 @@ work_experience:
       company: Inertia Systems
       duration: Jul 2025 - present
       responsibilities:
-        - Developed **graph-based system** for construction tech using knowledge graphs to drive data-driven decision making
-        - Employed **Neptune graph database** with **SQL-like Gremlin queries** for conflict detection and resolution
-        - Created **graph querying system** and visualization UI for enhanced operability and stakeholder insights
-        - Delivered features that helped marketing team **attract investment** through measurable product improvements
+        - Developed **graph-based system** for construction tech to manage and resolve conflicts in building plans. Achieved **80% reduction** in conflicts detection and resolution time.
+        - Employed **Neptune graph database** with **SQL-like Gremlin queries** for conflict detection and resolution.
+        - Created **graph querying system** and visualization UI for enhanced operability and stakeholder insights.
+        - Delivered features that helped marketing team **attract $3 million investment** through the product presentation.
+        - Working on expanding the system to incorporate **LLM and GenAI** for advanced conflict detection and resolution in project documents.
     
     - title: Postdoctoral Researcher
       company: Indiana University
       duration: Apr 2025 - Jul 2025
       responsibilities:
-        - Researched **diffusion models** on dynamic graphs to simulate structural changes
-        - Developed models for **infectious disease propagation** using graph-based statistical approaches
-        - Applied graph diffusion models to solve **alignment tasks** with results pending publication
+        - Researched **diffusion models** on dynamic graphs to simulate structural changes.
+        - Developed models for rumor source detection using graph diffusion.
+        - Applied graph diffusion models to solve **alignment tasks** with results pending publication.
     
     - title: AI/ML Intern
       company: Eli Lilly
       duration: May 2024 - Aug 2024
       responsibilities:
-        - Extensively used **Python, JavaScript, and TypeScript** for ML development and deployment
-        - Researched and developed ML methods for **large-scale graph analysis** handling **over 1 million nodes**
-        - Implemented **supervised and unsupervised methods** with supervised achieving **80% performance improvement**
-        - Built query-based exploration tool integrating **RAG and graph traversal algorithms** for subgraph extraction
-        - **Collaborated with cross-functional and international teams** across chemistry/pharma, finance, and marketing departments
-        - Created **user-friendly web interface** with interactive features for decision-making processes of field experts
+        - Extensively used **Python, JavaScript, and TypeScript** for ML development and deployment.
+        - Researched and developed ML methods for **large-scale graph analysis** handling **over 1 million nodes**.
+        - Implemented **supervised and semi-supervised methods** for  knowledge discovery. Achieved **over 80% accuracy** with semi-supervised methods.
+        - Built query-based exploration tool integrating **RAG and graph traversal algorithms** for subgraph extraction.
+        - **Collaborated with cross-functional and international teams** across chemistry/pharma, finance, and marketing departments.
+        - Created **user-friendly web interface** with interactive features for decision-making processes of field experts.
     
     - title: Data Science Researcher
       company: Purdue University
       duration: Dec 2019 - Apr 2022
       responsibilities:
-        - Conducted research on **time series analysis and prediction models** for early incident detection
-        - Architected **scalable real-time streaming data pipeline** using MQTT to process IoT sensor data
-        - Built **fault-tolerant distributed system** for multivariate time series analytics
-        - Implemented **concurrent multi-threaded operations** for real-time classification and prediction across multiple streams
+        - Conducted research on **time series analysis and prediction models** for early incident detection.
+        - Architected **scalable real-time streaming data pipeline** using MQTT to process IoT sensor data.
+        - Built **fault-tolerant distributed system** for multivariate time series analytics.
+        - Implemented **concurrent multi-threaded operations** for real-time classification and prediction across multiple streams.
     
     - title: Software Developer
       company: Purdue University
@@ -140,7 +139,7 @@ research_experience:
       institution: Purdue University
       type: PhD Thesis
       description: |
-        My PhD thesis at Purdue University. Researched graph embedding methods. Invented a graph embedding methodology using force-directed approach and provided a mathematical proof-of-convergence using Brouwer's fixed point theorem. Optimized complexity of the method from O(n2) to O(n log n). This method can be employed in supervised or unsupervised learning schemes. Made extensive use of PyTorch framework, CUDA library, GPU unit and memory optimization methods. Implemented parallelized algorithms for multi-GPU execution using SLURM. Improved graph task metrics (link prediction, node classification, etc.) by over 6% compared to state-of-the-art methods. Developed a library to optimize the memory utilization by searching for an optimum batch count during run time. Used "wrapper" design pattern to implement a Python decorator for the batch-count optimizer during run-time. Implemented an experiment tracking system using MLFlow.
+        My PhD thesis at Purdue University. Researched graph embedding methods. Invented a graph embedding methodology using force-directed approach and provided a mathematical proof-of-convergence using Brouwer's fixed point theorem. Optimized complexity of the method from `O(n2)` to `O(n log n)`. This method can be employed in supervised or unsupervised learning schemes. Made extensive use of PyTorch framework, CUDA library, GPU unit and memory optimization methods. Implemented parallelized algorithms for multi-GPU execution using SLURM. Improved graph task metrics (link prediction, node classification, etc.) by over 6% compared to state-of-the-art methods. Developed a library to optimize the memory utilization by searching for an optimum batch count during run time. Used "wrapper" design pattern to implement a Python decorator for the batch-count optimizer during run-time. Implemented an experiment tracking system using MLFlow.
       technical_environment: |
         Deployed models on multi-GPU clusters using SLURM for resource management
       applied_methods:
