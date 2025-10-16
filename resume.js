@@ -1,3 +1,6 @@
+// Store the original YAML text globally
+let originalYamlText = '';
+
 // Load and render resume from YAML file
 async function loadResume() {
     try {
@@ -6,8 +9,11 @@ async function loadResume() {
         if (!response.ok) {
             throw new Error(`Failed to load resume.yml: ${response.statusText}`);
         }
-        
+
         let yamlText = await response.text();
+
+        // Store original YAML text
+        originalYamlText = yamlText;
 
         // Fix YAML parsing issue: quote lines that start with ** (markdown bold)
         // to prevent them from being interpreted as YAML aliases
@@ -15,16 +21,19 @@ async function loadResume() {
 
         // Parse YAML using js-yaml library (loaded from CDN)
         const data = jsyaml.load(yamlText);
-        
+
         // Render the resume
         renderResume(data);
-        
-        // Hide loading, show resume
+
+        // Hide loading, show main content
         document.querySelector('.loading').style.display = 'none';
-        document.getElementById('resume-container').style.display = 'block';
+        document.getElementById('main-content').style.display = 'flex';
 
         // Show control pane
         document.getElementById('control-pane').style.display = 'block';
+
+        // Populate YAML editor
+        document.getElementById('yaml-editor').value = originalYamlText;
 
         // Attach save button handlers
         setupSaveButtons();
@@ -34,6 +43,9 @@ async function loadResume() {
 
         // Setup pane toggle
         setupPaneToggle();
+
+        // Setup YAML editor
+        setupYamlEditor();
         
     } catch (error) {
         document.querySelector('.loading').innerHTML = `
@@ -542,11 +554,83 @@ function saveAsHTML() {
 function saveAsPDF() {
     // Trigger browser print dialog
     window.print();
-    
+
     // Show instructions
     setTimeout(() => {
         console.log('Print dialog opened. Select "Save as PDF" as destination.');
     }, 100);
+}
+
+// Setup YAML editor functionality
+function setupYamlEditor() {
+    const yamlPanel = document.getElementById('yaml-panel');
+    const toggleYamlBtn = document.getElementById('toggle-yaml-btn');
+    const yamlEditor = document.getElementById('yaml-editor');
+    const copyYamlBtn = document.getElementById('copy-yaml-btn');
+    let renderTimeout = null;
+
+    // Toggle YAML panel
+    toggleYamlBtn.addEventListener('click', () => {
+        yamlPanel.classList.toggle('expanded');
+    });
+
+    // Copy YAML to clipboard
+    copyYamlBtn.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(yamlEditor.value);
+            const originalText = copyYamlBtn.textContent;
+            copyYamlBtn.textContent = '✓ Copied!';
+            setTimeout(() => {
+                copyYamlBtn.textContent = originalText;
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+            alert('Failed to copy to clipboard');
+        }
+    });
+
+    // Re-render on YAML changes (with debounce)
+    yamlEditor.addEventListener('input', () => {
+        // Clear existing timeout
+        if (renderTimeout) {
+            clearTimeout(renderTimeout);
+        }
+
+        // Set new timeout for re-rendering (500ms delay)
+        renderTimeout = setTimeout(() => {
+            try {
+                let yamlText = yamlEditor.value;
+
+                // Fix YAML parsing issue: quote lines that start with ** (markdown bold)
+                yamlText = yamlText.replace(/^(\s+- )(\*\*.+)$/gm, '$1"$2"');
+
+                // Parse and render
+                const data = jsyaml.load(yamlText);
+                renderResume(data);
+
+                // Clear any error styling
+                yamlEditor.style.borderLeft = '';
+            } catch (error) {
+                console.error('YAML parsing error:', error);
+                // Add visual indicator of error
+                yamlEditor.style.borderLeft = '3px solid #e74c3c';
+            }
+        }, 500);
+    });
+
+    // Handle tab key in textarea
+    yamlEditor.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            const start = yamlEditor.selectionStart;
+            const end = yamlEditor.selectionEnd;
+            const value = yamlEditor.value;
+
+            // Insert 2 spaces for tab
+            yamlEditor.value = value.substring(0, start) + '  ' + value.substring(end);
+            yamlEditor.selectionStart = yamlEditor.selectionEnd = start + 2;
+        }
+    });
 }
 
 // Load resume when page loads

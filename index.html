@@ -46,9 +46,27 @@
             </div>
         </div>
     </div>
-    
-    <div id="resume-container" style="display: none;">
-        <!-- Resume content will be injected here by JavaScript -->
+
+    <!-- Main Content Area with Two Panels -->
+    <div id="main-content" style="display: none;">
+        <!-- Left Panel - YAML Editor (collapsed by default) -->
+        <div id="yaml-panel" class="yaml-panel">
+            <button id="toggle-yaml-btn" class="yaml-toggle-btn">◀ YAML</button>
+            <div id="yaml-editor-container" class="yaml-editor-container">
+                <div class="yaml-editor-header">
+                    <span class="yaml-editor-title">YAML Editor</span>
+                    <button id="copy-yaml-btn" class="copy-yaml-btn" title="Copy to clipboard">📋 Copy</button>
+                </div>
+                <textarea id="yaml-editor" class="yaml-editor" spellcheck="false"></textarea>
+            </div>
+        </div>
+
+        <!-- Right Panel - Resume Output -->
+        <div id="resume-panel" class="resume-panel">
+            <div id="resume-container">
+                <!-- Resume content will be injected here by JavaScript -->
+            </div>
+        </div>
     </div>
     
     <script src="resume.js"></script>
