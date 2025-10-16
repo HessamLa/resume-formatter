@@ -189,22 +189,27 @@ function renderSkills(data, title, labels) {
     
     // Iterate through all categories in the skills section
     for (const [categoryKey, categoryData] of Object.entries(data)) {
+        // Skip metadata fields (those starting with _)
+        if (categoryKey.startsWith('_')) {
+            continue;
+        }
+
         // Skip if not a category object with _title and _items
         if (!categoryData || typeof categoryData !== 'object') {
             continue;
         }
-        
+
         const categoryTitle = categoryData._title;
         const categoryItems = categoryData._items;
         
-        if (!categoryTitle || !Array.isArray(categoryItems) || categoryItems.length === 0) {
+        if (!categoryTitle || !categoryItems) {
             continue;
         }
         
         html += `
             <div class="skills-category">
                 <strong>${escapeHtml(categoryTitle)}:</strong>
-                <span class="skills-list">${categoryItems.map(parseFormatting).join(', ')}</span>
+                <span class="skills-list">${parseFormatting(normalizeItems(categoryItems))}</span>
             </div>
         `;
     }
@@ -301,11 +306,27 @@ function renderResearch(data, title, labels) {
         }
         
         // Applied methods with italic label
-        if (exp.applied_methods && exp.applied_methods.length > 0) {
+        if (exp.applied_methods) {
+            let methodsStr = '';
+            // If it is string, then use it directly
+            if (typeof exp.applied_methods === 'string') {
+                methodsStr = parseFormatting(exp.applied_methods);
+            } 
+            else if (Array.isArray(exp.applied_methods)) {
+                // If it is array, join with commas
+                const normalizedMethods = normalizeItems(exp.applied_methods, ';;');
+                
+                // Split, escape each method individually, then join with pipe
+                const methodsArray = normalizedMethods.split(';;').map(m => m.trim()).filter(m => m);
+                methodsStr = methodsArray.map(escapeHtml).join(' | ');
+                
+            }
+            // Normalize to string, handling both formats
+            
             html += `
                 <div class="applied-methods">
                     <em>${escapeHtml(finalLabels.applied_methods)}:</em>
-                    <span class="methods-list"> ${exp.applied_methods.map(escapeHtml).join(' | ')}</span>
+                    <span class="methods-list"> ${methodsStr}</span>
                 </div>
             `;
         }
@@ -410,6 +431,30 @@ function parseFormatting(text) {
     text = text.replace(/__(.+?)__/g, '<u>$1</u>');                // __underline__
 
     return text;
+}
+
+/**
+ * Normalize items to a delimited string
+ * Handles both string format ("item1, item2, item3") and array format (["item1", "item2", "item3"])
+ * @param {string|array} items - Items in string or array format
+ * @param {string} delimiter - Delimiter to use when joining array items (default: ', ')
+ * @returns {string} - Delimited string
+ */
+function normalizeItems(items, delimiter = ', ') {
+    if (!items) return '';
+
+    // If it's already a string, return as-is
+    if (typeof items === 'string') {
+        return items;
+    }
+
+    // If it's an array, join with the specified delimiter
+    if (Array.isArray(items)) {
+        return items.join(delimiter);
+    }
+
+    // Fallback: convert to string
+    return String(items);
 }
 
 // ==================== SAVE FUNCTIONS ====================

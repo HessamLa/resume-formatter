@@ -3,8 +3,8 @@
 personal_info:
   _type: contact
   name: Hessam Alizadeh
-  # full_name: (Hamidreza Lotfalizadeh, Ph.D.)
-  location: Bryan, TX (willing to relocate)  # Update as needed for Austin/NYC/DC
+  full_name: (Hamidreza Lotfalizadeh, Ph.D.)
+  location: Bryan, Tx (willing to relocate)  # Update as needed
   email: hamidla.ap@gmail.com
   linkedin: linkedin.com/in/hessamla
   github: github.com/hessamla
@@ -15,7 +15,7 @@ summary:
   _type: summary
   _title: Summary
   content: |
-    **Data scientist with PhD in quantitative field** and proven track record of **owning end-to-end ML pipelines** from problem framing to production deployment. Expert in **statistical modeling and experimentation** with experience building production ML systems that achieved **80% performance improvement** at Eli Lilly. Strong foundation in **Python, SQL, and ML libraries** (scikit-learn, PyTorch) with hands-on experience in **feature engineering, model validation, and production inference**. Skilled at **translating ambiguous business problems** into data-driven solutions and communicating insights to diverse stakeholders. Experience with **large-scale data processing**, real-time pipelines, and MLOps practices including experiment tracking with MLFlow.
+    **PhD in Computer Engineering** with proven expertise in **Python and SQL** for large-scale data analysis and ML model development. Experience building ML systems that achieved **80% performance improvement** using supervised methods at Eli Lilly. Strong background in **statistical modeling, experiment design**, and ML libraries including **Scikit-Learn and PyTorch**. Demonstrated ability to handle **graphs with over 1 million nodes** and implement **real-time data pipelines**. Skilled in **MLFlow for experiment tracking** and cross-functional collaboration with stakeholders across multiple departments. Seeking to apply quantitative expertise to drive measurable business impact through pricing and recommendation systems.
 
 # ==================== EDUCATION ====================
 education:
@@ -44,67 +44,28 @@ education:
 skills:
   _type: skills
   _title: Technical Skills
-  
-  proficient:
-    _title: Core Data Science
-    _items:
-      - Python
-      - SQL
-      - Scikit-learn
-      - Statistical modeling (statsmodels)
-      - XGBoost
-  
-  programming_languages:
-    _title: Analytics & Experimentation
-    _items:
-      - A/B testing & experimentation
-      - Causal inference
-      - Time series analysis
-      - Feature engineering
-      - Hypothesis testing
-  
-  programming_paradigms_and_tools:
-    _title: ML & Deep Learning
-    _items:
-      - PyTorch
-      - TensorFlow
-      - Graph Neural Networks
-      - Model optimization
-      - Hyperparameter tuning
-  
-  ai_ml:
-    _title: Data Engineering
-    _items:
-      - Data pipeline development
-      - ETL processes
-      - Pandas
-      - NumPy
-      - SciPy
-  
-  nlp_llm:
-    _title: MLOps & Production
-    _items:
-      - MLFlow
-      - Model versioning
-      - Production inference
-      - Model monitoring
-      - Docker
-  
-  statistical_analysis:
-    _title: Cloud & Infrastructure
-    _items:
-      - AWS
-      - Git
-      - Distributed systems
-      - Real-time streaming
-  
-  infrastructure_and_devops:
-    _title: Visualization & Communication
-    _items:
-      - Jupyter notebooks
-      - Data visualization
-      - Stakeholder communication
-      - Technical documentation
+
+  skillset1:
+      _title: Proficient
+      _items: Python, C, C++
+  skillset2:
+      _title: Programming Languages
+      _items: C#, Java, JavaScript, Rust, TypeScript, Gremlin
+  skillset3:
+      _title: Programming Paradigms & Tools
+      _items: OOP, Functional, Concurrent & Parallel Programming, Multi-threaded Applications, Embedded, Linux, Bash, Shell, Make, WAF, Gradle, Spring Boot, Real-time data streaming
+  skillset4:
+      _title: AI/ML
+      _items: PyTorch, Tensorflow, CUDA, Numpy, Pandas, SciPy, Scikit-Learn, MLFlow, Experiment tracking, Node2Vec, NodeForce, CNN, RNN, CRNN, … GNN, GCN, …
+  skillset5:
+      _title: NLP/LLM
+      _items: Fine-Tuning, PEFT, RAG, LangChain, LangGraph, Prompt Engineering, Transformers
+  skillset6:
+      _title: Statistical Analysis   
+      _items: Design of Experiments, Time series analysis, Entropy analysis, Statistical modeling
+  skillset7:
+      _title: Infrastructure and DevOps
+      _items: Computer architecture, Distributed systems architecture, SLURM, CI/CD, Git, AWS, Neptune, GCP, OCI, Spark, SQL, RESTful web services, Distributed systems architecture, SQL, Docker, Podman, Kubernetes, Real-time streaming (MQTT)
 
 # ==================== WORK EXPERIENCE ====================
 work_experience:
@@ -120,51 +81,47 @@ work_experience:
       company: Inertia Systems
       duration: Jul 2025 - present
       responsibilities:
-        - Developing **data-driven recommendation system** for construction project optimization using graph-based analysis
-        - Building **production ML pipelines** with Neptune graph database to identify conflicts and opportunities
-        - Implementing **feature engineering** from complex graph structures to improve model performance
-        - Creating **data visualizations** and dashboards for stakeholder insights and decision-making
-        - Collaborating with product and marketing teams to **measure business impact** of ML features
+        - Developed **graph-based system** for construction tech using knowledge graphs to drive data-driven decision making
+        - Employed **Neptune graph database** with **SQL-like Gremlin queries** for conflict detection and resolution
+        - Created **graph querying system** and visualization UI for enhanced operability and stakeholder insights
+        - Delivered features that helped marketing team **attract investment** through measurable product improvements
     
     - title: Postdoctoral Researcher
       company: Indiana University
       duration: Apr 2025 - Jul 2025
       responsibilities:
-        - Researched **predictive models** using graph diffusion for structural change simulation
-        - Developed **statistical models** for disease propagation with applications to network analysis
-        - Applied **optimization algorithms** to graph alignment problems with measurable improvements
+        - Researched **diffusion models** on dynamic graphs to simulate structural changes
+        - Developed models for **infectious disease propagation** using graph-based statistical approaches
+        - Applied graph diffusion models to solve **alignment tasks** with results pending publication
     
-    - title: AI/ML Intern - Data Science
+    - title: AI/ML Intern
       company: Eli Lilly
       duration: May 2024 - Aug 2024
       responsibilities:
-        - **Owned end-to-end ML pipeline** for enterprise knowledge graph analysis handling **1 million+ nodes**
-        - Developed **supervised learning models** achieving **80% performance improvement** over baseline
-        - Built **feature extraction pipelines** using Python and SQL for large-scale graph data
-        - Implemented **production inference code** for real-time model serving with sub-second latency
-        - Conducted **experiments to validate model performance** and iterate on improvements
-        - **Translated technical results into actionable insights** for cross-functional stakeholders
-        - Created **interactive dashboards** for scientists and domain experts across multiple departments
+        - Extensively used **Python, JavaScript, and TypeScript** for ML development and deployment
+        - Researched and developed ML methods for **large-scale graph analysis** handling **over 1 million nodes**
+        - Implemented **supervised and unsupervised methods** with supervised achieving **80% performance improvement**
+        - Built query-based exploration tool integrating **RAG and graph traversal algorithms** for subgraph extraction
+        - **Collaborated with cross-functional and international teams** across chemistry/pharma, finance, and marketing departments
+        - Created **user-friendly web interface** with interactive features for decision-making processes of field experts
     
     - title: Data Science Researcher
       company: Purdue University
       duration: Dec 2019 - Apr 2022
       responsibilities:
-        - Built **end-to-end ML system** for anomaly detection analyzing **high-velocity IoT sensor data**
-        - Designed **data pipelines** using MQTT to process and transform raw data into **structured time series**
-        - Developed **ensemble models** (RNN, CRNN) for **prediction and classification** tasks
-        - Implemented **statistical analysis** including entropy analysis for feature engineering
-        - Created **fault-tolerant data processing system** with monitoring and alerting
-        - **Framed business problems** around building safety into measurable ML objectives
+        - Conducted research on **time series analysis and prediction models** for early incident detection
+        - Architected **scalable real-time streaming data pipeline** using MQTT to process IoT sensor data
+        - Built **fault-tolerant distributed system** for multivariate time series analytics
+        - Implemented **concurrent multi-threaded operations** for real-time classification and prediction across multiple streams
     
     - title: Software Developer
       company: Purdue University
       duration: May 2018 - Aug 2020
       responsibilities:
-        - Developed **Python-based data processing framework** for distributed simulation analysis
-        - Built **RESTful APIs** using Django for data access and model serving
-        - Implemented **SQL queries** for data extraction and analysis
-    
+        - Developed distributed systems using **Python socket programming** for client-server connections
+        - Built **web server implementation with Django** for data processing and API development
+
+# Rest of the resume remains unchanged from original...
 # ==================== RESEARCH EXPERIENCE ====================
 research_experience:
   _type: research
@@ -178,57 +135,54 @@ research_experience:
     technical_environment: Technical Environment
     applied_methods: Applied Methods
   items:
-    - title: Scalable ML Systems and Optimization
+    - title: Graph Embedding and Graph ML
       # references: "[1,2]"
       institution: Purdue University
       type: PhD Thesis
       description: |
-        Developed **production-ready ML methodology** with rigorous **statistical validation**. **Optimized algorithm complexity from O(n²) to O(n log n)** demonstrating ability to work with **constraints and deliver high-quality solutions**. Implemented **experiment tracking system using MLFlow** to manage 500+ experiments. Built **Python library** with optimized batching for memory-constrained environments. Achieved **6% improvement over state-of-the-art** through systematic **hyperparameter optimization** and **model validation**. Applied both **supervised and unsupervised learning** approaches with measurable business impact.
+        My PhD thesis at Purdue University. Researched graph embedding methods. Invented a graph embedding methodology using force-directed approach and provided a mathematical proof-of-convergence using Brouwer's fixed point theorem. Optimized complexity of the method from O(n2) to O(n log n). This method can be employed in supervised or unsupervised learning schemes. Made extensive use of PyTorch framework, CUDA library, GPU unit and memory optimization methods. Implemented parallelized algorithms for multi-GPU execution using SLURM. Improved graph task metrics (link prediction, node classification, etc.) by over 6% compared to state-of-the-art methods. Developed a library to optimize the memory utilization by searching for an optimum batch count during run time. Used "wrapper" design pattern to implement a Python decorator for the batch-count optimizer during run-time. Implemented an experiment tracking system using MLFlow.
       technical_environment: |
-        Python, PyTorch, CUDA, distributed computing clusters, MLFlow
+        Deployed models on multi-GPU clusters using SLURM for resource management
       applied_methods:
-        - Statistical modeling and validation
-        - Experiment design and tracking
-        - Performance optimization
-        - Python library development
-        - A/B testing methodology
-        - Production deployment
+        - Force-Directed approach
+        - PyTorch
+        - CUDA
+        - Memory optimization
+        - Multi-GPU scaling
+        - SLURM job orchestration
+        - Experiment tracking
     
-    - title: Enterprise Data Science Project
+    - title: Large-Scale Knowledge Graph Processing
       institution: Eli Lilly and Company
       type: Internship Project
       description: |
-        Built **data science solution** for knowledge graph exploration serving multiple business units. Implemented **feature engineering pipelines** extracting insights from million-node graphs. Developed **recommendation algorithms** to surface relevant information to users. Created **performance metrics** and **monitoring systems** for production models. **Collaborated with stakeholders** to define success metrics and iterate on solutions.
+        An internship project at Eli Lilly and Company. Researched optimized methods for extracting subgraphs from large-scale knowledge graph and visualizing it. The objective was to provide a KG tool with search and visual exploration features, helping the user better explore the KG. The users of this tool were scientists and domain experts from various departments (chemistry/pharma, finance, marketing, etc.). In addition, for enhancing user experience, a smooth transition between various levels of visualization granularities was implemented.
       applied_methods:
-        - Feature engineering
-        - Model evaluation metrics
-        - Recommendation systems
-        - Stakeholder collaboration
-        - Production monitoring
+        - Force-Directed
+        - ForceAtlas
+        - Community detection
+        - Clustering
+        - GraphViz
     
-    - title: Real-time Analytics and Prediction
+    - title: DDoS attack detection and mitigation in SDN
       # references: "[3,4]"
       institution: Purdue University
       type: Research Project
       description: |
-        Developed **real-time analytics system** for network security using **streaming data**. Built **classification models** using neural networks with **feature engineering** from time series data. Implemented **statistical analysis** including entropy metrics for anomaly detection. Designed **experiments** to validate model performance under different conditions.
+        A research project at Purdue University. Researching on DDoS attacks and development of methods for their detection and mitigation. In this research the network traffic flows were collected in set intervals. Then they were compiled into time series data for processing using entropy analysis and neural network models for classification and prediction. Proposed the idea of partitioning incoming traffic based on various parameters. Then, each partition was effectively a separate time series data.
       applied_methods:
-        - Time series analysis
-        - Statistical feature engineering
-        - Classification models
-        - Real-time data processing
-        - Experiment design
+        - Entropy analysis
+        - Group testing
+        - RNN and CRNN
     
-    - title: Optimization Algorithms
+    - title: Quantum Computer Scheduler
       institution: Amirkabir University (QDA group)
       type: Master's Thesis
       description: |
-        Developed **optimization algorithms** achieving **50% performance improvement** through **constraint solving** and **algorithmic efficiency**. Applied **quantitative methods** to solve complex scheduling problems.
+        A master's thesis at Amirkabir University. Designed and implemented a method and algorithm for scheduling ion-trap quantum computers with the goal of reducing execution latency of quantum program. Reduced the scheduling latency by 50% average compared to the state-of-the-art methods.
       applied_methods:
-        - Optimization algorithms
-        - Constraint solving
-        - Performance analysis
-        - Algorithm design
+        - OOP in C++
+        - Lee's maze routing
 
 # ==================== CERTIFICATES ====================
 certificates:
@@ -239,17 +193,17 @@ certificates:
     institution: Institution
     verification_url: Verification
   items:
-    - name: Machine Learning Specialization
-      institution: Stanford University
+    - name: Machine learning specialization
+      institution: Stanford University.
       verification_url: https://coursera.org/verify/specialization/HMWE8SJ5U82M
     
-    - name: MLOps Specialization
-      institution: Duke University
+    - name: MLOps
+      institution: Duke University.
       verification_url: https://coursera.org/verify/specialization/ENSE7V7CKMU7
     
-    - name: Deep Learning Specialization
-      institution: Stanford University
-      # verification_url: https://coursera.org/verify/specialization/[verification_id]
+    - name: Deep learning specialization
+      institution: Stanford University.
+      # verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
 
 # ==================== PUBLICATIONS ====================
 publications:
