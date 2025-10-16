@@ -195,59 +195,89 @@ body {
     top: 20px;
     right: 20px;
     z-index: 1000;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-width: 280px;
+    max-width: 320px;
 }
 
 /* Toggle Button */
 .toggle-btn {
-    background: #2c3e50;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    padding: 12px 20px;
-    font-size: 14px;
-    font-family: 'Segoe UI', sans-serif;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
     cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    text-align: left;
+    user-select: none;
 }
 
 .toggle-btn:hover {
-    background: #34495e;
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
 }
 
 .toggle-btn:active {
     transform: translateY(0);
-    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.toggle-btn:focus {
+    outline: 2px solid rgba(102, 126, 234, 0.5);
+    outline-offset: 2px;
+}
+
+.toggle-icon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    margin-left: 8px;
+}
+
+.toggle-text {
+    flex: 1;
 }
 
 /* Pane Content */
 .pane-content {
-    background: #2c3e50;
-    color: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    margin-top: 10px;
+    background: #1e1e2e;
+    color: #e4e4e7;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    margin-top: 12px;
     overflow: hidden;
-    max-height: 500px;
+    max-height: 600px;
     opacity: 1;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .pane-content.collapsed {
     max-height: 0;
     opacity: 0;
+    margin-top: 0;
+    box-shadow: none;
 }
 
 /* Pane Sections */
 .pane-section {
-    padding: 15px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background-color 0.2s ease;
+}
+
+.pane-section:hover {
+    background-color: rgba(102, 126, 234, 0.12);
 }
 
 .pane-section:last-child {
@@ -255,62 +285,129 @@ body {
 }
 
 .pane-section-title {
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-    color: #bdc3c7;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    color: #a78bfa;
+    display: flex;
+    align-items: center;
 }
 
 /* Save Buttons */
 #save-buttons {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
 .save-btn {
-    background: #34495e;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    padding: 10px 16px;
+    padding: 11px 18px;
     font-size: 13px;
-    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
     cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.2s ease;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     flex: 1;
     min-width: 120px;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.25);
+    user-select: none;
 }
 
 .save-btn:hover {
-    background: #415b76;
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.35);
 }
 
 .save-btn:active {
     transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(102, 126, 234, 0.2);
+}
+
+.save-btn:focus {
+    outline: 2px solid rgba(102, 126, 234, 0.4);
+    outline-offset: 2px;
 }
 
 /* Control Sliders */
 .control-slider {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .control-slider input[type="range"] {
-    flex: 1;
+    width: 100%;
+    height: 6px;
     cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+    border-radius: 3px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.control-slider input[type="range"]:hover {
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.control-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 3px solid #667eea;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.control-slider input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    border-color: #764ba2;
+}
+
+.control-slider input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(0.95);
+}
+
+.control-slider input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 3px solid #667eea;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.control-slider input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    border-color: #764ba2;
+}
+
+.control-slider input[type="range"]::-moz-range-thumb:active {
+    transform: scale(0.95);
 }
 
 .control-slider span {
-    min-width: 60px;
     text-align: center;
-    font-weight: 500;
-    color: #ecf0f1;
+    font-weight: 600;
+    font-size: 13px;
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.15);
+    padding: 6px 12px;
+    border-radius: 4px;
 }
 
 /* ==================== HEADER ==================== */

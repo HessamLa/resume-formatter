@@ -521,9 +521,17 @@ function setupControlSliders() {
 function setupPaneToggle() {
     const toggleBtn = document.getElementById('toggle-pane-btn');
     const paneContent = document.getElementById('pane-content');
+    const toggleIcon = toggleBtn.querySelector('.toggle-icon');
 
     toggleBtn.addEventListener('click', () => {
         paneContent.classList.toggle('collapsed');
+
+        // Toggle icon between ▼ (expanded) and ▲ (collapsed)
+        if (paneContent.classList.contains('collapsed')) {
+            toggleIcon.textContent = '▼';
+        } else {
+            toggleIcon.textContent = '▲';
+        }
     });
 }
 
