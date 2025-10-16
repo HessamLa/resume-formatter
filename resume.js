@@ -7,8 +7,12 @@ async function loadResume() {
             throw new Error(`Failed to load resume.yml: ${response.statusText}`);
         }
         
-        const yamlText = await response.text();
-        
+        let yamlText = await response.text();
+
+        // Fix YAML parsing issue: quote lines that start with ** (markdown bold)
+        // to prevent them from being interpreted as YAML aliases
+        yamlText = yamlText.replace(/^(\s+- )(\*\*.+)$/gm, '$1"$2"');
+
         // Parse YAML using js-yaml library (loaded from CDN)
         const data = jsyaml.load(yamlText);
         
@@ -119,11 +123,11 @@ function renderContact(data, title, labels) {
         `<a href="https://${data.linkedin}" target="_blank">${data.linkedin}</a>`,
         `<a href="https://${data.github}" target="_blank">${data.github}</a>`
     ].filter(Boolean);
-    
+
     return `
         <div class="header">
             <h1>${escapeHtml(data.name)}</h1>
-            <div class="subtitle">${escapeHtml(data.full_name)}</div>
+            ${data.full_name ? `<div class="subtitle">${escapeHtml(data.full_name)}</div>` : ''}
             <div class="contact-info">
                 ${contactItems.join(' | ')}
             </div>
