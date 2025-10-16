@@ -3,11 +3,11 @@
 personal_info:
   _type: contact
   name: Hessam Alizadeh
-  full_name: (Hamidreza Lotfalizadeh, Ph.D.)
-  location: Bryan, TX (willing to relocate)  # Update as needed
+  # full_name: (Hamidreza Lotfalizadeh, Ph.D.)
+  location: Bryan, TX (willing to relocate)  # Update as needed for Austin/NYC/DC
   email: hamidla.ap@gmail.com
-  linkedin: linkedin.com/in/hessamla/
-  github: github.com/hessamla/
+  linkedin: linkedin.com/in/hessamla
+  github: github.com/hessamla
   scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
 
 # PAGE 1 SECTIONS
@@ -15,7 +15,7 @@ summary:
   _type: summary
   _title: Summary
   content: |
-    **ML engineer with deep expertise in productionizing and scaling machine learning systems.** PhD from Purdue University with proven track record of **deploying ML models to production** at enterprise scale (Eli Lilly) and building **real-time ML pipelines** processing high-rate data streams. Strong **software engineering background** with experience in **MLOps practices** including MLFlow for experiment tracking, **Docker/Kubernetes** for containerization, and **CI/CD pipelines**. Successfully optimized ML algorithms from O(n²) to O(n log n) and implemented **distributed training** across multi-GPU clusters using SLURM. Experience with **PyTorch, TensorFlow**, and building **fault-tolerant systems** with monitoring and observability. Passionate about creating **maintainable, scalable ML infrastructure** and collaborating with cross-functional teams to deliver high-impact features.
+    **Data scientist with PhD in quantitative field** and proven track record of **owning end-to-end ML pipelines** from problem framing to production deployment. Expert in **statistical modeling and experimentation** with experience building production ML systems that achieved **80% performance improvement** at Eli Lilly. Strong foundation in **Python, SQL, and ML libraries** (scikit-learn, PyTorch) with hands-on experience in **feature engineering, model validation, and production inference**. Skilled at **translating ambiguous business problems** into data-driven solutions and communicating insights to diverse stakeholders. Experience with **large-scale data processing**, real-time pipelines, and MLOps practices including experiment tracking with MLFlow.
 
 # ==================== EDUCATION ====================
 education:
@@ -27,7 +27,7 @@ education:
     campus: Campus
     graduation_date: Graduation Date
   items:
-    - degree: PhD in Computer Engineering
+    - degree: PhD in Computer Engineering (Quantitative Methods)
       institution: Purdue University
       campus: Main Campus
       graduation_date: "Dec 2024"
@@ -43,60 +43,68 @@ education:
 # ==================== TECHNICAL SKILLS ====================      
 skills:
   _type: skills
-  _title: Technical Skills (Top 30)
+  _title: Technical Skills
   
   proficient:
-    _title: Core Languages & Frameworks
+    _title: Core Data Science
     _items:
-      - Python (Production ML)
-      - PyTorch
-      - TensorFlow
-      - C/C++
-      - JavaScript/TypeScript
+      - Python
+      - SQL
+      - Scikit-learn
+      - Statistical modeling (statsmodels)
+      - XGBoost
   
   programming_languages:
-    _title: MLOps & Infrastructure
+    _title: Analytics & Experimentation
     _items:
-      - MLFlow (Experiment tracking)
-      - Docker
-      - Kubernetes
-      - CI/CD pipelines
-      - Git
-      - Model versioning
+      - A/B testing & experimentation
+      - Causal inference
+      - Time series analysis
+      - Feature engineering
+      - Hypothesis testing
   
   programming_paradigms_and_tools:
-    _title: Cloud & Orchestration
+    _title: ML & Deep Learning
     _items:
-      - AWS (Neptune, SageMaker)
-      - SLURM (Multi-GPU orchestration)
-      - Distributed systems
-      - Real-time streaming (MQTT)
-      - RESTful APIs
-  
-  ai_ml:
-    _title: Machine Learning
-    _items:
-      - Deep Learning (CNN, RNN, CRNN)
+      - PyTorch
+      - TensorFlow
       - Graph Neural Networks
       - Model optimization
-      - Multi-GPU training
-      - CUDA programming
+      - Hyperparameter tuning
   
-  nlp_llm:
-    _title: Production Systems
+  ai_ml:
+    _title: Data Engineering
     _items:
-      - Feature engineering
-      - Model serving
-      - Performance monitoring
-      - Multi-threaded applications
-  
-  statistical_analysis:
-    _title: Data & Analysis
-    _items:
+      - Data pipeline development
+      - ETL processes
       - Pandas
       - NumPy
       - SciPy
-      - Time series analysis
+  
+  nlp_llm:
+    _title: MLOps & Production
+    _items:
+      - MLFlow
+      - Model versioning
+      - Production inference
+      - Model monitoring
+      - Docker
+  
+  statistical_analysis:
+    _title: Cloud & Infrastructure
+    _items:
+      - AWS
+      - Git
+      - Distributed systems
+      - Real-time streaming
+  
+  infrastructure_and_devops:
+    _title: Visualization & Communication
+    _items:
+      - Jupyter notebooks
+      - Data visualization
+      - Stakeholder communication
+      - Technical documentation
 
 # ==================== WORK EXPERIENCE ====================
 work_experience:
@@ -112,49 +120,51 @@ work_experience:
       company: Inertia Systems
       duration: Jul 2025 - present
       responsibilities:
-        - Developing **production graph-based system** for construction tech with **real-time data processing**
-        - Implementing **Neptune graph database** with optimized query performance for production workloads
-        - Building **scalable graph algorithms** for conflict detection and resolution
-        - Creating **monitoring and observability systems** for graph processing pipelines
-        - Collaborating with **cross-functional teams** to integrate ML features into production
+        - Developing **data-driven recommendation system** for construction project optimization using graph-based analysis
+        - Building **production ML pipelines** with Neptune graph database to identify conflicts and opportunities
+        - Implementing **feature engineering** from complex graph structures to improve model performance
+        - Creating **data visualizations** and dashboards for stakeholder insights and decision-making
+        - Collaborating with product and marketing teams to **measure business impact** of ML features
     
     - title: Postdoctoral Researcher
       company: Indiana University
       duration: Apr 2025 - Jul 2025
       responsibilities:
-        - Researching **diffusion models on dynamic graphs** for structural change simulation
-        - Developing **scalable algorithms** for graph-based disease propagation modeling
-        - Optimizing graph diffusion models for **production deployment** with results pending publication
+        - Researched **predictive models** using graph diffusion for structural change simulation
+        - Developed **statistical models** for disease propagation with applications to network analysis
+        - Applied **optimization algorithms** to graph alignment problems with measurable improvements
     
-    - title: AI/ML Intern
+    - title: AI/ML Intern - Data Science
       company: Eli Lilly
       duration: May 2024 - Aug 2024
       responsibilities:
-        - Built **production ML system** for large-scale knowledge graph analysis handling **graphs with over 1 million nodes**
-        - Implemented **supervised and unsupervised learning pipelines** with supervised methods showing **80% performance improvement**
-        - Optimized ML models for **web-based real-time inference** with sub-second response times
-        - Developed **maintainable Python/JavaScript/TypeScript codebase** following software engineering best practices
-        - Collaborated with **cross-functional international teams** including data scientists, engineers, and domain experts
-        - Created **user-friendly web interface** with interactive features for ML model outputs
+        - **Owned end-to-end ML pipeline** for enterprise knowledge graph analysis handling **1 million+ nodes**
+        - Developed **supervised learning models** achieving **80% performance improvement** over baseline
+        - Built **feature extraction pipelines** using Python and SQL for large-scale graph data
+        - Implemented **production inference code** for real-time model serving with sub-second latency
+        - Conducted **experiments to validate model performance** and iterate on improvements
+        - **Translated technical results into actionable insights** for cross-functional stakeholders
+        - Created **interactive dashboards** for scientists and domain experts across multiple departments
     
     - title: Data Science Researcher
       company: Purdue University
       duration: Dec 2019 - Apr 2022
       responsibilities:
-        - Built **real-time ML pipeline** for anomaly detection analyzing **high-velocity IoT sensor streams**
-        - Architected **scalable streaming data infrastructure** using MQTT protocol for production deployment
-        - Implemented **fault-tolerant distributed processing system** with concurrent multi-threaded operations
-        - Developed **ensemble models** (RNN, CRNN) for time series prediction with **monitoring for model drift**
-        - Created **reproducible ML workflows** with consistent data processing and model training pipelines
+        - Built **end-to-end ML system** for anomaly detection analyzing **high-velocity IoT sensor data**
+        - Designed **data pipelines** using MQTT to process and transform raw data into **structured time series**
+        - Developed **ensemble models** (RNN, CRNN) for **prediction and classification** tasks
+        - Implemented **statistical analysis** including entropy analysis for feature engineering
+        - Created **fault-tolerant data processing system** with monitoring and alerting
+        - **Framed business problems** around building safety into measurable ML objectives
     
     - title: Software Developer
       company: Purdue University
       duration: May 2018 - Aug 2020
       responsibilities:
-        - Developed **distributed simulation framework** supporting concurrent client connections
-        - Built **Django web services** with RESTful APIs for system integration
-        - Implemented **clean, maintainable Python code** with comprehensive testing
-
+        - Developed **Python-based data processing framework** for distributed simulation analysis
+        - Built **RESTful APIs** using Django for data access and model serving
+        - Implemented **SQL queries** for data extraction and analysis
+    
 # ==================== RESEARCH EXPERIENCE ====================
 research_experience:
   _type: research
@@ -168,55 +178,57 @@ research_experience:
     technical_environment: Technical Environment
     applied_methods: Applied Methods
   items:
-    - title: Scalable ML Systems and Graph Embeddings
+    - title: Scalable ML Systems and Optimization
       # references: "[1,2]"
       institution: Purdue University
       type: PhD Thesis
       description: |
-        Developed **production-ready graph embedding methodology** with mathematical proof of convergence. **Optimized algorithm complexity from O(n²) to O(n log n)** enabling deployment at scale. Implemented **parallelized algorithms for multi-GPU execution** using SLURM orchestration. Built **MLOps infrastructure** with MLFlow for experiment tracking and model versioning across **500+ experiments**. Created **memory-optimized batching system** using Python decorator pattern for runtime optimization. Achieved **6% improvement over state-of-the-art** while reducing computational requirements for production deployment.
+        Developed **production-ready ML methodology** with rigorous **statistical validation**. **Optimized algorithm complexity from O(n²) to O(n log n)** demonstrating ability to work with **constraints and deliver high-quality solutions**. Implemented **experiment tracking system using MLFlow** to manage 500+ experiments. Built **Python library** with optimized batching for memory-constrained environments. Achieved **6% improvement over state-of-the-art** through systematic **hyperparameter optimization** and **model validation**. Applied both **supervised and unsupervised learning** approaches with measurable business impact.
       technical_environment: |
-        Multi-GPU clusters, SLURM orchestration, PyTorch distributed training, CUDA optimization
+        Python, PyTorch, CUDA, distributed computing clusters, MLFlow
       applied_methods:
-        - PyTorch implementation
-        - CUDA kernel optimization  
-        - Memory-efficient batching
-        - Multi-GPU scaling
-        - MLFlow experiment tracking
-        - Distributed training infrastructure
+        - Statistical modeling and validation
+        - Experiment design and tracking
+        - Performance optimization
+        - Python library development
+        - A/B testing methodology
+        - Production deployment
     
-    - title: Enterprise ML Pipeline Development
+    - title: Enterprise Data Science Project
       institution: Eli Lilly and Company
       type: Internship Project
       description: |
-        Built **end-to-end ML pipeline** for knowledge graph exploration serving multiple departments. Implemented **feature engineering** and **model serving infrastructure** for graphs with 1M+ nodes. Developed **monitoring and observability** systems for ML model performance. Created **collaborative workflows** enabling scientists and domain experts to interact with ML outputs effectively.
+        Built **data science solution** for knowledge graph exploration serving multiple business units. Implemented **feature engineering pipelines** extracting insights from million-node graphs. Developed **recommendation algorithms** to surface relevant information to users. Created **performance metrics** and **monitoring systems** for production models. **Collaborated with stakeholders** to define success metrics and iterate on solutions.
       applied_methods:
-        - Production ML pipelines
-        - Feature store design
-        - Model serving optimization
-        - Performance monitoring
-        - Cross-functional collaboration
+        - Feature engineering
+        - Model evaluation metrics
+        - Recommendation systems
+        - Stakeholder collaboration
+        - Production monitoring
     
-    - title: Real-time ML for Network Security
+    - title: Real-time Analytics and Prediction
       # references: "[3,4]"
       institution: Purdue University
       type: Research Project
       description: |
-        Developed **production ML system** for DDoS detection with **real-time inference** capabilities. Built **streaming data pipelines** with entropy-based feature extraction. Implemented **neural network models** (RNN, CRNN) with **continuous retraining strategies**. Designed system for **high-throughput processing** with low latency requirements.
+        Developed **real-time analytics system** for network security using **streaming data**. Built **classification models** using neural networks with **feature engineering** from time series data. Implemented **statistical analysis** including entropy metrics for anomaly detection. Designed **experiments** to validate model performance under different conditions.
       applied_methods:
-        - Real-time ML inference
-        - Stream processing pipelines
-        - Model retraining automation
-        - Production monitoring
+        - Time series analysis
+        - Statistical feature engineering
+        - Classification models
+        - Real-time data processing
+        - Experiment design
     
-    - title: Optimization Algorithms for Resource-Constrained Systems
+    - title: Optimization Algorithms
       institution: Amirkabir University (QDA group)
       type: Master's Thesis
       description: |
-        Designed **scheduling algorithms** achieving **50% latency reduction** for quantum computers. Implemented **efficient C++ systems** with focus on **performance optimization** and **scalability**.
+        Developed **optimization algorithms** achieving **50% performance improvement** through **constraint solving** and **algorithmic efficiency**. Applied **quantitative methods** to solve complex scheduling problems.
       applied_methods:
-        - Algorithm optimization
-        - C++ system programming
-        - Performance profiling
+        - Optimization algorithms
+        - Constraint solving
+        - Performance analysis
+        - Algorithm design
 
 # ==================== CERTIFICATES ====================
 certificates:
@@ -237,7 +249,7 @@ certificates:
     
     - name: Deep Learning Specialization
       institution: Stanford University
-      # verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
+      # verification_url: https://coursera.org/verify/specialization/[verification_id]
 
 # ==================== PUBLICATIONS ====================
 publications:
