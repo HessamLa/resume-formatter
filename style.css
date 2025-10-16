@@ -5,14 +5,29 @@
     box-sizing: border-box;
 }
 
-/* Scheme small: [9, 10, 14] */
-:root { --font-base: 9pt; --font-medium: 10pt; --font-large: 14pt; }
+/* Font Schemes - Store as data attributes for JavaScript access */
+:root {
+    /* Active scheme (medium by default) */
+    --font-base: 10pt;
+    --font-medium: 11pt;
+    --font-large: 16pt;
 
-/* Scheme medium: [10, 11, 16] */
-/* :root { --font-base: 10pt; --font-medium: 11pt; --font-large: 16pt; } */
+    /* Scheme definitions */
+    --scheme-1-base: 9pt;
+    --scheme-1-medium: 10pt;
+    --scheme-1-large: 14pt;
+    --scheme-1-label: 'Small';
 
-/* Scheme large: [11, 12, 18] */
-/* :root { --font-base: 11pt; --font-medium: 12pt; --font-large: 18pt; } */
+    --scheme-2-base: 10pt;
+    --scheme-2-medium: 11pt;
+    --scheme-2-large: 16pt;
+    --scheme-2-label: 'Medium';
+
+    --scheme-3-base: 11pt;
+    --scheme-3-medium: 12pt;
+    --scheme-3-large: 18pt;
+    --scheme-3-label: 'Large';
+}
 
 body {
     font-family: 'Times New Roman', Times, serif;
