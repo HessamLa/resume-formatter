@@ -556,6 +556,9 @@ function setupPaneToggle() {
     const paneContent = document.getElementById('pane-content');
     const toggleIcon = toggleBtn.querySelector('.toggle-icon');
 
+    // set toggle icon initial state
+    toggleIcon.textContent = '▲';
+    
     toggleBtn.addEventListener('click', () => {
         paneContent.classList.toggle('collapsed');
 

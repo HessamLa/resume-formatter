@@ -33,7 +33,6 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-size: var(--font-base);;
     line-height: 1.3;
-    color: #000;
     background-color: #f5f5f5;
     padding: 20px;
 }
@@ -42,7 +41,6 @@ body {
     text-align: center;
     padding: 50px;
     font-size: 14px;
-    color: #666;
 }
 
 /* ==================== MAIN CONTENT LAYOUT ==================== */
@@ -447,13 +445,11 @@ code.monospace {
 .header h1 {
     font-size: var(--font-large);;
     font-weight: bold;
-    color: #000;
     margin-bottom: 1pt;
 }
 
 .header .subtitle {
     /* font-size: 10pt; */
-    color: #000;
     margin-bottom: 1pt;
     font-weight: normal;
 }
@@ -464,7 +460,6 @@ code.monospace {
     justify-content: center;
     gap: 5px;
     /* font-size: 10pt; */
-    color: #000;
 }
 
 .contact-info a {
@@ -477,7 +472,7 @@ code.monospace {
     margin-bottom: 3pt;
 }
 
-.section-title {
+/* .section-title {
     font-size: var(--font-medium);;
     font-weight: bold;
     color: #000;
@@ -486,45 +481,58 @@ code.monospace {
     margin-bottom: 1pt;
     padding-bottom: 1pt;
     border-bottom: 1pt solid #000;
+} */
+
+.section-title {
+    font-size: var(--font-medium);;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+
+
+    display: flex;               /* Enable flexbox */
+    align-items: center;         /* Center line vertically with text */
+    gap: 0.3em;                  /* Regular space between text and line */
+}
+
+.section-title::after {
+  content: "";                 /* Empty pseudo-element */
+  flex-grow: 1;                /* Stretch to fill remaining space */
+  height: 1pt;                 /* Line thickness (matching old border) */
+  background-color: #000;      /* Line color */
 }
 
 /* ==================== SUMMARY (INLINE STYLE) ==================== */
 .summary-inline {
-    /* font-size: 10pt; */
     line-height: 1.3;
-    color: #000;
     text-align: justify;
     margin-bottom: 3pt;
 }
 
 .summary-inline strong {
+    font-size: var(--font-medium);;
     font-weight: bold;
-    font-size: 11pt;
     text-transform: uppercase;
+    letter-spacing: 0.5pt;
 }
 
 /* ==================== EDUCATION ==================== */
 .education-item {
     margin-bottom: 0pt;
     position: relative;
+    padding-left: 6pt;
 }
 
 .education-item .degree {
     font-weight: bold;
-    color: #000;
-    /* font-size: 10pt; */
     display: inline;
 }
 
 .education-item .institution {
-    color: #000;
-    /* font-size: 10pt; */
     display: inline;
 }
 
 .education-item .date {
-    color: #000;
-    /* font-size: 10pt; */
     float: right;
     font-weight: normal;
 }
@@ -533,17 +541,14 @@ code.monospace {
 .skills-category {
     margin-bottom: 0pt;
     line-height: 1.3;
+    padding-left: 6pt;
 }
 
 .skills-category strong {
     font-weight: bold;
-    color: #000;
-    /* font-size: 10pt; */
 }
 
 .skills-list {
-    color: #000;
-    /* font-size: 10pt; */
 }
 
 /* ==================== EXPERIENCE ==================== */
@@ -557,24 +562,20 @@ code.monospace {
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 0pt;
+    padding-left: 6pt;
 }
 
 .job-title {
-    color: #000;
-    /* font-size: 10pt; */
     display: inline;
     font-weight: bold;
 }
 
 .company {
-    color: #000;
     display: inline;
     font-weight: bold;
 }
 
 .duration {
-    color: #000;
-    /* font-size: 9pt; */
     white-space: nowrap;
     font-weight: normal;
 }
@@ -583,49 +584,39 @@ code.monospace {
     list-style-position: outside;
     margin-left: 15pt;
     margin-top: 0pt;
-    padding-left: 0;
+    padding-left: 6pt;
 }
 
 .responsibilities li {
     margin-bottom: 0pt;
-    color: #000;
-    /* font-size: 9pt; */
     line-height: 1.3;
 }
 
 /* ==================== RESEARCH ==================== */
 .research-title {
     font-weight: bold;
-    color: #000;
-    /* font-size: 9pt; */
     /* font-style: italic; */
+    padding-left: 6pt;
 }
 
 .research-type {
-    color: #000;
-    /* font-size: 9pt; */
     font-style: normal;
-    /* margin-bottom: 2pt; */
+    padding-left: 12pt;
 }
 
 .research-description {
-    /* margin-top: 2pt; */
-    color: #000;
-    /* font-size: 9pt; */
     text-align: justify;
     margin-bottom: 2pt;
+    padding-left: 12pt;
 }
 
 .applied-methods {
     margin-top: 0pt;
-    padding-left: 15pt;
-    /* font-size: 9pt; */
-    color: #000;
+    padding-left: 18pt;
 }
 
 .applied-methods strong {
     font-weight: bold;
-    color: #000;
 }
 
 .methods-list {
@@ -635,37 +626,31 @@ code.monospace {
 /* ==================== CERTIFICATES ==================== */
 .certificate-item {
     margin-bottom: 3pt;
+    padding-left: 6pt;
 }
 
 .certificate-name {
     font-weight: bold;
-    color: #000;
-    /* font-size: 9pt; */
 }
 
 .certificate-institution {
-    color: #000;
-    /* font-size: 9pt; */
 }
 
 .certificate-link {
-    /* font-size: 9pt; */
     color: #0000EE;
     text-decoration: underline;
 }
 
 /* ==================== PUBLICATIONS ==================== */
 .publications-note {
-    /* font-style: italic; */
-    color: #000;
-    /* font-size: 9pt; */
     margin-bottom: 2pt;
+    padding-left: 6pt;
 }
 
 .publications-link {
     color: #0000EE;
     text-decoration: underline;
-    /* font-size: 9pt; */
+    padding-left: 6pt;
 }
 
 /* ==================== PRINT STYLES ==================== */
