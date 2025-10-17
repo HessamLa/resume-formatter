@@ -681,7 +681,6 @@ code.monospace {
     #resume-container {
         max-width: 100%;
         box-shadow: none;
-        padding: 0.0in;
     }
     
     .loading {
@@ -697,10 +696,7 @@ code.monospace {
     }
     
     @page {
-        margin-top: 0.3in;
-        margin-bottom: 0.3in;
-        margin-left: 0.3in;
-        margin-right: 0.3in;
+        margin: 0;  /* Let container padding handle margins */
     }
     
     @page :first {
@@ -718,5 +714,10 @@ code.monospace {
     
     .section-title {
         border-bottom-color: #000 !important;
+    }
+    .section-title::after {
+        background-color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact; 
     }
 }
