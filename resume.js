@@ -550,8 +550,13 @@ function setupControlSliders() {
         const value = parseInt(e.target.value);
         const margin = marginOptions[value];
 
-        // Update container padding
+        // Update container padding for web view
         document.getElementById('resume-container').style.padding = margin;
+
+        // Update CSS variables for print @page margins
+        document.documentElement.style.setProperty('--print-margin-top', margin);
+        document.documentElement.style.setProperty('--print-margin-bottom', margin);
+        document.documentElement.style.setProperty('--print-margin-side', margin);
 
         // Update label
         marginLabel.textContent = margin;
