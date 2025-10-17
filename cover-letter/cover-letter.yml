@@ -1,0 +1,17 @@
+personal_info:
+  _type: contact
+  name: Abdou Sidiya
+  email: diyamed98@gmail.com
+
+letter_section:
+  _type: cover-letter
+  _title: Cover Letter
+  date: October 2025
+  recipient_name: John Smith
+  recipient_title: Hiring Manager
+  company: Tech Company Inc.
+  body: |
+    Dear Mr. Smith,
+
+    I am writing to express my interest...
+  closing: Sincerely, Hessam

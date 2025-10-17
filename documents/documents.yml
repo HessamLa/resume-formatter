@@ -1,0 +1,22 @@
+# documents.yml
+documents:
+  resume:
+    name: "Professional Resume"
+    template: "resume.yml"
+    stylesheet: "style.css"
+    theme: "professional"
+    export_formats: ["html", "pdf", "json"]
+
+  portfolio:
+    name: "Portfolio"
+    template: "portfolio.yml"
+    stylesheet: "portfolio-style.css"
+    theme: "modern"
+    export_formats: ["html", "pdf"]
+
+  cover_letter:
+    name: "Cover Letter"
+    template: "cover-letter.yml"
+    stylesheet: "letter-style.css"
+    theme: "formal"
+    export_formats: ["html", "pdf"]

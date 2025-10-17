@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- YAML Parser from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+</head>
+<body>
+    <div class="loading">Loading document...</div>
+
+    <!-- Expandable Control Pane (hidden until document loads) -->
+    <div id="control-pane" style="display: none;">
+        <!-- Toggle Button -->
+        <button id="toggle-pane-btn" class="toggle-btn">⚙️ Controls</button>
+
+        <!-- Pane Content -->
+        <div id="pane-content" class="pane-content">
+            
+            <!-- Document Selector -->
+            <div class="pane-section">
+                <div class="pane-section-title">Document Type</div>
+                <select id="document-type-selector" class="document-selector">
+                    <option value="resume">📄 Resume</option>
+                    <option value="portfolio">🎨 Portfolio</option>
+                    <option value="cover_letter">📋 Cover Letter</option>
+                </select>
+            </div>
+
+            <!-- Templates -->
+            <div class="pane-section">
+                <div class="pane-section-title">Quick Templates</div>
+                <div class="template-buttons">
+                    <button class="template-btn" onclick="insertTemplate('empty-resume')">📄 Empty</button>
+                    <button class="template-btn" onclick="insertTemplate('ats-resume')">🤖 ATS</button>
+                    <button class="template-btn" onclick="insertTemplate('cover-letter')">📋 Letter</button>
+                </div>
+            </div>
+
+            <!-- Save Buttons -->
+            <div class="pane-section">
+                <div class="pane-section-title">Export</div>
+                <div id="save-buttons">
+                    <button id="save-html-btn" class="save-btn">💾 Save as HTML</button>
+                    <button id="save-pdf-btn" class="save-btn">📄 Save as PDF</button>
+                    <button id="save-json-btn" class="save-btn">📋 Save as JSON</button>
+                </div>
+            </div>
+
+            <!-- Font Size Slider -->
+            <div class="pane-section">
+                <div class="pane-section-title">Font Size</div>
+                <div id="font-size-control" class="control-slider">
+                    <input type="range" id="font-size-slider" min="1" max="3" value="2" step="1">
+                    <span id="font-size-label">Medium</span>
+                </div>
+            </div>
+
+            <!-- Margin Slider -->
+            <div class="pane-section">
+                <div class="pane-section-title">Margins</div>
+                <div id="margin-control" class="control-slider">
+                    <input type="range" id="margin-slider" min="0" max="3" value="1" step="1">
+                    <span id="margin-label">0.3in</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area with Two Panels -->
+    <div id="main-content" style="display: none;">
+        <!-- Left Panel - YAML Editor (collapsed by default) -->
+        <div id="yaml-panel" class="yaml-panel">
+            <button id="toggle-yaml-btn" class="yaml-toggle-btn">◀ YAML</button>
+            <div id="yaml-editor-container" class="yaml-editor-container">
+                <div class="yaml-editor-header">
+                    <span class="yaml-editor-title">YAML Editor</span>
+                    <button id="copy-yaml-btn" class="copy-yaml-btn" title="Copy to clipboard">📋 Copy</button>
+                </div>
+                <textarea id="yaml-editor" class="yaml-editor" spellcheck="false"></textarea>
+            </div>
+        </div>
+
+        <!-- Right Panel - Document Output -->
+        <div id="resume-panel" class="resume-panel">
+            <div id="resume-container">
+                <!-- Document content will be injected here by JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="resume.js"></script>
+</body>
+</html>

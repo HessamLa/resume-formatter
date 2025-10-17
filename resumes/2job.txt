@@ -1,0 +1,42 @@
+Full job description
+About Bitdeer:
+
+Bitdeer Technologies Group (Nasdaq: BTDR) is a leader in the blockchain and high-performance computing industry. It is one of the world's largest holders of proprietary hash rate and suppliers of hash rate. Bitdeer is committed to providing comprehensive computing solutions for its customers.
+
+Headquartered in Singapore, Bitdeer has deployed mining data centers in the United States, Norway, and Bhutan. It offers specialized mining infrastructure, high-quality hash rate sharing products, and reliable hosting services to global users. The company also offers advanced cloud capabilities for customers with high demands for artificial intelligence.
+
+
+About Bitdeer AI Lab:
+
+Bitdeer AI Lab is a frontier AI Lab under Bitdeer, a global-leading computing power solutions provider. We will focus on two core missions: First, effectively transforming energy into intelligence; second, pushing the limits of intelligence by redefining AI architectures to achieve human-level learning efficiency and reasoning capabilities. Our vision is to create intelligence that learns like humans do: efficiently, adaptively, and recursively, transforming finite parameters into unbounded potential.
+
+Our lab is equipped with thousands of cutting-edge GPUs dedicated to AI research, and we are committed to continuously investing in and expanding our computational infrastructure to support research in artificial intelligence
+
+_____________________________________________________________________________________________
+
+Job Summary:
+
+
+We are looking for key talents to develop in the following areas
+
+
+LLM Area (Large-scale language model pre-training)
+Reinforcement learning for reasoning models
+Advanced AI systems (Data construction, curation, and engineering for large-scale model training )
+Our ideal candidate:
+
+Fresh graduates (Bachelors, Masters, PhD) from all disciplines and/or candidates with up to 2 years of related work experience.
+Strong background in the LLM era with hands-on experience in: Large-scale language model pre-training (preferably 3B+ parameter models with 500B+ token datasets)
+Reinforcement learning for reasoning models and advanced AI systems - Data construction, curation, and engineering for large-scale model training
+Understanding of distributed training, scaling laws, and optimization techniques IDeep passion for cutting-edge AI technologies and research IIImpressive personal achievements in academics, research projects, internships, or demonstrated expertise in AI/ML domains
+Most importantly: driven to create meaningful impact early in your career, with strong ownership mentality, accountability, and unwavering commitment to pursuing excellence in AI research
+What you will experience working with us:
+
+A culture that values authenticity and diversity of thoughts and backgrounds;
+An inclusive and respectable environment with open workspaces and exciting start-up spirit;
+Fast-growing company with the chance to network with industrial pioneers and enthusiasts;
+Ability to contribute directly and make an impact on the future of the digital asset industry;
+Involvement in new projects, developing processes/systems;
+Personal accountability, autonomy, fast growth, and learning opportunities;
+Attractive welfare benefits and developmental opportunities such as training and mentoring.
+This is a full-time and on-site position at our Singapore headquarters and United States.

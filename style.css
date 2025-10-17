@@ -1,0 +1,976 @@
+/* ==================== BASE STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Font Schemes - Store as data attributes for JavaScript access */
+:root {
+    /* Active scheme (medium by default) */
+    --font-base: 10pt;
+    --font-medium: 11pt;
+    --font-large: 16pt;
+
+    /* Scheme definitions */
+    --scheme-1-base: 9pt;
+    --scheme-1-medium: 10pt;
+    --scheme-1-large: 14pt;
+    --scheme-1-label: 'Small';
+
+    --scheme-2-base: 10pt;
+    --scheme-2-medium: 11pt;
+    --scheme-2-large: 16pt;
+    --scheme-2-label: 'Medium';
+
+    --scheme-3-base: 11pt;
+    --scheme-3-medium: 12pt;
+    --scheme-3-large: 18pt;
+    --scheme-3-label: 'Large';
+}
+
+/* =================== THEME VARIABLES ==================== */
+:root {
+    /* Default theme colors (Professional) */
+    --theme-primary: #2c3e50;
+    --theme-secondary: #34495e;
+    --theme-accent: #3498db;
+    --theme-text: #000;
+    --theme-background: #fff;
+    --theme-divider: #bdc3c7;
+    --theme-heading-font: 'Times New Roman', serif;
+    --theme-body-font: 'Times New Roman', serif;
+}
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: var(--font-base);;
+    line-height: 1.3;
+    color: #000;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.loading {
+    text-align: center;
+    padding: 50px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* ==================== MAIN CONTENT LAYOUT ==================== */
+#main-content {
+    display: flex;
+    gap: 0;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* ==================== YAML PANEL ==================== */
+.yaml-panel {
+    position: relative;
+    display: flex;
+    width: 0;
+    min-width: 0;
+    transition: width 0.3s ease, min-width 0.3s ease;
+    background: #1e1e1e;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+.yaml-panel.expanded {
+    width: 600px;
+    min-width: 400px;
+}
+
+.yaml-toggle-btn {
+    position: fixed;
+    left: 0;
+    top: 50vh;
+    transform: translateY(-50%);
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 40px 8px;
+    font-size: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    z-index: 101;
+}
+
+.yaml-toggle-btn:hover {
+    background: #34495e;
+    left: -2px;
+}
+
+.yaml-panel.expanded .yaml-toggle-btn {
+    left: 600px;
+}
+
+.yaml-panel.expanded .yaml-toggle-btn:hover {
+    left: 598px;
+}
+
+.yaml-editor-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.yaml-panel.expanded .yaml-editor-container {
+    opacity: 1;
+}
+
+.yaml-editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: #252526;
+    border-bottom: 1px solid #3e3e42;
+}
+
+.yaml-editor-title {
+    color: #cccccc;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.copy-yaml-btn {
+    background: #0e639c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.copy-yaml-btn:hover {
+    background: #1177bb;
+}
+
+.copy-yaml-btn:active {
+    background: #0d5a8f;
+}
+
+.yaml-editor {
+    flex: 1;
+    width: 100%;
+    padding: 15px;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow-y: auto;
+    tab-size: 2;
+}
+
+.yaml-editor::selection {
+    background: #264f78;
+}
+
+/* ==================== RESUME PANEL ==================== */
+.resume-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background: #f5f5f5;
+    overflow-y: auto;
+}
+
+#resume-container {
+    max-width: 8.5in;
+    width: 100%;
+    background: white;
+    padding: 0.3in;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+#resume-container.single-column {
+    display: block;
+    max-width: 8.5in;
+}
+
+#resume-container.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 11in;
+}
+
+#resume-container.sidebar {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    max-width: 10in;
+}
+/* ==================== CONTROL PANE ==================== */
+#control-pane {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.toggle-btn:hover {
+    background: #34495e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.toggle-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+
+/* Pane Content */
+.pane-content {
+    background: #2c3e50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-top: 10px;
+    overflow: hidden;
+    max-height: 500px;
+    opacity: 1;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.pane-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+}
+
+/* Pane Sections */
+.pane-section {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pane-section:last-child {
+    border-bottom: none;
+}
+
+.pane-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    color: #bdc3c7;
+}
+
+/* Save Buttons */
+#save-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.save-btn {
+    background: #34495e;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    flex: 1;
+    min-width: 120px;
+}
+
+.save-btn:hover {
+    background: #415b76;
+    transform: translateY(-1px);
+}
+
+.save-btn:active {
+    transform: translateY(0);
+}
+
+/* Control Sliders */
+.control-slider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.control-slider input[type="range"] {
+    flex: 1;
+    cursor: pointer;
+}
+
+.control-slider span {
+    min-width: 60px;
+    text-align: center;
+    font-weight: 500;
+    color: #ecf0f1;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+    background: var(--theme-background);
+    color: var(--theme-text);
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.header h1 {
+    color: var(--theme-primary);
+    font-family: var(--theme-heading-font);
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.header .subtitle {
+    color: var(--theme-accent);
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    color: var(--theme-text);
+}
+
+.contact-info a {
+    color: var(--theme-accent);
+    text-decoration: underline;
+}
+
+/* ==================== SECTIONS ==================== */
+.section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--theme-background);
+    color: var(--theme-text);
+}
+
+.section-title {
+    color: var(--theme-primary);
+    font-family: var(--theme-heading-font);
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--theme-divider);
+}
+
+/* ==================== SUMMARY (INLINE STYLE) ==================== */
+.summary-inline {
+    line-height: 1.5;
+    color: var(--theme-text);
+    text-align: justify;
+    margin-bottom: 15px;
+    font-size: 11px;
+}
+
+.summary-inline strong {
+    color: var(--theme-primary);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* ==================== EDUCATION ==================== */
+.education-item {
+    margin-bottom: 12px;
+    padding-left: 15px;
+    border-left: 3px solid var(--theme-accent);
+}
+
+.education-item .degree {
+    font-weight: bold;
+    color: var(--theme-primary);
+    font-family: var(--theme-heading-font);
+    font-size: 14px;
+}
+
+.education-item .institution {
+    color: var(--theme-text);
+    font-size: 12px;
+}
+
+.education-item .date {
+    color: var(--theme-accent);
+    float: right;
+    font-weight: bold;
+}
+
+
+/* ==================== SKILLS ==================== */
+.skills-category {
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.skills-category strong {
+    color: var(--theme-primary);
+    font-family: var(--theme-heading-font);
+    font-weight: bold;
+}
+
+.skills-list {
+    color: var(--theme-text);
+    font-size: 11px;
+}
+
+/* ==================== EXPERIENCE ==================== */
+.experience-item {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 3px solid var(--theme-accent);
+    page-break-inside: avoid;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.job-title {
+    color: var(--theme-primary);
+    font-weight: bold;
+    font-family: var(--theme-heading-font);
+    font-size: 13px;
+}
+
+.company {
+    color: var(--theme-accent);
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.duration {
+    color: var(--theme-text);
+    font-style: italic;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.responsibilities {
+    list-style: disc;
+    margin-left: 20px;
+    margin-top: 8px;
+    padding-left: 0;
+}
+
+.responsibilities li {
+    margin-bottom: 4px;
+    color: var(--theme-text);
+    font-size: 11px;
+}
+
+/* ==================== RESEARCH ==================== */
+.research-item {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 3px solid var(--theme-accent);
+    page-break-inside: avoid;
+}
+
+.research-title {
+    font-weight: bold;
+    color: var(--theme-primary);
+    font-family: var(--theme-heading-font);
+    font-size: 12px;
+}
+
+.research-type {
+    color: var(--theme-accent);
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.research-description {
+    color: var(--theme-text);
+    font-size: 11px;
+    text-align: justify;
+    margin-bottom: 8px;
+}
+
+.applied-methods {
+    margin-top: 5px;
+    padding-left: 10px;
+    font-size: 10px;
+    color: var(--theme-text);
+}
+
+.applied-methods em {
+    color: var(--theme-primary);
+    font-weight: bold;
+}
+
+.methods-list {
+    color: var(--theme-accent);
+}
+
+/* ==================== CERTIFICATES ==================== */
+.certificate-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: rgba(52, 152, 219, 0.05);
+    border-left: 3px solid var(--theme-accent);
+    border-radius: 3px;
+}
+
+.certificate-name {
+    font-weight: bold;
+    color: var(--theme-primary);
+    font-size: 12px;
+}
+
+.certificate-institution {
+    color: var(--theme-accent);
+    font-size: 11px;
+}
+
+.certificate-link {
+    color: var(--theme-accent);
+    text-decoration: underline;
+    font-size: 11px;
+}
+/* ==================== PUBLICATIONS ==================== */
+.publications-note {
+    /* font-style: italic; */
+    color: #000;
+    /* font-size: 9pt; */
+    margin-bottom: 2pt;
+}
+
+.publications-link {
+    color: #0000EE;
+    text-decoration: underline;
+    /* font-size: 9pt; */
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    :root {
+        --font-base: 10pt;
+        --font-medium: 11pt;
+        --font-large: 16pt;
+    }
+
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    #resume-container {
+        max-width: 100%;
+        box-shadow: none;
+        padding: 0.3in;
+        background: white;
+    }
+
+    .section {
+        page-break-inside: avoid;
+        background: white;
+        border: none;
+    }
+
+    .experience-item,
+    .research-item,
+    .portfolio-project,
+    .education-item {
+        page-break-inside: avoid;
+    }
+
+    @page {
+        margin: 0.3in;
+    }
+
+    a {
+        color: var(--theme-accent) !important;
+        text-decoration: underline;
+    }
+
+    .header {
+        border-bottom: 2px solid var(--theme-divider);
+        margin-bottom: 15px;
+    }
+
+    .section-title {
+        border-bottom-color: var(--theme-divider) !important;
+        color: var(--theme-primary) !important;
+    }
+}
+/* ==================== NEW STYLES FOR TEMPLATES & DOCUMENT SELECTOR ==================== */
+
+/* Document Type Selector */
+.document-selector {
+    width: 100%;
+    padding: 10px 12px;
+    background: #34495e;
+    color: white;
+    border: 1px solid #415b76;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.document-selector:hover {
+    background: #415b76;
+}
+
+.document-selector:focus {
+    outline: none;
+    box-shadow: 0 0 4px #0e639c;
+}
+
+.document-selector option {
+    background: #2c3e50;
+    color: white;
+}
+
+/* Template Buttons */
+.template-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.template-btn {
+    background: #1177bb;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    flex: 1;
+    min-width: 80px;
+}
+
+.template-btn:hover {
+    background: #1a8fd3;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.template-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* ==================== COVER LETTER STYLES ==================== */
+
+.letter {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    padding: 20pt;
+}
+
+.letter-date {
+    margin-bottom: 20pt;
+    font-size: var(--font-base);
+    color: #000;
+}
+
+.letter-recipient {
+    margin-bottom: 20pt;
+    font-size: var(--font-base);
+    color: #000;
+    line-height: 1.5;
+}
+
+.letter-body {
+    margin-bottom: 20pt;
+    font-size: var(--font-base);
+    color: #000;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.letter-closing {
+    margin-top: 20pt;
+    font-size: var(--font-base);
+    color: #000;
+}
+
+/* ==================== JSON SAVE BUTTON ==================== */
+
+#save-json-btn {
+    background: #34495e;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    flex: 1;
+    min-width: 120px;
+}
+
+#save-json-btn:hover {
+    background: #415b76;
+    transform: translateY(-1px);
+}
+
+#save-json-btn:active {
+    transform: translateY(0);
+}
+
+/* ==================== RENDER ERROR STYLES ==================== */
+
+.render-error {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    color: #856404;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: var(--font-base);
+}
+
+/* ==================== VALIDATION ERROR STYLES ==================== */
+
+.validation-error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: var(--font-base);
+}
+
+/* ==================== PORTFOLIO STYLES (Future use) ==================== */
+
+.portfolio-project {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(52, 152, 219, 0.05);
+    border-left: 3px solid var(--theme-accent);
+    page-break-inside: avoid;
+}
+
+.portfolio-project h3 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--theme-primary);
+    font-family: var(--theme-heading-font);
+}
+
+.portfolio-project p {
+    margin: 5px 0;
+    font-size: 11px;
+    color: var(--theme-text);
+}
+
+.tech-tags {
+    margin: 8px 0;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.tech-tag {
+    background: var(--theme-accent);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.project-link {
+    color: var(--theme-accent);
+    text-decoration: underline;
+    font-size: 11px;
+}
+
+/* ==================== PRINT STYLES UPDATE ==================== */
+
+@media print {
+    /* Hide all controls from printing */
+    #control-pane,
+    #document-type-selector,
+    .template-buttons,
+    .template-btn,
+    #save-buttons,
+    .save-btn,
+    .control-slider,
+    .toggle-btn,
+    .pane-content,
+    #font-size-control,
+    #margin-control,
+    .yaml-panel,
+    .yaml-toggle-btn,
+    .yaml-editor-container {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    #resume-container {
+        max-width: 100%;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .loading {
+        display: none !important;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+
+    .experience-item, 
+    .research-item,
+    .portfolio-project {
+        page-break-inside: avoid;
+    }
+
+    @page {
+        margin: 0.3in;
+    }
+
+    a {
+        color: #0000EE !important;
+        text-decoration: underline;
+    }
+
+    .header {
+        border-bottom: none !important;
+    }
+
+    .section-title {
+        border-bottom-color: #000 !important;
+    }
+
+    .letter {
+        page-break-inside: avoid;
+    }
+}
+
+/* ==================== THEMED LETTER ====================*/
+
+.letter {
+    font-family: var(--theme-body-font);
+    line-height: 1.6;
+    padding: 30px;
+    background: var(--theme-background);
+    color: var(--theme-text);
+}
+
+.letter-date {
+    margin-bottom: 20px;
+    color: var(--theme-text);
+}
+
+.letter-recipient {
+    margin-bottom: 20px;
+    color: var(--theme-text);
+    line-height: 1.6;
+}
+
+.letter-body {
+    margin-bottom: 20px;
+    color: var(--theme-text);
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.letter-closing {
+    margin-top: 30px;
+    color: var(--theme-text);
+}
+
+
+/* ==================== SIDEBAR LAYOUT SPECIAL STYLING ====================*/
+
+.sidebar .section:first-of-type {
+    grid-column: 1 / -1;
+}
+
+.sidebar .contact-info {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ==================== TWO-COLUMN LAYOUT BALANCING ====================*/
+
+.two-column .section {
+    break-inside: avoid;
+}
+
+/* Alternate background for visual interest */
+.two-column .section:nth-child(odd) {
+    background: var(--theme-background);
+}
+
+.two-column .section:nth-child(even) {
+    background: rgba(52, 152, 219, 0.03);
+}
+
+@media (max-width: 900px) {
+    #resume-container.two-column {
+        grid-template-columns: 1fr;
+    }
+
+    #resume-container.sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+}

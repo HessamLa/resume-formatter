@@ -1,0 +1,250 @@
+# Resume - Hessam Alizadeh (Hamidreza Lotfalizadeh, Ph.D.)
+
+personal_info:
+  _type: contact
+  name: Hessam Alizadeh
+  full_name: (Hamidreza Lotfalizadeh, Ph.D.)
+  location: Austin, TX area (willing to relocate)  # Update as needed
+  email: hamidla.ap@gmail.com
+  linkedin: linkedin.com/in/hessamla/
+  github: github.com/hessamla/
+  scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
+
+# PAGE 1 SECTIONS
+summary:
+  _type: summary
+  _title: Summary
+  content: |
+    **ML engineer with deep expertise in productionizing and scaling machine learning systems.** PhD from Purdue University with proven track record of **deploying ML models to production** at enterprise scale (Eli Lilly) and building **real-time ML pipelines** processing high-rate data streams. Strong **software engineering background** with experience in **MLOps practices** including MLFlow for experiment tracking, **Docker/Kubernetes** for containerization, and **CI/CD pipelines**. Successfully optimized ML algorithms from O(n²) to O(n log n) and implemented **distributed training** across multi-GPU clusters using SLURM. Experience with **PyTorch, TensorFlow**, and building **fault-tolerant systems** with monitoring and observability. Passionate about creating **maintainable, scalable ML infrastructure** and collaborating with cross-functional teams to deliver high-impact features.
+
+# ==================== EDUCATION ====================
+education:
+  _type: education
+  _title: Education
+  _labels:
+    degree: Degree
+    institution: Institution
+    campus: Campus
+    graduation_date: Graduation Date
+  items:
+    - degree: PhD in Computer Engineering
+      institution: Purdue University
+      campus: Main Campus
+      graduation_date: "Dec 2024"
+    
+    - degree: MSc in Computer Engineering
+      institution: Amirkabir University
+      graduation_date: "Feb 2011"
+    
+    - degree: BS in Computer Engineering
+      institution: Azad University
+      graduation_date: "Jul 2008"
+
+# ==================== TECHNICAL SKILLS ====================      
+skills:
+  _type: skills
+  _title: Technical Skills (Top 30)
+  
+  proficient:
+    _title: Core Languages & Frameworks
+    _items:
+      - Python (Production ML)
+      - PyTorch
+      - TensorFlow
+      - C/C++
+      - JavaScript/TypeScript
+  
+  programming_languages:
+    _title: MLOps & Infrastructure
+    _items:
+      - MLFlow (Experiment tracking)
+      - Docker
+      - Kubernetes
+      - CI/CD pipelines
+      - Git
+      - Model versioning
+  
+  programming_paradigms_and_tools:
+    _title: Cloud & Orchestration
+    _items:
+      - AWS (Neptune, SageMaker)
+      - SLURM (Multi-GPU orchestration)
+      - Distributed systems
+      - Real-time streaming (MQTT)
+      - RESTful APIs
+  
+  ai_ml:
+    _title: Machine Learning
+    _items:
+      - Deep Learning (CNN, RNN, CRNN)
+      - Graph Neural Networks
+      - Model optimization
+      - Multi-GPU training
+      - CUDA programming
+  
+  nlp_llm:
+    _title: Production Systems
+    _items:
+      - Feature engineering
+      - Model serving
+      - Performance monitoring
+      - Multi-threaded applications
+  
+  statistical_analysis:
+    _title: Data & Analysis
+    _items:
+      - Pandas
+      - NumPy
+      - SciPy
+      - Time series analysis
+
+# ==================== WORK EXPERIENCE ====================
+work_experience:
+  _type: work
+  _title: Work Experience
+  _labels:
+    title: Title
+    company: Company
+    duration: Duration
+    responsibilities: Responsibilities
+  items:
+    - title: Graph Networks Specialist
+      company: Inertia Systems
+      duration: Jul 2025 - present
+      responsibilities:
+        - Developing **production graph-based system** for construction tech with **real-time data processing**
+        - Implementing **Neptune graph database** with optimized query performance for production workloads
+        - Building **scalable graph algorithms** for conflict detection and resolution
+        - Creating **monitoring and observability systems** for graph processing pipelines
+        - Collaborating with **cross-functional teams** to integrate ML features into production
+    
+    - title: Postdoctoral Researcher
+      company: Indiana University
+      duration: Apr 2025 - Jul 2025
+      responsibilities:
+        - Researching **diffusion models on dynamic graphs** for structural change simulation
+        - Developing **scalable algorithms** for graph-based disease propagation modeling
+        - Optimizing graph diffusion models for **production deployment** with results pending publication
+    
+    - title: AI/ML Intern
+      company: Eli Lilly
+      duration: May 2024 - Aug 2024
+      responsibilities:
+        - Built **production ML system** for large-scale knowledge graph analysis handling **graphs with over 1 million nodes**
+        - Implemented **supervised and unsupervised learning pipelines** with supervised methods showing **80% performance improvement**
+        - Optimized ML models for **web-based real-time inference** with sub-second response times
+        - Developed **maintainable Python/JavaScript/TypeScript codebase** following software engineering best practices
+        - Collaborated with **cross-functional international teams** including data scientists, engineers, and domain experts
+        - Created **user-friendly web interface** with interactive features for ML model outputs
+    
+    - title: Data Science Researcher
+      company: Purdue University
+      duration: Dec 2019 - Apr 2022
+      responsibilities:
+        - Built **real-time ML pipeline** for anomaly detection analyzing **high-velocity IoT sensor streams**
+        - Architected **scalable streaming data infrastructure** using MQTT protocol for production deployment
+        - Implemented **fault-tolerant distributed processing system** with concurrent multi-threaded operations
+        - Developed **ensemble models** (RNN, CRNN) for time series prediction with **monitoring for model drift**
+        - Created **reproducible ML workflows** with consistent data processing and model training pipelines
+    
+    - title: Software Developer
+      company: Purdue University
+      duration: May 2018 - Aug 2020
+      responsibilities:
+        - Developed **distributed simulation framework** supporting concurrent client connections
+        - Built **Django web services** with RESTful APIs for system integration
+        - Implemented **clean, maintainable Python code** with comprehensive testing
+
+# ==================== RESEARCH EXPERIENCE ====================
+research_experience:
+  _type: research
+  _title: Research Experience
+  _labels:
+    title: Title
+    references: References
+    institution: Institution
+    type: Type
+    description: Description
+    technical_environment: Technical Environment
+    applied_methods: Applied Methods
+  items:
+    - title: Scalable ML Systems and Graph Embeddings
+      # references: "[1,2]"
+      institution: Purdue University
+      type: PhD Thesis
+      description: |
+        Developed **production-ready graph embedding methodology** with mathematical proof of convergence. **Optimized algorithm complexity from O(n²) to O(n log n)** enabling deployment at scale. Implemented **parallelized algorithms for multi-GPU execution** using SLURM orchestration. Built **MLOps infrastructure** with MLFlow for experiment tracking and model versioning across **500+ experiments**. Created **memory-optimized batching system** using Python decorator pattern for runtime optimization. Achieved **6% improvement over state-of-the-art** while reducing computational requirements for production deployment.
+      technical_environment: |
+        Multi-GPU clusters, SLURM orchestration, PyTorch distributed training, CUDA optimization
+      applied_methods:
+        - PyTorch implementation
+        - CUDA kernel optimization  
+        - Memory-efficient batching
+        - Multi-GPU scaling
+        - MLFlow experiment tracking
+        - Distributed training infrastructure
+    
+    - title: Enterprise ML Pipeline Development
+      institution: Eli Lilly and Company
+      type: Internship Project
+      description: |
+        Built **end-to-end ML pipeline** for knowledge graph exploration serving multiple departments. Implemented **feature engineering** and **model serving infrastructure** for graphs with 1M+ nodes. Developed **monitoring and observability** systems for ML model performance. Created **collaborative workflows** enabling scientists and domain experts to interact with ML outputs effectively.
+      applied_methods:
+        - Production ML pipelines
+        - Feature store design
+        - Model serving optimization
+        - Performance monitoring
+        - Cross-functional collaboration
+    
+    - title: Real-time ML for Network Security
+      # references: "[3,4]"
+      institution: Purdue University
+      type: Research Project
+      description: |
+        Developed **production ML system** for DDoS detection with **real-time inference** capabilities. Built **streaming data pipelines** with entropy-based feature extraction. Implemented **neural network models** (RNN, CRNN) with **continuous retraining strategies**. Designed system for **high-throughput processing** with low latency requirements.
+      applied_methods:
+        - Real-time ML inference
+        - Stream processing pipelines
+        - Model retraining automation
+        - Production monitoring
+    
+    - title: Optimization Algorithms for Resource-Constrained Systems
+      institution: Amirkabir University (QDA group)
+      type: Master's Thesis
+      description: |
+        Designed **scheduling algorithms** achieving **50% latency reduction** for quantum computers. Implemented **efficient C++ systems** with focus on **performance optimization** and **scalability**.
+      applied_methods:
+        - Algorithm optimization
+        - C++ system programming
+        - Performance profiling
+
+# ==================== CERTIFICATES ====================
+certificates:
+  _type: certificates
+  _title: Certificates
+  _labels:
+    name: Certificate Name
+    institution: Institution
+    verification_url: Verification
+  items:
+    - name: Machine Learning Specialization
+      institution: Stanford University
+      verification_url: https://coursera.org/verify/specialization/HMWE8SJ5U82M
+    
+    - name: MLOps Specialization
+      institution: Duke University
+      verification_url: https://coursera.org/verify/specialization/ENSE7V7CKMU7
+    
+    - name: Deep Learning Specialization
+      institution: Stanford University
+      verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
+
+# ==================== PUBLICATIONS ====================
+publications:
+  _type: publications
+  _title: Publications
+  _labels:
+    note: Note
+    scholar_url: Google Scholar
+  note: "Under the name \"Hamidreza Lotfalizadeh\""
+  scholar_url: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en

@@ -1,0 +1,53 @@
+Full job description
+Inclusion at Bumble Inc.
+
+Bumble Inc. is an equal opportunity employer and we strongly encourage people of all ages, colour, lesbian, gay, bisexual, transgender, queer and non-binary people, veterans, parents, people with disabilities, and neurodivergent people to apply. We're happy to make any reasonable adjustments that will help you feel more confident throughout the process, please don't hesitate to let us know how we can help.
+In your application, please feel free to note which pronouns you use (For example: she/her, he/him, they/them, etc).
+
+As a Senior Machine Learning Engineer focused on scalability and productionisation, you will bring advanced machine learning models to life in production, from content understanding systems that interpret profiles, photos and text, to recommendation models that shape every match. You will build and scale the pipelines, infrastructure and automation that transform experimentation into reliable, high-impact features for our members.
+
+What you'll do
+Design, build and optimise ML pipelines and production systems that train, evaluate and serve recommendation models efficiently and at scale.
+Work in a cross-functional team alongside data scientists, machine learning scientists, software engineers and both technical and non-technical stakeholders.
+Partner with ML Scientists to translate research models into efficient, maintainable, and well-tested production systems.
+Implement monitoring, observability, and retraining strategies to ensure continuous model performance in a dynamic, global environment.
+Contribute to the evolution of our ML infrastructure, including CI/CD, model registries, and feature stores.
+Diagnose and resolve production ML issues, such as data inconsistencies and model drift, to identify and resolve infrastructure bottlenecks.
+Champion engineering best practices for scalability, reliability, and reproducibility across the ML lifecycle.
+
+Minimum requirements
+2+ years of relevant industry experience.
+An advanced degree in Computer Science, Mathematics or a similar quantitative discipline.
+Strong software engineering background. You write clean, scalable, and maintainable code in Python or similar languages.
+Proven experience deploying and operating ML systems in production environments.
+Deep understanding of MLOps and infrastructure concepts: CI/CD for ML, feature stores, model serving, observability, and versioning.
+Experience with modern ML frameworks (e.g. PyTorch, TensorFlow) and orchestration tools (e.g. Airflow, Kubeflow, SageMaker, Ray).
+Familiarity with containerisation and cloud-native environments (e.g. Docker, Kubernetes, GCP/AWS).
+Skilled at debugging complex, distributed ML systems and optimising for performance at scale.
+Excellent communicator and collaborator. You communicate effectively with scientists, engineers, and non-technical stakeholders.
+Interested in contributing to the responsible development of ML and AI, with a focus on building systems that are fair, equitable and accountable.
+
+Why join us
+Own meaningful projects that directly impact millions of Bumble users.
+Learn and grow in a high-performing engineering team committed to mentorship and learning.
+Be part of a culture that values respect, excellence, curiosity, courage and joy.
+Enjoy competitive compensation, equity, and world-class benefits.
+Location
+This role is based in Austin, and we ask that you’re within a commutable distance to this office, so that you’re able to come onsite regularly to collaborate across engineering teams.
+We have a hybrid environment that requires you to be in the office Monday - Wednesday.
+Please note: We are unable to offer Visa sponsorship at this time
+For base compensation, we set standard ranges for all roles based on function, level, and geographic location. This position is also typically eligible to participate in our short- and long-term incentive programs. Benefits include Medical, Dental, Vision, 401(k) match, Unlimited Paid Time Off Policy.
+
+Maven Fertility: $10,000 lifetime benefit for fertility, adoption, abortion care, and more.
+26 Weeks Parental Leave: For both primary and secondary caregivers.
+Family & Compassionate Leave: Inclusive of domestic violence recovery.
+Unlimited Paid Time Off: Take the time you need.
+Company-wide Week Off: Annual collective rest for the entire company.
+Focus Fridays: No meetings, emails, or deadlines—just deep work.
+About Us
+
+Bumble Inc. is the parent company of Bumble, Badoo, Bumble For Friends, and Geneva. The Bumble platform enables people to build healthy and equitable relationships, through Kind Connections. Founded by Whitney Wolfe Herd in 2014, Bumble was one of the first dating apps built with women at the center and connects people across dating (Bumble Date), friendship (Bumble For Friends) and professional networking (Bumble Bizz). Badoo, which was founded in 2006, is one of the pioneers of web and mobile dating products. Bumble For Friends is a friendship app where people in all stages of life can meet people nearby and create meaningful platonic connections. Geneva is a group and community app for people to connect based on shared interests.
+
+AI in Bumble Hiring
+
+At Bumble, we may use AI tools to support parts of our recruitment process — such as helping us record, transcribe, and summarize conversations, and supporting job alignment by comparing resumes and job descriptions to highlight skills and potential roles that may be a good match. These tools help us work more efficiently and stay focused on you during our conversations. Importantly, all hiring decisions are made by people. AI is used only to support our team’s efficiency and improve the candidate experience — not to evaluate or decide on your candidacy. Participation in AI-supported interviews and conversations is completely voluntary and will not impact your candidacy. If you’d prefer to opt out, simply let your recruiter or interviewer know at the start of a call, or anytime during the interview or conversation. Summaries and related data are retained only as long as needed in line with our internal data retention policies. If at any point you’d like a transcription or summary deleted, please contact your recruiter directly.

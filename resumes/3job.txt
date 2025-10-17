@@ -1,0 +1,111 @@
+Full job description
+Meet Upside:
+
+We created Upside to transform brick-and-mortar commerce. Our technology uses the sophistication of online retail—profit measurement, attribution, and incrementality—to provide users with more value on their everyday purchases and brick-and-mortar businesses with new, profitable customers. We’ve helped millions of users earn 2 to 3 times more cashback than any other product, and hundreds of thousands of brick-and-mortar businesses earn measurable profit. Billions of dollars in commerce run through the Upside platform every year, and that value goes directly back to our retailer partners, the consumers they serve, and important sustainability initiatives.
+
+The Impact You’ll Make:
+
+You’ll work with peers who have experience developing ML models designed for production with the support of a dedicated engineering team. You’ll align closely with analysts, stakeholders, and data engineers across the company to define solutions to pressing problems. Your work will directly and measurably impact the company’s revenue by innovating on our offer pricing and recommendation systems. We foster a collaborative environment where you’ll have ownership of your modeling efforts and actively participate in project creation and planning.
+
+Responsibilities
+
+Own the entire machine learning lifecycle – from framing ambiguous business problems to delivering measurable impact in production
+
+Dig into complex data to design, run, and refine analyses through well-structured, performant SQL
+
+Engineer, validate, and deploy real-time ML models–including building the data pipelines, writing production inference code, and monitoring model performance
+
+Design and execute experiments to measure business impact, troubleshoot unexpected outcomes, and iterate quickly
+
+Effectively translate results of experiments and analyses into actionable insights for stakeholders and leadership with a variety of technical backgrounds
+
+
+What You Should Have:
+
+Master’s degree or Ph.D. in a quantitative field (Statistics, Data Science, Economics, Physics, or related) with 2+ years of experience, or 4+ years of professional experience in data science or advanced analytics (advanced degree optional)
+
+Proven track record framing open-ended problems, conducting analyses, and producing data-driven recommendations
+
+SQL mastery, experience working with large data-sets on the cloud a plus
+
+Proficiency in Python and statistical and machine learning libraries (e.g., scikit-learn, statsmodels, xgboost)
+
+Comfort with ambiguity and constraints — you thrive in situations with incomplete specs, evolving requirements, and operational challenges, and can deliver high-quality solutions despite them
+
+
+Nice to Have:
+
+End-to-end ML Ops experience including building live feature-stores, writing production-ready inference code or a strong desire to learn these skills
+
+Experience with data warehouse and cloud environments (i.e. Snowflake and AWS)
+
+Experience with building recommendation, pricing models, and causal inference
+
+
+Tools We Use:
+
+Programming language: Python
+
+Data tools: dbt, SQL, Snowflake
+
+Cloud platform: AWS
+
+Version control: Git
+
+Machine learning libraries: scikit-learn, statsmodels, etc.
+
+Data exploration and visualization: Jupyter, Hex, GSheets
+
+ML Ops platform: JFrog ML
+
+
+Location:
+
+This hybrid role is based in our Austin, Chicago, New York, or Washington DC office. In-office attendance is required on Monday, Tuesday, and Thursday and may increase based on project-based needs and changes to Upside’s in-office policy over time.
+
+
+Compensation:
+
+The US base salary range for this full-time position is $140,000 - $180,000 + bonus (for certain roles) + equity + benefits. The final starting pay will be determined based on job-related skills, experience, qualifications, work location, and market conditions. Your recruiter can share more about the specific salary range during the hiring process.
+
+Benefits:
+
+Medical, dental, and vision coverage starting on Day 1
+
+Equity (ISOs)
+
+401(k) program
+
+Family planning programs + paid parental leave
+
+Physical fitness and wellness memberships
+
+Emotional and mental health support programs
+
+Unlimited PTO + 10 paid federal holidays + our annual, week-long Winter Break
+
+Flexible work environment
+
+Lunch reimbursement for in-office employees
+
+Employee Resource Groups
+
+Learning and Development stipend
+
+Transparent culture
+
+Amazing mission!
+
+Diversity and Inclusion:
+
+Diversity drives innovation, and our differences make us stronger. We‘re passionate about building a workplace that represents a variety of backgrounds, skills, and perspectives, and we do not discriminate based on race, religion, color, national origin, gender, sexual orientation, age, marital status, veteran status, or disability status. Everyone is welcome here!
+
+If there's anything we can do to support a disability or special need during your application or interview process, please email accommodations@upside.com.
+
+This email is for accessibility accommodations only, it should not be used to submit job applications.
+
+Notice To Recruiters And Placement Agencies:
+
+This is an in-house search with a dedicated recruiter. Please do not submit resumes to any person or email address at Upside. Upside is not liable for, and will not pay, placement fees for candidates submitted by any party or agency other than its approved recruitment partners.
+
+Compensation Range: $140K - $180K
