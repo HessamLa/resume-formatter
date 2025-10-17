@@ -472,6 +472,8 @@ code.monospace {
     margin-bottom: 3pt;
 }
 
+
+/* This is for section titles with bottom border */
 /* .section-title {
     font-size: var(--font-medium);;
     font-weight: bold;
@@ -483,14 +485,13 @@ code.monospace {
     border-bottom: 1pt solid #000;
 } */
 
+/* The following two are for section titles with horizontal line extending to the right */
 .section-title {
     font-size: var(--font-medium);;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.5pt;
-
-
-    display: flex;               /* Enable flexbox */
+    display: flex;               
     align-items: center;         /* Center line vertically with text */
     gap: 0.3em;                  /* Regular space between text and line */
 }
