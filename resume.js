@@ -90,8 +90,8 @@ function renderResume(data) {
         
         // Extract metadata
         const type = sectionData._type;
-        const title = sectionData._title;
-        const labels = sectionData._labels || {};
+        const title = sectionData.title;
+        const labels = sectionData.labels || {};
         
         // Skip if no type specified
         if (!type) {
@@ -197,13 +197,13 @@ function renderSkills(data, title, labels) {
             continue;
         }
 
-        // Skip if not a category object with _title and _items
+        // Skip if not a category object with title and items
         if (!categoryData || typeof categoryData !== 'object') {
             continue;
         }
 
-        const categoryTitle = categoryData._title;
-        const categoryItems = categoryData._items;
+        const categoryTitle = categoryData.title;
+        const categoryItems = categoryData.items;
         
         if (!categoryTitle || !categoryItems) {
             continue;

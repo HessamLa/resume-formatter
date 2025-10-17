@@ -13,14 +13,14 @@ personal_info:
 # PAGE 1 SECTIONS
 section_summary:
   _type: summary
-  _title: Summary
+  title: Summary
   content: |
     **ML researcher and engineer** with expertise in **graph neural networks**, **distributed systems**, and **GenAI/RAG** implementations. Proven track record of delivering scalable ML solutions: achieved **80% reduction** in conflict detection time, **>80% accuracy** in pharmaceutical knowledge discovery, and **$3M investment** through product demonstrations. Strong foundation in systems programming and cross-functional collaboration.
 
 # ==================== EDUCATION ====================
 section_edu:
   _type: education
-  _title: Education
+  title: Education
   _labels:
     degree: Degree
     institution: Institution
@@ -43,30 +43,30 @@ section_edu:
 # ==================== TECHNICAL SKILLS ====================      
 section_skills:
   _type: skills
-  _title: Technical Skills
+  title: Technical Skills
   skillset1:
-      _title: Core Languages
-      _items: Python, C, C++, Rust, Java, JavaScript, TypeScript, C#
+      title: Core Languages
+      items: Python, C, C++, Rust, Java, JavaScript, TypeScript, C#
   skillset2:
-      _title: ML/AI Frameworks
-      _items: PyTorch, TensorFlow, CUDA, Numpy, Pandas, SciPy, Scikit-Learn, MLFlow, Transformers, Node2Vec, NodeForce
+      title: ML/AI Frameworks
+      items: PyTorch, TensorFlow, CUDA, Numpy, Pandas, SciPy, Scikit-Learn, MLFlow, Transformers, Node2Vec, NodeForce
   skillset3:
-      _title: Deep Learning & NLP
-      _items: CNN, RNN, CRNN, GNN, GCN, GAT, Fine-Tuning, PEFT, RAG, LangChain, LangGraph, Prompt Engineering
+      title: Deep Learning & NLP
+      items: CNN, RNN, CRNN, GNN, GCN, GAT, Fine-Tuning, PEFT, RAG, LangChain, LangGraph, Prompt Engineering
   skillset4:
-      _title: Data & Analytics
-      _items: Time series analysis, Entropy analysis, Statistical modeling, Design of Experiments, Real-time data streaming (MQTT)
+      title: Data & Analytics
+      items: Time series analysis, Entropy analysis, Statistical modeling, Design of Experiments, Real-time data streaming (MQTT)
   skillset5:
-      _title: Infrastructure & Databases
-      _items: AWS, Neptune, GCP, OCI, Docker, Kubernetes, SLURM, Spark, SQL, Gremlin, Graph databases
+      title: Infrastructure & Databases
+      items: AWS, Neptune, GCP, OCI, Docker, Kubernetes, SLURM, Spark, SQL, Gremlin, Graph databases
   skillset6:
-      _title: Software Engineering
-      _items: OOP, Functional Programming, Concurrent & Parallel Programming, Multi-threaded Applications, CI/CD, Git, RESTful APIs, Distributed Systems Architecture
+      title: Software Engineering
+      items: OOP, Functional Programming, Concurrent & Parallel Programming, Multi-threaded Applications, CI/CD, Git, RESTful APIs, Distributed Systems Architecture
 
 # ==================== WORK EXPERIENCE ====================
 section_work:
   _type: work
-  _title: Work Experience
+  title: Work Experience
   _labels:
     title: Title
     company: Company
@@ -120,7 +120,7 @@ section_work:
 # ==================== RESEARCH EXPERIENCE ====================
 section_research:
   _type: research
-  _title: Research Experience
+  title: Research Experience
   _labels:
     title: Title
     institution: Institution
@@ -159,7 +159,7 @@ section_research:
 # ==================== CERTIFICATES ====================
 section_certificates:
   _type: certificates
-  _title: Certificates
+  title: Certificates
   _labels:
     name: Certificate Name
     institution: Institution
@@ -175,12 +175,12 @@ section_certificates:
     
     - name: Deep Learning Specialization
       institution: Stanford University
-      # verification_url: In Progress
+      verification_url: In Progress
 
 # ==================== PUBLICATIONS ====================
 section_pub:
   _type: publications
-  _title: Publications
+  title: Publications
   _labels:
     note: Note
     scholar_url: Google Scholar
