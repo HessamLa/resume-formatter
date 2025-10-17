@@ -333,6 +333,43 @@ body {
     outline-offset: 2px;
 }
 
+/* Debug Button - Hidden by default (uncomment display to enable for debugging) */
+.debug-btn {
+    display: none;  /* Hide debug button - remove this line to enable debugging */
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    margin-top: 8px;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.debug-btn:hover {
+    background: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+.debug-btn:active {
+    transform: translateY(0);
+}
+
+.debug-btn.active {
+    background: #27ae60;
+    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+}
+
+.debug-btn.active:hover {
+    background: #229954;
+}
+
 /* Control Sliders */
 .control-slider {
     display: flex;
@@ -654,11 +691,113 @@ code.monospace {
     padding-left: 6pt;
 }
 
+/* ==================== DEBUG MODE ==================== */
+/* Visual indicators for print margin debugging */
+body.print-debug-mode {
+    position: relative;
+}
+
+body.print-debug-mode::before {
+    content: 'DEBUG MODE: Yellow = @page margin, Blue = body area, Green outline = container';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #e74c3c;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10000;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body.print-debug-mode #main-content {
+    background: rgba(52, 152, 219, 0.2) !important;
+    outline: 3px solid blue !important;
+}
+
+body.print-debug-mode #resume-panel {
+    background: rgba(52, 152, 219, 0.15) !important;
+}
+
+body.print-debug-mode #resume-container {
+    outline: 3px solid green !important;
+    position: relative;
+}
+
+body.print-debug-mode #resume-container::before {
+    content: 'Container padding: ' attr(data-padding);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: green;
+    color: white;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+/* Measurement rulers in debug mode */
+body.print-debug-mode::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background:
+        repeating-linear-gradient(90deg,
+            rgba(255,0,0,0.3) 0,
+            rgba(255,0,0,0.3) 1px,
+            transparent 1px,
+            transparent 0.1in),
+        repeating-linear-gradient(0deg,
+            rgba(255,0,0,0.3) 0,
+            rgba(255,0,0,0.3) 1px,
+            transparent 1px,
+            transparent 0.1in);
+}
+
 /* ==================== PRINT STYLES ==================== */
 @media print {
+    /* Force zero margins on @page */
+    @page {
+        margin: 0in !important;
+        size: letter;
+    }
+
+    /* Force zero margins and padding on body */
     body {
-        background: white;
-        padding: 0;
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Force zero padding on layout containers */
+    #main-content {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: white !important;
+    }
+
+    #resume-panel {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: white !important;
+    }
+
+    /* Only resume-container should have padding (controlled by slider) */
+    #resume-container {
+        max-width: 100%;
+        box-shadow: none !important;
+        margin: 0 !important;
+        /* Padding is controlled by the margin slider in resume.js */
+        /* Default: padding: 0.3in; (set via JavaScript) */
     }
 
     /* Triple-layer hiding for maximum compatibility */
@@ -672,34 +811,27 @@ code.monospace {
     #margin-control,
     .yaml-panel,
     .yaml-toggle-btn,
-    .yaml-editor-container {
+    .yaml-editor-container,
+    .debug-btn {
         display: none !important;        /* Hide from layout */
         visibility: hidden !important;   /* Hide visibility */
         opacity: 0 !important;           /* Make transparent */
-    }  
-
-    #resume-container {
-        max-width: 100%;
-        box-shadow: none;
     }
-    
+
     .loading {
         display: none !important;
     }
-    
+
     .section {
         page-break-inside: avoid;
     }
-    
+
     .experience-item, .research-item {
         page-break-inside: avoid;
     }
     
-    @page {
-        margin: 0;  /* Let container padding handle margins */
-    }
-    
     @page :first {
+        margin: 0in !important;
         size: letter;
     }
     

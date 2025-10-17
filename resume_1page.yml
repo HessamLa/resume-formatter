@@ -166,26 +166,26 @@ section_work:
 #         A master's thesis at Amirkabir University. Designed and implemented a method and algorithm for scheduling ion-trap quantum computers with the goal of reducing execution latency of quantum program. Reduced the scheduling latency by 50% average compared to the state-of-the-art methods.
 #       applied_methods: OOP in C++ | Lee's maze routing
 
-# # ==================== CERTIFICATES ====================
-# certificates:
-#   _type: certificates
-#   _title: Certificates
-#   _labels:
-#     name: Certificate Name
-#     institution: Institution
-#     verification_url: Verification
-#   items:
-#     - name: Machine learning specialization
-#       institution: Stanford University.
-#       verification_url: https://coursera.org/verify/specialization/HMWE8SJ5U82M
+# ==================== CERTIFICATES ====================
+certificates:
+  _type: certificates
+  _title: Certificates
+  _labels:
+    name: Certificate Name
+    institution: Institution
+    verification_url: Verification
+  items:
+    - name: Machine learning specialization
+      institution: Stanford University.
+      verification_url: https://coursera.org/verify/specialization/HMWE8SJ5U82M
     
-#     - name: MLOps
-#       institution: Duke University.
-#       verification_url: https://coursera.org/verify/specialization/ENSE7V7CKMU7
+    - name: MLOps
+      institution: Duke University.
+      verification_url: https://coursera.org/verify/specialization/ENSE7V7CKMU7
     
-#     - name: Deep learning specialization
-#       institution: Stanford University.
-#       # verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
+    - name: Deep learning specialization
+      institution: Stanford University.
+      # verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
 
 # # ==================== PUBLICATIONS ====================
 # section_pub:

@@ -46,7 +46,10 @@ async function loadResume() {
 
         // Setup YAML editor
         setupYamlEditor();
-        
+
+        // Setup debug button
+        setupDebugButton();
+
     } catch (error) {
         document.querySelector('.loading').innerHTML = `
             <div style="color: #e74c3c;">
@@ -515,7 +518,12 @@ function setupControlSliders() {
     }
 
     // Margin options: [0.2, 0.3, 0.4, 0.5]
-    const marginOptions = ['0.2in', '0.3in', '0.4in', '0.5in'];
+    const marginOptions = ['0.0in', '0.1in', '0.2in', '0.3in', '0.4in', '0.5in'];
+    // Initialize labels
+    document.getElementById('margin-slider').min = 0;
+    document.getElementById('margin-slider').max = marginOptions.length - 1;
+    document.getElementById('margin-slider').value = 3; // default 0.3in
+    document.getElementById('margin-label').textContent = marginOptions[3];
 
     // Font size slider
     const fontSlider = document.getElementById('font-size-slider');
@@ -649,6 +657,96 @@ function saveAsPDF() {
         console.log('Print dialog opened. Select "Save as PDF" as destination.');
     }, 100);
 }
+
+// Debug print margins
+function debugPrintMargins(showAlert = false) {
+    const resumeContainer = document.getElementById('resume-container');
+    const body = document.body;
+    const mainContent = document.getElementById('main-content');
+    const resumePanel = document.getElementById('resume-panel');
+
+    const computedBody = getComputedStyle(body);
+    const computedMain = getComputedStyle(mainContent);
+    const computedPanel = getComputedStyle(resumePanel);
+    const computedContainer = getComputedStyle(resumeContainer);
+
+    const report = `
+=== PRINT MARGIN DEBUG REPORT ===
+
+BODY:
+  margin: ${computedBody.margin}
+  padding: ${computedBody.padding}
+  background: ${computedBody.background}
+
+MAIN CONTENT:
+  margin: ${computedMain.margin}
+  padding: ${computedMain.padding}
+
+RESUME PANEL:
+  margin: ${computedPanel.margin}
+  padding: ${computedPanel.padding}
+
+RESUME CONTAINER:
+  padding: ${computedContainer.padding}
+  margin: ${computedContainer.margin}
+  width: ${resumeContainer.offsetWidth}px
+  box-shadow: ${computedContainer.boxShadow}
+
+WINDOW:
+  innerWidth: ${window.innerWidth}px
+  innerHeight: ${window.innerHeight}px
+
+PAGE SIZE (letter):
+  8.5in x 11in = 816px x 1056px (at 96dpi)
+    `;
+
+    console.log(report);
+
+    // Only show alert if explicitly requested (debug mode)
+    if (showAlert) {
+        alert('Debug report logged to console. Press F12 to view.');
+    }
+
+    return report;
+}
+
+// Toggle debug mode
+function toggleDebugMode() {
+    const debugBtn = document.getElementById('debug-print-btn');
+    const resumeContainer = document.getElementById('resume-container');
+
+    document.body.classList.toggle('print-debug-mode');
+    debugBtn.classList.toggle('active');
+
+    // Update button text
+    if (document.body.classList.contains('print-debug-mode')) {
+        debugBtn.textContent = '✓ Debug Mode ON';
+        // Add data attribute for CSS content
+        const padding = getComputedStyle(resumeContainer).padding;
+        resumeContainer.setAttribute('data-padding', padding);
+        // Log debug info with alert
+        debugPrintMargins(true);  // Show alert when explicitly enabling debug mode
+    } else {
+        debugBtn.textContent = '🔍 Debug Print Margins';
+        resumeContainer.removeAttribute('data-padding');
+    }
+}
+
+// Setup debug button
+function setupDebugButton() {
+    const debugBtn = document.getElementById('debug-print-btn');
+    debugBtn.addEventListener('click', toggleDebugMode);
+}
+
+// Log debug info before printing
+window.addEventListener('beforeprint', () => {
+    console.log('=== PRINTING ===');
+    debugPrintMargins();
+});
+
+window.addEventListener('afterprint', () => {
+    console.log('=== PRINT DIALOG CLOSED ===');
+});
 
 // Setup YAML editor functionality
 function setupYamlEditor() {
