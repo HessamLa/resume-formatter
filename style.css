@@ -765,9 +765,12 @@ body.print-debug-mode::after {
 
 /* ==================== PRINT STYLES ==================== */
 @media print {
-    /* Force zero margins on @page */
+    /* Default: Use @page margins for consistent spacing across pages */
     @page {
-        margin: 0in !important;
+        margin: var(--print-margin-top, 0.3in) 
+                var(--print-margin-side, 0.3in) 
+                var(--print-margin-bottom, 0.3in) 
+                var(--print-margin-side, 0.3in);
         size: letter;
     }
 
@@ -791,13 +794,12 @@ body.print-debug-mode::after {
         background: white !important;
     }
 
-    /* Only resume-container should have padding (controlled by slider) */
+    /* Remove container padding - @page margins handle all spacing */
     #resume-container {
         max-width: 100%;
         box-shadow: none !important;
         margin: 0 !important;
-        /* Padding is controlled by the margin slider in resume.js */
-        /* Default: padding: 0.3in; (set via JavaScript) */
+        padding: 0 !important;
     }
 
     /* Triple-layer hiding for maximum compatibility */
@@ -829,12 +831,7 @@ body.print-debug-mode::after {
     .experience-item, .research-item {
         page-break-inside: avoid;
     }
-    
-    @page :first {
-        margin: 0in !important;
-        size: letter;
-    }
-    
+        
     a {
         color: #0000EE !important;
         text-decoration: underline;
