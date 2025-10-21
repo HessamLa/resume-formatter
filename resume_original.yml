@@ -1,8 +1,22 @@
 # Resume - Hessam Alizadeh (Hamidreza Lotfalizadeh, Ph.D.)
 # Use markdown-style formatting for **bold** and _italics_
 
+_meta:
+  sections_order: [
+      "section_contact",
+      "section_summary",
+      "section_education",
+      "section_skills",
+      "section_work",
+      "section_research",
+      "section_certificates",
+      "section_publications"
+      ]
+  job_summary:  # a very short summary of the job description
+      "Seeking a Machine Learning Engineer with 3+ years of experience to join {company name or description}."
+
 # ==================== CONTACT ====================
-personal_info:
+section_contact:
   _type: contact
   name: Hessam Alizadeh
   full_name: (Hamidreza Lotfalizadeh, Ph.D.)
@@ -18,29 +32,6 @@ section_summary:
   title: Summary
   content:
     ML researcher and engineer. Seeking a role in **ML**, **Data science**, or **GenAI**, with an affinity for systems design and engineering and system programming. Demonstrated ability to integrate ML innovations into complex environments through effective cross-functional collaboration. 
-
-# ==================== EDUCATION ====================
-section_edu:
-  _type: education
-  _labels:
-    degree: Degree
-    institution: Institution
-    campus: Campus
-    graduation_date: Graduation Date
-  title: Education
-  items:
-    - degree: PhD in Computer Engineering
-      institution: Purdue University
-      campus: Main Campus
-      graduation_date: "Dec 2024"
-    
-    - degree: MSc in Computer Engineering
-      institution: Amirkabir University
-      graduation_date: "Feb 2011"
-    
-    - degree: BS in Computer Engineering
-      institution: Azad University
-      graduation_date: "Jul 2008"
 
 # ==================== TECHNICAL SKILLS ====================      
 section_skills:
@@ -80,7 +71,7 @@ section_work:
   items:
     - title: Graph Networks Specialist
       company: Inertia Systems
-      duration: Apr 2025 - present
+      duration: Apr 2025 - Sep 2025
       responsibilities:
         - Developed **graph-based system** for construction tech to manage and resolve conflicts in building plans. Achieved over **95% time efficiency** in conflicts detection and resolution.
         - Employed **Neptune graph database** with **SQL-like Gremlin queries** for conflict detection and resolution.
@@ -89,7 +80,7 @@ section_work:
     
     - title: Postdoctoral Researcher
       company: Indiana University
-      duration: Jan 2025 - Jul 2025
+      duration: Jan 2025 - Present
       responsibilities:
         - Researched **diffusion models** on dynamic graphs to simulate structural changes.
         - Developed models for rumor source detection using graph diffusion.
@@ -113,13 +104,6 @@ section_work:
         - Architected **scalable real-time streaming data pipeline** using MQTT to process distributed IoT sensor data.
         - Built **fault-tolerant distributed system** for multivariate time series analytics.
         - Implemented **concurrent multi-threaded operations** for real-time classification and prediction across multiple streams.
-    
-    - title: Software Developer
-      company: Purdue University
-      duration: May 2018 - Aug 2020
-      responsibilities:
-        - Developed distributed systems using **Python socket programming** for client-server connections
-        - Built **web server implementation with Django** for data processing and API development
 
     - title: System Software Engineer
       company: Parsian e-Commerce Co.
@@ -130,8 +114,31 @@ section_work:
 
 
 # Rest of the resume remains unchanged from original...
+# ==================== EDUCATION ====================
+section_education:
+  _type: education
+  _labels:
+    degree: Degree
+    institution: Institution
+    campus: Campus
+    graduation_date: Graduation Date
+  title: Education
+  items:
+    - degree: PhD in Computer Engineering
+      institution: Purdue University
+      campus: Main Campus
+      graduation_date: "Dec 2024"
+    
+    - degree: MSc in Computer Engineering
+      institution: Amirkabir University
+      graduation_date: "Feb 2011"
+    
+    - degree: BS in Computer Engineering
+      institution: Azad University
+      graduation_date: "Jul 2008"
+
 # ==================== RESEARCH EXPERIENCE ====================
-research_experience:
+section_research:
   _type: research
   _labels:
     title: Title
@@ -176,7 +183,7 @@ research_experience:
       applied_methods: OOP in C++ | Lee's maze routing
 
 # ==================== CERTIFICATES ====================
-certificates:
+section_certificates:
   _type: certificates
   _labels:
     name: Certificate Name
@@ -197,7 +204,7 @@ certificates:
       # verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
 
 # ==================== PUBLICATIONS ====================
-publications:
+section_publications:
   _type: publications
   title: Publications
   _labels:

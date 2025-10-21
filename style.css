@@ -43,6 +43,127 @@ body {
     font-size: 14px;
 }
 
+/* ==================== VALIDATION ALERTS / MESSAGE BOX ==================== */
+.validation-alerts-container {
+    display: none;
+    position: fixed;
+    right: 20px;
+    width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 997; /* Below control pane */
+    transition: top 0.3s ease;
+}
+
+/* Position below control pane - dynamically set via JavaScript */
+#control-pane ~ .validation-alerts-container {
+    /* top will be set dynamically based on control pane height */
+}
+
+.validation-alert {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease-out;
+    border-left: 3px solid;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Blue - Information */
+.validation-alert-info {
+    background: #e8f4fd;
+    border-left-color: #2196F3;
+    color: #0d47a1;
+}
+
+/* Yellow - Warning */
+.validation-alert-warning {
+    background: #fffbea;
+    border-left-color: #f39c12;
+    color: #d68910;
+}
+
+/* Red - Error */
+.validation-alert-error {
+    background: #fee;
+    border-left-color: #e74c3c;
+    color: #c0392b;
+}
+
+.alert-icon {
+    font-size: 14px;
+    margin-right: 8px;
+    flex-shrink: 0;
+    line-height: 1.5;
+    font-style: normal;
+}
+
+.alert-message {
+    flex: 1;
+    line-height: 1.5;
+    word-break: break-word;
+    font-size: 12px;
+}
+
+.alert-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+    color: inherit;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+}
+
+.alert-close:hover {
+    opacity: 1;
+}
+
+/* Scrollbar styling for message box */
+.validation-alerts-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.validation-alerts-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.validation-alerts-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.validation-alerts-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* For print media, hide alerts */
+@media print {
+    .validation-alerts-container {
+        display: none !important;
+    }
+}
+
 /* ==================== MAIN CONTENT LAYOUT ==================== */
 #main-content {
     display: flex;
@@ -779,6 +900,10 @@ body.print-debug-mode::after {
         background: white !important;
         margin: 0 !important;
         padding: 0 !important;
+    }
+
+    .validation-alerts-container {
+        display: none !important;
     }
 
     /* Force zero padding on layout containers */

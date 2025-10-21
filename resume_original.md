@@ -84,12 +84,6 @@ Azad University | _Jul 2008_
 - Built **fault-tolerant distributed system** for multivariate time series analytics.
 - Implemented **concurrent multi-threaded operations** for real-time classification and prediction across multiple streams.
 
-### Software Developer
-**Purdue University** | _May 2018 - Aug 2020_
-
-- Developed distributed systems using **Python socket programming** for client-server connections.
-- Built **web server implementation with Django** for data processing and API development.
-
 ### System Software Engineer
 **Parsian e-Commerce Co.** | _Sep 2013 - Aug 2016_
 

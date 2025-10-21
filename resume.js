@@ -65,6 +65,163 @@ async function loadResume() {
     }
 }
 
+// Display validation alerts in the UI
+function displayValidationAlerts(alerts) {
+    const alertContainer = document.getElementById('validation-alerts');
+    
+    if (!alertContainer) {
+        console.error('Alert container not found in DOM');
+        return;
+    }
+    
+    // Clear existing alerts
+    alertContainer.innerHTML = '';
+    
+    // If no alerts, hide container
+    if (alerts.length === 0) {
+        alertContainer.style.display = 'none';
+        return;
+    }
+    
+    // Position message box below control pane
+    updateAlertPosition();
+    
+    // Show container and add alerts
+    alertContainer.style.display = 'block';
+    
+    // Icon mapping for different alert types
+    const iconMap = {
+        'info': '-',
+        'warning': '⚠️',
+        'error': '❌'
+    };
+    
+    alerts.forEach((alert) => {
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `validation-alert validation-alert-${alert.type}`;
+        alertDiv.innerHTML = `
+            <span class="alert-icon">${iconMap[alert.type] || '-'}</span>
+            <span class="alert-message">${escapeHtml(alert.message)}</span>
+            <button class="alert-close" onclick="this.parentElement.remove(); checkIfAlertsEmpty();">×</button>
+        `;
+        alertContainer.appendChild(alertDiv);
+    });
+}
+
+// Update alert position below control pane
+function updateAlertPosition() {
+    const alertContainer = document.getElementById('validation-alerts');
+    const controlPane = document.getElementById('control-pane');
+    
+    if (!alertContainer || !controlPane) return;
+    
+    const controlRect = controlPane.getBoundingClientRect();
+    const controlBottom = controlRect.bottom;
+    
+    // Position alerts 10px below the control pane
+    alertContainer.style.top = `${controlBottom + 10}px`;
+}
+
+// Helper function to hide alert container if all alerts are dismissed
+function checkIfAlertsEmpty() {
+    const alertContainer = document.getElementById('validation-alerts');
+    if (alertContainer && alertContainer.children.length === 0) {
+        alertContainer.style.display = 'none';
+    }
+}
+
+// Helper function to hide alert container if all alerts are dismissed
+function checkIfAlertsEmpty() {
+    const alertContainer = document.getElementById('validation-alerts');
+    if (alertContainer && alertContainer.children.length === 0) {
+        alertContainer.style.display = 'none';
+    }
+}
+
+// Validate section ordering and check for mismatches
+function validateAndReorderSections(data) {
+    const alerts = [];
+    
+    // Check if _meta._section_order exists
+    if (!data._meta || !data._meta['sections_order']) {
+        // Add info message if no section order is defined
+        alerts.push({
+            type: 'info',
+            message: 'No sections_order defined in _meta. Sections will render in YAML order.'
+        });
+        return { orderedData: data, alerts: alerts };
+    }
+    
+    const sectionOrder = data._meta['sections_order'];
+    
+    // Get all section keys from data (excluding _meta and other internal fields)
+    const dataSectionKeys = Object.keys(data).filter(key => !key.startsWith('_'));
+    
+    // Type A Validation: Check if keys in _section_order exist in data (RED ERROR)
+    const missingInData = [];
+    sectionOrder.forEach(orderKey => {
+        if (!data.hasOwnProperty(orderKey)) {
+            missingInData.push(orderKey);
+            console.warn(`❌ Section "${orderKey}" specified in _meta._section_order does not exist in data`);
+        }
+    });
+    
+    if (missingInData.length > 0) {
+        alerts.push({
+            type: 'error',
+            message: `Missing sections: ${missingInData.map(k => `"${k}"`).join(', ')}`
+        });
+    }
+    
+    // Type B Validation: Check if keys in data exist in _section_order (YELLOW WARNING)
+    const missingInOrder = [];
+    dataSectionKeys.forEach(dataKey => {
+        if (!sectionOrder.includes(dataKey)) {
+            missingInOrder.push(dataKey);
+            console.warn(`⚠️ Section "${dataKey}" exists in data but not in _meta._section_order`);
+        }
+    });
+    
+    if (missingInOrder.length > 0) {
+        alerts.push({
+            type: 'warning',
+            message: `Unordered sections: ${missingInOrder.map(k => `"${k}"`).join(', ')}`
+        });
+    }
+    
+    // Add success info if no issues
+    if (missingInData.length === 0 && missingInOrder.length === 0) {
+        // alerts.push({
+        //     type: 'info',
+        //     message: 'All sections are properly ordered and validated.'
+        // });
+    }
+    
+    // Reorder sections according to _section_order
+    const orderedData = {};
+    
+    // Add sections in the specified order
+    sectionOrder.forEach(sectionKey => {
+        if (data.hasOwnProperty(sectionKey)) {
+            orderedData[sectionKey] = data[sectionKey];
+        }
+    });
+    
+    // // Then, add any remaining sections not in the order (at the end)
+    // dataSectionKeys.forEach(sectionKey => {
+    //     if (!orderedData.hasOwnProperty(sectionKey)) {
+    //         orderedData[sectionKey] = data[sectionKey];
+    //     }
+    // });
+    
+    // Preserve _meta
+    if (data._meta) {
+        orderedData._meta = data._meta;
+    }
+    
+    return { orderedData, alerts };
+}
+
 // Main render function - processes sections dynamically based on _type
 function renderResume(data) {
     const container = document.getElementById('resume-container');
@@ -81,6 +238,13 @@ function renderResume(data) {
         'certificates': renderCertificates,
         'publications': renderPublications
     };
+    
+    // Validate and reorder sections if _meta._section_order exists
+    const { orderedData, alerts } = validateAndReorderSections(data);
+    data = orderedData;
+    
+    // Display validation alerts
+    displayValidationAlerts(alerts);
     
     // Iterate through sections in YAML order
     for (const [sectionKey, sectionData] of Object.entries(data)) {
@@ -571,16 +735,20 @@ function setupPaneToggle() {
 
     // set toggle icon initial state
     toggleIcon.textContent = '▲';
+    updateAlertPosition();
     
     toggleBtn.addEventListener('click', () => {
         paneContent.classList.toggle('collapsed');
-
+        
         // Toggle icon between ▼ (expanded) and ▲ (collapsed)
         if (paneContent.classList.contains('collapsed')) {
             toggleIcon.textContent = '▼';
         } else {
             toggleIcon.textContent = '▲';
         }
+        
+        // Update alert position when pane toggles
+        setTimeout(updateAlertPosition, 300); // Wait for animation to complete
     });
 }
 
