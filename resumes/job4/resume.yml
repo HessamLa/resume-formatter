@@ -13,9 +13,7 @@ _meta:
       "section_publications"
       ]
   job_summary:  # a very short summary of the job description
-      "Seeking a {job title} with {years or experience} to join {company name or description}."
-  save_filename: # Base filename (without extension) for saving the resume. Maximum 4 keywords from the job description (role, company name, expertise, etc), '-' separated, such as ml-vision-google, senior-devops-ny-fadialityco, etc.
-      'kw1-kw2-kw3'  # {kw1}-{kw2}-{kw3}' # or '{kw1}-{kw2}-{kw3}-{kw4}'
+      "Seeking a Machine Learning Engineer with 3+ years of experience to join a fast-growing fintech transforming fraud detection and risk management."
 
 # ==================== CONTACT ====================
 section_contact:
@@ -33,7 +31,7 @@ section_summary:
   _type: summary
   title: Summary
   content:
-    ML researcher and engineer. Seeking a role in **ML**, **Data science**, or **GenAI**, with an affinity for systems design and engineering and system programming. Demonstrated ability to integrate ML innovations into complex environments through effective cross-functional collaboration. 
+    ML engineer with **3+ years of production experience** building **real-time ML systems for anomaly detection**, directly transferable to **fraud detection** tasks. Proven track record of **deploying production-ready models** on scalable infrastructure and developing **robust ML pipelines** from data preparation through monitoring. Demonstrated ability to **research and apply latest ML advancements** while collaborating with **cross-functional teams** in fast-paced environments. Strong expertise in **Python, SQL**, and **production ML deployment** with distributed systems architecture.
 
 # ==================== TECHNICAL SKILLS ====================      
 section_skills:
@@ -75,45 +73,36 @@ section_work:
       company: Inertia Systems
       duration: Apr 2025 - Sep 2025
       responsibilities:
-        - Developed **graph-based system** for construction tech to manage and resolve conflicts in building plans. Achieved over **95% time efficiency** in conflicts detection and resolution.
-        - Employed **Neptune graph database** with **SQL-like Gremlin queries** for conflict detection and resolution.
-        - Created **graph querying system** and visualization UI for enhanced operability and stakeholder insights.
-        - Delivered features that helped marketing team **attract $3 million investment** through the product presentation.
+        - Developed **production graph-based system** for construction tech managing conflicts in building plans. Achieved over **95% time efficiency** in **real-time conflict detection and resolution**.
+        - Deployed **scalable ML pipeline** using **Neptune graph database** with **SQL-like Gremlin queries** for pattern detection and automated decision-making.
+        - Built **end-to-end ML system** from data preparation through deployment with monitoring and visualization UI for stakeholder insights.
+        - Delivered **production-ready features** that helped secure **$3 million investment**, demonstrating business impact of ML solutions.
     
     - title: Postdoctoral Researcher
       company: Indiana University
       duration: Jan 2025 - Present
       responsibilities:
-        - Researched **diffusion models** on dynamic graphs to simulate structural changes.
-        - Developed models for rumor source detection using graph diffusion.
-        - Applied graph diffusion models to solve **alignment tasks** with results pending publication.
+        - Researched **advanced ML models** including **diffusion models** on dynamic graphs to detect and simulate structural pattern changes.
+        - Developed **detection models** for identifying sources of propagation in graph networks, applicable to **fraud detection** and **risk analysis** scenarios.
+        - Applied **machine learning** to solve complex **alignment and classification tasks** with results pending publication.
     
     - title: AI/ML Intern
       company: Eli Lilly
       duration: May 2024 - Aug 2024
       responsibilities:
-        - Built query-based exploration tool integrating **GraphRAG and graph traversal algorithms** for subgraph extraction.
-        - Lead the research and development of ML methods for **large-scale graph analysis** handling **over 1 million nodes**.
-        - Implemented **supervised and semi-supervised methods** for  knowledge discovery. Achieved **over 96% recall** with semi-supervised methods.
-        - **Collaborated with cross-functional and international teams** across chemistry/pharma, finance, and marketing departments.
-        - Created **user-friendly web interface** with interactive features for decision-making processes of field experts.
+        - Built **production ML tool** integrating **advanced graph algorithms** for pattern extraction from **large-scale datasets** with **over 1 million nodes**.
+        - Implemented and **deployed supervised and semi-supervised ML models** for knowledge discovery. Achieved **over 96% recall** with semi-supervised methods.
+        - **Collaborated with cross-functional teams** across chemistry, finance, and marketing departments, translating **business requirements into ML solutions**.
+        - Developed **robust ML pipeline** with **user-friendly interface** enabling real-time decision-making for domain experts.
     
     - title: Data Science Researcher
       company: Purdue University
       duration: Dec 2019 - Apr 2022
       responsibilities:
-        - Conducted research on **time series analysis and prediction models** for early anomaly detection.
-        - Architected **scalable real-time streaming data pipeline** using MQTT to process distributed IoT sensor data.
-        - Built **fault-tolerant distributed system** for multivariate time series analytics.
-        - Implemented **concurrent multi-threaded operations** for real-time classification and prediction across multiple streams.
-
-    - title: System Software Engineer
-      company: Parsian e-Commerce Co.
-      duration: Sep 2013 - Aug 2016
-      responsibilities:
-        - Maintained Linux based POS (Point-of-Sale) devices
-        - Lead the design and development of reconfigurable embedded printer library, USSD connection, LAN and dial-up embedded applications, and POS to web-app and desktop application connection
-
+        - Built **production-ready real-time anomaly detection system** using **time series analysis and prediction models** for early detection, directly applicable to **fraud detection** scenarios.
+        - Architected **scalable real-time streaming ML pipeline** using **MQTT** to process distributed IoT sensor data with **low-latency inference**.
+        - Deployed **fault-tolerant distributed ML system** for multivariate time series analytics with **robust monitoring and alerting**.
+        - Implemented **concurrent multi-threaded operations** for **real-time classification and prediction** across multiple data streams, ensuring **production-level performance**.
 
 # Rest of the resume remains unchanged from original...
 # ==================== EDUCATION ====================

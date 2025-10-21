@@ -1,0 +1,42 @@
+Company: Orbis Group
+Position: Machine Learning Engineer 
+Location: New York City Metropolitan Area
+
+Join a fast-growing fintech transforming how financial institutions manage identity and risk. Recently recognized by Inc. Magazine, Forbes, and American Banker as one of the top workplaces in the industry. The company fosters a culture of bold ideas, hands-on execution, and collaboration. 
+
+## About the Role
+
+We’re seeking a Machine Learning Engineer to join the team powering real-time, intelligent fraud detection for leading financial platforms. 
+
+
+
+You’ll design, train, and deploy production-ready models that make fraud detection faster, smarter, and more adaptive, while helping shape how AI is integrated across the company’s products.
+
+
+## What You’ll Do
+
+Build, train, and evaluate machine learning models that detect fraud in real time.
+Develop and maintain robust ML pipelines - from data preparation through deployment and monitoring.
+Research and apply the latest advancements in applied ML and fraud analytics.
+
+
+## What We’re Looking For
+
+3+ years of experience in machine learning, data science, or advanced analytics, ideally with production model deployment experience.
+Strong programming and data skills - Python and SQL are essential.
+
+
+Nice to Have
+
+Experience in fraud detection or the financial services domain.
+Background in startup or high-growth environments.
+
+
+## Compensation & Benefits
+
+Base salary: $160,000 – $190,000 + equity
+Unlimited PTO and flexible hybrid schedule
+401k with 100% match up to 4%
+Comprehensive medical, dental, and vision plans with HSA/FSA options
+16 weeks paid parental leave for eligible new parents
+Catered lunches and regular in-office events fostering collaboration and community.
