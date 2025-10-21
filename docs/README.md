@@ -235,21 +235,21 @@ You can have multiple skills, work, or research sections:
 # Example: Focused resume with multiple skill sections
 technical_skills:
   _type: skills
-  _title: Technical Skills
+  title: Technical Skills
   languages:
     - Python
     - Go
 
 soft_skills:
   _type: skills
-  _title: Soft Skills
+  title: Soft Skills
   leadership:
     - Team Management
     - Mentoring
 
 recent_experience:
   _type: work
-  _title: Recent Experience (Last 3 Years)
+  title: Recent Experience (Last 3 Years)
   items:
     - title: Senior Engineer
       company: Current Company
@@ -257,7 +257,7 @@ recent_experience:
 
 early_experience:
   _type: work
-  _title: Early Career
+  title: Early Career
   items:
     - title: Junior Developer
       company: First Company
@@ -302,12 +302,12 @@ Edit `resume.js` to change:
 
 ### YAML Structure
 
-**Key Concept:** Each section has `_type`, `_title`, and optional `_labels` fields that control rendering. All content and labels are defined in YAML.
+**Key Concept:** Each section has `_type`, `title`, and optional `_labels` fields that control rendering. All content and labels are defined in YAML.
 
 ```yaml
 section_name:
   _type: section_type      # Determines how section is rendered
-  _title: Display Title    # What appears as section heading
+  title: Display Title    # What appears as section heading
   _labels:                 # Optional: customize field labels
     field_name: Custom Label
   # ... section data follows
@@ -340,7 +340,7 @@ section_name:
 ```yaml
 summary:
   _type: summary
-  _title: Summary
+  title: Summary
   content: |
     ML researcher and engineer. **Seeking** a role in *ML*, *Data science*,
     or *GenAI*, with demonstrated ability to integrate __ML innovations__
@@ -348,7 +348,7 @@ summary:
 
 work_experience:
   _type: work
-  _title: Work Experience
+  title: Work Experience
   items:
     - title: Software Engineer
       company: Tech Corp
@@ -366,14 +366,14 @@ personal_info:
 # Example - Summary:
 summary:
   _type: summary
-  _title: Summary
+  title: Summary
   content: |
     Your summary text
 
 # Example - Education with custom labels:
 education:
   _type: education
-  _title: Education
+  title: Education
   _labels:                  # Optional
     degree: Qualification
     institution: University
@@ -386,18 +386,18 @@ education:
 # Example - Skills (NEW STRUCTURE):
 core_skills:
   _type: skills
-  _title: Core Skills
+  title: Core Skills
   
   programming_languages:      # Category key
-    _title: Programming Languages  # Required: category display name
-    _items:                        # Required: skill items as array
+    title: Programming Languages  # Required: category display name
+    items:                        # Required: skill items as array
       - Python
       - C++
       - JavaScript
   
   frameworks:
-    _title: Frameworks & Libraries
-    _items:
+    title: Frameworks & Libraries
+    items:
       - React
       - Django
       - TensorFlow
@@ -405,7 +405,7 @@ core_skills:
 # Example - Work with custom labels:
 work_experience:
   _type: work
-  _title: Work Experience
+  title: Work Experience
   _labels:                  # Optional
     title: Position
     company: Organization
@@ -424,7 +424,7 @@ work_experience:
 - `contact` - Personal information (name, email, links)
 - `summary` - Professional summary (uses `content` field)
 - `education` - Education entries (uses `items` array, optional `_labels`)
-- `skills` - Skills grouped by category (each category has `_title` and `_items`)
+- `skills` - Skills grouped by category (each category has `title` and `items`)
 - `work` - Work experience (uses `items` array, optional `_labels`)
 - `research` - Research projects (uses `items` array, optional `_labels`)
 - `certificates` - Certifications (uses `items` array, optional `_labels`)
@@ -432,7 +432,7 @@ work_experience:
 
 **Key Features:**
 - ✅ **Content control in YAML:** All text, labels, and structure defined in YAML
-- ✅ **Skills structure:** Each category has `_title` (display name) and `_items` (array of skills)
+- ✅ **Skills structure:** Each category has `title` (display name) and `items` (array of skills)
 - ✅ **Custom labels:** Use `_labels` to rename fields (e.g., "Position" instead of "Title")
 - ✅ **Reorder sections:** YAML order = display order
 - ✅ **Multiple sections of same type:** Have multiple `skills`, `work`, etc. sections
@@ -572,17 +572,17 @@ Create different resume versions by adjusting section order and titles:
 ```yaml
 # resume-academic.yml
 personal_info: { _type: contact, ... }
-education: { _type: education, _title: "Education", ... }
-research: { _type: research, _title: "Research Experience", ... }
-publications: { _type: publications, _title: "Publications", ... }
-industry_work: { _type: work, _title: "Industry Experience", ... }
+education: { _type: education, title: "Education", ... }
+research: { _type: research, title: "Research Experience", ... }
+publications: { _type: publications, title: "Publications", ... }
+industry_work: { _type: work, title: "Industry Experience", ... }
 
 # resume-industry.yml  
 personal_info: { _type: contact, ... }
-work_experience: { _type: work, _title: "Professional Experience", ... }
-technical_skills: { _type: skills, _title: "Technical Skills", ... }
-education: { _type: education, _title: "Education", ... }
-certifications: { _type: certificates, _title: "Certifications", ... }
+work_experience: { _type: work, title: "Professional Experience", ... }
+technical_skills: { _type: skills, title: "Technical Skills", ... }
+education: { _type: education, title: "Education", ... }
+certifications: { _type: certificates, title: "Certifications", ... }
 ```
 
 Simply rename the file you want to use to `resume.yml`.
