@@ -155,6 +155,13 @@ work_experience:
         - Built **Django web services** with RESTful APIs for system integration
         - Implemented **clean, maintainable Python code** with comprehensive testing
 
+    - title: System Software Engineer
+      company: Parsian e-Commerce Co.
+      duration: Sep 2013 - Aug 2016
+      responsibilities:
+        - Maintained Linux based POS (Point-of-Sale) devices
+        - Lead the design and development of reconfigurable embedded printer library, USSD connection, LAN and dial-up embedded applications, and POS to web-app and desktop application connection
+
 # ==================== RESEARCH EXPERIENCE ====================
 research_experience:
   _type: research
