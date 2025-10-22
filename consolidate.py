@@ -119,13 +119,6 @@ def consolidate():
         modified_js
     )
 
-    # Also remove the globalResumeData declaration
-    modified_js = re.sub(
-        r'// Store the parsed resume data globally for access in save functions\s*\nlet globalResumeData = null;\s*\n+',
-        '',
-        modified_js
-    )
-
     # Replace the entire fetch block in loadResume function
     # Match from "// Fetch the YAML file" through "let yamlText = await response.text();"
     fetch_block_pattern = r"([ \t]*)// Fetch the YAML file\s*\n\s*const response = await fetch\('resume\.yml'\);.*?\n.*?let yamlText = await response\.text\(\);"
@@ -153,9 +146,6 @@ const YAML_DATA = `{yaml_escaped}`;
 
 // Store the original YAML text globally
 let originalYamlText = YAML_DATA;
-
-// Store the parsed resume data globally for access in save functions
-let globalResumeData = null;
 
 """
     modified_js = yaml_constant + modified_js

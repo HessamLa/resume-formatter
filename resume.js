@@ -1,9 +1,6 @@
 // Store the original YAML text globally
 let originalYamlText = '';
 
-// Store the parsed resume data globally for access in save functions
-let globalResumeData = null;
-
 // Load and render resume from YAML file
 async function loadResume() {
     try {
@@ -24,9 +21,6 @@ async function loadResume() {
 
         // Parse YAML using js-yaml library (loaded from CDN)
         const data = jsyaml.load(yamlText);
-
-        // Store data globally for save functions
-        globalResumeData = data;
 
         // Render the resume
         renderResume(data);
@@ -69,6 +63,24 @@ async function loadResume() {
         `;
         console.error('Error loading resume:', error);
     }
+}
+
+// Update page title based on _meta.save_filename
+function updatePageTitle(data) {
+    if (!data || !data._meta || !data._meta.save_filename) {
+        document.title = 'Resume'; // Keep default title if no save_filename specified
+        return; 
+    }
+
+    // Convert save_filename to a readable title
+    // Example: "My-new-resume" -> "My New Resume"
+    const filename = data._meta.save_filename;
+    const title = filename
+        .split(/_|\-/) // split by - or _
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
+    document.title = title;
 }
 
 // Display validation alerts in the UI
@@ -136,12 +148,22 @@ function checkIfAlertsEmpty() {
     }
 }
 
-// Helper function to hide alert container if all alerts are dismissed
-function checkIfAlertsEmpty() {
-    const alertContainer = document.getElementById('validation-alerts');
-    if (alertContainer && alertContainer.children.length === 0) {
-        alertContainer.style.display = 'none';
+// Add _meta data to hidden DOM element for access by save functions
+function addMetaDataToDOM(data) {
+    // _meta:
+    //     sections_order: []
+    //     job_summary:  "str"
+    //     save_filename: "str"
+    const meta = data._meta;
+    if(!meta) return;
+    let metadataDiv = document.getElementById('resume-metadata');
+    if (!metadataDiv) {
+        metadataDiv = document.createElement('div');
+        metadataDiv.id = 'resume-metadata';
+        metadataDiv.style.display = 'none'; // Hide the metadata div
+        document.body.appendChild(metadataDiv);
     }
+    metadataDiv.textContent = JSON.stringify(meta);
 }
 
 // Validate section ordering and check for mismatches
@@ -229,7 +251,7 @@ function validateAndReorderSections(data) {
 }
 
 // Main render function - processes sections dynamically based on _type
-function renderResume(data) {
+function renderResume(data) {  
     const container = document.getElementById('resume-container');
     let html = '';
     
@@ -245,6 +267,11 @@ function renderResume(data) {
         'publications': renderPublications
     };
     
+    // Update page title
+    updatePageTitle(data);
+
+    addMetaDataToDOM(data);
+
     // Validate and reorder sections if _meta._section_order exists
     const { orderedData, alerts } = validateAndReorderSections(data);
     data = orderedData;
@@ -767,11 +794,10 @@ function saveAsHTML() {
     fetch('style.css')
         .then(response => response.text())
         .then(cssContent => {
-            // Get filename from _meta or use default
-            let baseFilename = 'myresume';
-            if (globalResumeData && globalResumeData._meta && globalResumeData._meta.save_filename) {
-                baseFilename = globalResumeData._meta.save_filename;
-            }
+            // Get filename from page title (which is set from _meta.save_filename)
+            // Convert title back to filename format: "Hessam Alizadeh Resume" -> "Hessam-Alizadeh-Resume"
+            const pageTitle = document.title || 'Resume';
+            const baseFilename = pageTitle.replace(/\s+/g, '-');
             const filename = baseFilename + '.html';
             
             // Create complete HTML document
@@ -829,8 +855,29 @@ function saveAsHTML() {
 
 // Save as PDF (triggers browser print dialog)
 function saveAsPDF() {
+    const originalTitle = document.title;
+
+    // Get metadata from DOM and overwrite the document title only if a 'save_filename' exists
+    const metadataDiv = document.getElementById('resume-metadata');
+    if (metadataDiv && metadataDiv.textContent) {
+        try {
+            const meta = JSON.parse(metadataDiv.textContent);
+            if (meta && meta.save_filename) {
+                // Set title to the save_filename for PDF export
+                document.title = meta.save_filename;
+            }
+        } catch (e) {
+            console.error('Error parsing metadata:', e);
+        }
+    }
+
     // Trigger browser print dialog
     window.print();
+
+    // Restore original title after a short delay
+    setTimeout(() => {
+        document.title = originalTitle;
+    }, 1000);
 
     // Show instructions
     setTimeout(() => {
@@ -973,9 +1020,6 @@ function setupYamlEditor() {
 
                 // Parse and render
                 const data = jsyaml.load(yamlText);
-
-                // Update global data for save functions
-                globalResumeData = data;
 
                 renderResume(data);
 
