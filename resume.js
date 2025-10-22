@@ -790,18 +790,39 @@ function saveAsHTML() {
     // Get the resume content
     const resumeContent = document.getElementById('resume-container').innerHTML;
 
-    // Read the CSS content
-    fetch('style.css')
-        .then(response => response.text())
-        .then(cssContent => {
-            // Get filename from page title (which is set from _meta.save_filename)
-            // Convert title back to filename format: "Hessam Alizadeh Resume" -> "Hessam-Alizadeh-Resume"
-            const pageTitle = document.title || 'Resume';
-            const baseFilename = pageTitle.replace(/\s+/g, '-');
-            const filename = baseFilename + '.html';
-            
-            // Create complete HTML document
-            const completeHTML = `<!DOCTYPE html>
+    // Get CSS content - either from embedded <style> tag or fetch from file
+    let cssPromise;
+
+    // Find the style tag in <head> that contains our resume CSS
+    // (avoid picking up extension/injected styles)
+    const styleTags = document.head.querySelectorAll('style');
+    let resumeStyleTag = null;
+
+    for (const tag of styleTags) {
+        // Check if this style tag contains our resume CSS (look for distinctive class)
+        if (tag.textContent && tag.textContent.includes('/* ==================== BASE STYLES ====================')) {
+            resumeStyleTag = tag;
+            break;
+        }
+    }
+
+    if (resumeStyleTag && resumeStyleTag.textContent) {
+        // Running from all.html (embedded CSS)
+        cssPromise = Promise.resolve(resumeStyleTag.textContent);
+    } else {
+        // Running from index.html (external CSS)
+        cssPromise = fetch('style.css').then(response => response.text());
+    }
+
+    cssPromise.then(cssContent => {
+        // Get filename from page title (which is set from _meta.save_filename)
+        // Convert title back to filename format: "Hessam Alizadeh Resume" -> "Hessam-Alizadeh-Resume"
+        const pageTitle = document.title || 'Resume';
+        const baseFilename = pageTitle.replace(/\s+/g, '-');
+        const filename = baseFilename + '.html';
+
+        // Create complete HTML document
+        const completeHTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
