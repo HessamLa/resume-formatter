@@ -10,7 +10,7 @@ async function loadResume() {
         if (!response.ok) {
             // If resume.yml fails, try the template as fallback
             console.log('resume.yml not found, trying resume-template.yml...');
-            response = await fetch('resumes/resume-template.yml');
+            response = await fetch('examples/resume-template.yml');
             
             if (!response.ok) {
                 throw new Error(`Failed to load both resume.yml and resume-template.yml: ${response.statusText}`);
