@@ -1,0 +1,2240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hessam Alizadeh - Resume</title>
+    <!-- KaTeX for LaTeX Math Rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <!-- YAML Parser from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+
+    <style>
+/* ==================== BASE STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Font Schemes - Store as data attributes for JavaScript access */
+:root {
+    /* Active scheme (medium by default) */
+    --font-base: 10pt;
+    --font-medium: 11pt;
+    --font-large: 16pt;
+
+    /* Scheme definitions */
+    --scheme-1-base: 9pt;
+    --scheme-1-medium: 10pt;
+    --scheme-1-large: 14pt;
+    --scheme-1-label: 'Small';
+
+    --scheme-2-base: 10pt;
+    --scheme-2-medium: 11pt;
+    --scheme-2-large: 16pt;
+    --scheme-2-label: 'Medium';
+
+    --scheme-3-base: 11pt;
+    --scheme-3-medium: 12pt;
+    --scheme-3-large: 18pt;
+    --scheme-3-label: 'Large';
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: var(--font-base);;
+    line-height: 1.3;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.loading {
+    text-align: center;
+    padding: 50px;
+    font-size: 14px;
+}
+
+/* ==================== VALIDATION ALERTS / MESSAGE BOX ==================== */
+.validation-alerts-container {
+    display: none;
+    position: fixed;
+    right: 20px;
+    width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 997; /* Below control pane */
+    transition: top 0.3s ease;
+}
+
+/* Position below control pane - dynamically set via JavaScript */
+#control-pane ~ .validation-alerts-container {
+    /* top will be set dynamically based on control pane height */
+}
+
+.validation-alert {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease-out;
+    border-left: 3px solid;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Blue - Information */
+.validation-alert-info {
+    background: #e8f4fd;
+    border-left-color: #2196F3;
+    color: #0d47a1;
+}
+
+/* Yellow - Warning */
+.validation-alert-warning {
+    background: #fffbea;
+    border-left-color: #f39c12;
+    color: #d68910;
+}
+
+/* Red - Error */
+.validation-alert-error {
+    background: #fee;
+    border-left-color: #e74c3c;
+    color: #c0392b;
+}
+
+.alert-icon {
+    font-size: 14px;
+    margin-right: 8px;
+    flex-shrink: 0;
+    line-height: 1.5;
+    font-style: normal;
+}
+
+.alert-message {
+    flex: 1;
+    line-height: 1.5;
+    word-break: break-word;
+    font-size: 12px;
+}
+
+.alert-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+    color: inherit;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+}
+
+.alert-close:hover {
+    opacity: 1;
+}
+
+/* Scrollbar styling for message box */
+.validation-alerts-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.validation-alerts-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.validation-alerts-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.validation-alerts-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* For print media, hide alerts */
+@media print {
+    .validation-alerts-container {
+        display: none !important;
+    }
+}
+
+/* ==================== MAIN CONTENT LAYOUT ==================== */
+#main-content {
+    display: flex;
+    gap: 0;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* ==================== YAML PANEL ==================== */
+.yaml-panel {
+    position: relative;
+    display: flex;
+    width: 0;
+    min-width: 0;
+    transition: width 0.3s ease, min-width 0.3s ease;
+    background: #1e1e1e;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+.yaml-panel.expanded {
+    width: 600px;
+    min-width: 400px;
+}
+
+.yaml-toggle-btn {
+    position: fixed;
+    left: 0;
+    top: 50vh;
+    transform: translateY(-50%);
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 40px 8px;
+    font-size: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    z-index: 101;
+}
+
+.yaml-toggle-btn:hover {
+    background: #34495e;
+    left: -2px;
+}
+
+.yaml-panel.expanded .yaml-toggle-btn {
+    left: 600px;
+}
+
+.yaml-panel.expanded .yaml-toggle-btn:hover {
+    left: 598px;
+}
+
+.yaml-editor-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.yaml-panel.expanded .yaml-editor-container {
+    opacity: 1;
+}
+
+.yaml-editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: #252526;
+    border-bottom: 1px solid #3e3e42;
+}
+
+.yaml-editor-title {
+    color: #cccccc;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.copy-yaml-btn {
+    background: #0e639c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.copy-yaml-btn:hover {
+    background: #1177bb;
+}
+
+.copy-yaml-btn:active {
+    background: #0d5a8f;
+}
+
+.yaml-editor {
+    flex: 1;
+    width: 100%;
+    padding: 15px;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow-y: auto;
+    tab-size: 2;
+}
+
+.yaml-editor::selection {
+    background: #264f78;
+}
+
+/* ==================== RESUME PANEL ==================== */
+.resume-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background: #f5f5f5;
+    overflow-y: auto;
+}
+
+#resume-container {
+    max-width: 8.5in;
+    width: 100%;
+    background: white;
+    padding: 0.3in;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* ==================== CONTROL PANE ==================== */
+#control-pane {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-width: 280px;
+    max-width: 320px;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    user-select: none;
+}
+
+.toggle-btn:hover {
+    background: #34495e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.toggle-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn:focus {
+    outline: 2px solid rgba(52, 73, 94, 0.5);
+    outline-offset: 2px;
+}
+
+.toggle-icon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    margin-left: 8px;
+}
+
+.toggle-text {
+    flex: 1;
+}
+
+/* Pane Content */
+.pane-content {
+    background: #2c3e50;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    margin-top: 12px;
+    overflow: hidden;
+    max-height: 600px;
+    opacity: 1;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.pane-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    box-shadow: none;
+}
+
+/* Pane Sections */
+.pane-section {
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.pane-section:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.pane-section:last-child {
+    border-bottom: none;
+}
+
+.pane-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    color: #bdc3c7;
+    display: flex;
+    align-items: center;
+}
+
+/* Save Buttons */
+#save-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.save-btn {
+    background: #34495e;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex: 1;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    user-select: none;
+}
+
+.save-btn:hover {
+    background: #415b76;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.save-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.save-btn:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.3);
+    outline-offset: 2px;
+}
+
+/* Debug Button - Hidden by default (uncomment display to enable for debugging) */
+.debug-btn {
+    display: none;  /* Hide debug button - remove this line to enable debugging */
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    margin-top: 8px;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.debug-btn:hover {
+    background: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+.debug-btn:active {
+    transform: translateY(0);
+}
+
+.debug-btn.active {
+    background: #27ae60;
+    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+}
+
+.debug-btn.active:hover {
+    background: #229954;
+}
+
+/* Control Sliders */
+.control-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-slider input[type="range"] {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.control-slider input[type="range"]:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.control-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 3px solid #34495e;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.control-slider input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    border-color: #415b76;
+}
+
+.control-slider input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(0.95);
+}
+
+.control-slider input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 3px solid #34495e;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.control-slider input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    border-color: #415b76;
+}
+
+.control-slider input[type="range"]::-moz-range-thumb:active {
+    transform: scale(0.95);
+}
+
+.control-slider span {
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+    color: #ecf0f1;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* ==================== FORMATTING STYLES ==================== */
+
+/* Monospace code styling */
+code.monospace {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.95em;
+    color: #2c3e50;
+    border: 1px solid #e0e0e0;
+}
+
+/* Mathematical notation styling - KaTeX renders its own styles */
+/* Error styling for invalid LaTeX */
+.math-error {
+    color: #e74c3c;
+    background-color: #fce4e4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    border: 1px solid #e74c3c;
+    cursor: help;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+    text-align: center;
+    margin-bottom: 6pt;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.header h1 {
+    font-size: var(--font-large);;
+    font-weight: bold;
+    margin-bottom: 1pt;
+}
+
+.header .subtitle {
+    /* font-size: 10pt; */
+    margin-bottom: 1pt;
+    font-weight: normal;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    /* font-size: 10pt; */
+}
+
+.contact-info a {
+    color: #0000EE;
+    text-decoration: underline;
+}
+
+/* ==================== SECTIONS ==================== */
+.section {
+    margin-bottom: 3pt;
+}
+
+
+/* This is for section titles with bottom border */
+/* .section-title {
+    font-size: var(--font-medium);;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+    margin-bottom: 1pt;
+    padding-bottom: 1pt;
+    border-bottom: 1pt solid #000;
+} */
+
+/* The following two are for section titles with horizontal line extending to the right */
+.section-title {
+    font-size: var(--font-medium);;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+    display: flex;
+    align-items: center;         /* Center line vertically with text */
+    gap: 0.3em;                  /* Regular space between text and line */
+}
+
+.section-title::after {
+  content: "";                 /* Empty pseudo-element */
+  flex-grow: 1;                /* Stretch to fill remaining space */
+  height: 1pt;                 /* Line thickness (matching old border) */
+  background-color: #000;      /* Line color */
+}
+
+/* ==================== SUMMARY (INLINE STYLE) ==================== */
+.summary-inline {
+    line-height: 1.3;
+    text-align: justify;
+    margin-bottom: 3pt;
+}
+
+.summary-inline strong {
+    font-size: var(--font-medium);;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+}
+
+/* ==================== EDUCATION ==================== */
+.education-item {
+    margin-bottom: 0pt;
+    position: relative;
+    padding-left: 6pt;
+}
+
+.education-item .degree {
+    font-weight: bold;
+    display: inline;
+}
+
+.education-item .institution {
+    display: inline;
+}
+
+.education-item .date {
+    float: right;
+    font-weight: normal;
+}
+
+/* ==================== SKILLS ==================== */
+.skills-category {
+    margin-bottom: 0pt;
+    line-height: 1.3;
+    padding-left: 6pt;
+}
+
+.skills-category strong {
+    font-weight: bold;
+}
+
+.skills-list {
+}
+
+/* ==================== EXPERIENCE ==================== */
+.experience-item, .research-item {
+    margin-bottom: 3pt;
+    page-break-inside: avoid;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0pt;
+    padding-left: 6pt;
+}
+
+.job-title {
+    display: inline;
+    font-weight: bold;
+}
+
+.company {
+    display: inline;
+    font-weight: bold;
+}
+
+.duration {
+    white-space: nowrap;
+    font-weight: normal;
+}
+
+.responsibilities {
+    list-style-position: outside;
+    margin-left: 15pt;
+    margin-top: 0pt;
+    padding-left: 6pt;
+}
+
+.responsibilities li {
+    margin-bottom: 0pt;
+    line-height: 1.3;
+}
+
+/* ==================== RESEARCH ==================== */
+.research-title {
+    font-weight: bold;
+    /* font-style: italic; */
+    padding-left: 6pt;
+}
+
+.research-type {
+    font-style: normal;
+    padding-left: 12pt;
+}
+
+.research-description {
+    text-align: justify;
+    margin-bottom: 2pt;
+    padding-left: 12pt;
+}
+
+.applied-methods {
+    margin-top: 0pt;
+    padding-left: 18pt;
+}
+
+.applied-methods strong {
+    font-weight: bold;
+}
+
+.methods-list {
+    /* font-style: italic; */
+}
+
+/* ==================== CERTIFICATES ==================== */
+.certificate-item {
+    margin-bottom: 3pt;
+    padding-left: 6pt;
+}
+
+.certificate-name {
+    font-weight: bold;
+}
+
+.certificate-institution {
+}
+
+.certificate-link {
+    color: #0000EE;
+    text-decoration: underline;
+}
+
+/* ==================== PUBLICATIONS ==================== */
+.publications-note {
+    margin-bottom: 2pt;
+    padding-left: 6pt;
+}
+
+.publications-link {
+    color: #0000EE;
+    text-decoration: underline;
+    padding-left: 6pt;
+}
+
+/* ==================== DEBUG MODE ==================== */
+/* Visual indicators for print margin debugging */
+body.print-debug-mode {
+    position: relative;
+}
+
+body.print-debug-mode::before {
+    content: 'DEBUG MODE: Yellow = @page margin, Blue = body area, Green outline = container';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #e74c3c;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10000;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body.print-debug-mode #main-content {
+    background: rgba(52, 152, 219, 0.2) !important;
+    outline: 3px solid blue !important;
+}
+
+body.print-debug-mode #resume-panel {
+    background: rgba(52, 152, 219, 0.15) !important;
+}
+
+body.print-debug-mode #resume-container {
+    outline: 3px solid green !important;
+    position: relative;
+}
+
+body.print-debug-mode #resume-container::before {
+    content: 'Container padding: ' attr(data-padding);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: green;
+    color: white;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+/* Measurement rulers in debug mode */
+body.print-debug-mode::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background:
+        repeating-linear-gradient(90deg,
+            rgba(255,0,0,0.3) 0,
+            rgba(255,0,0,0.3) 1px,
+            transparent 1px,
+            transparent 0.1in),
+        repeating-linear-gradient(0deg,
+            rgba(255,0,0,0.3) 0,
+            rgba(255,0,0,0.3) 1px,
+            transparent 1px,
+            transparent 0.1in);
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    /* Default: Use @page margins for consistent spacing across pages */
+    @page {
+        margin: var(--print-margin-top, 0.3in)
+                var(--print-margin-side, 0.3in)
+                var(--print-margin-bottom, 0.3in)
+                var(--print-margin-side, 0.3in);
+        size: letter;
+    }
+
+    /* Force zero margins and padding on body */
+    body {
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .validation-alerts-container {
+        display: none !important;
+    }
+
+    /* Force zero padding on layout containers */
+    #main-content {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: white !important;
+    }
+
+    #resume-panel {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: white !important;
+    }
+
+    /* Remove container padding - @page margins handle all spacing */
+    #resume-container {
+        max-width: 100%;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Triple-layer hiding for maximum compatibility */
+    #control-pane,
+    #save-buttons,
+    .save-btn,
+    .control-slider,
+    .toggle-btn,
+    .pane-content,
+    #font-size-control,
+    #margin-control,
+    .yaml-panel,
+    .yaml-toggle-btn,
+    .yaml-editor-container,
+    .debug-btn {
+        display: none !important;        /* Hide from layout */
+        visibility: hidden !important;   /* Hide visibility */
+        opacity: 0 !important;           /* Make transparent */
+    }
+
+    .loading {
+        display: none !important;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+
+    .experience-item, .research-item {
+        page-break-inside: avoid;
+    }
+
+    a {
+        color: #0000EE !important;
+        text-decoration: underline;
+    }
+
+    .header {
+        border-bottom: none !important;
+    }
+
+    .section-title {
+        border-bottom-color: #000 !important;
+    }
+    .section-title::after {
+        background-color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="loading">Loading resume...</div>
+
+    <!-- Expandable Control Pane (hidden until resume loads) -->
+    <div id="control-pane" style="display: none;">
+        <!-- Toggle Button -->
+        <button id="toggle-pane-btn" class="toggle-btn">
+            <span class="toggle-icon">▲</span>
+            <span class="toggle-text">Controls</span>
+        </button>
+
+        <!-- Pane Content -->
+        <div id="pane-content" class="pane-content">
+            <!-- Save Buttons -->
+            <div class="pane-section">
+                <div class="pane-section-title">Export</div>
+                <div id="save-buttons">
+                    <button id="save-html-btn" class="save-btn">💾 Save as HTML</button>
+                    <button id="save-pdf-btn" class="save-btn">📄 Save as PDF</button>
+                </div>
+                <button id="debug-print-btn" class="debug-btn">🔍 Debug Print Margins</button>
+            </div>
+
+            <!-- Font Size Slider -->
+            <div class="pane-section">
+                <div class="pane-section-title">Font Size</div>
+                <div id="font-size-control" class="control-slider">
+                    <input type="range" id="font-size-slider" min="1" max="3" value="2" step="1">
+                    <span id="font-size-label">Medium</span>
+                </div>
+            </div>
+
+            <!-- Margin Slider -->
+            <div class="pane-section">
+                <div class="pane-section-title">Margins</div>
+                <div id="margin-control" class="control-slider">
+                    <input type="range" id="margin-slider" min="0" max="5" value="1" step="1">
+                    <span id="margin-label"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Validation Alerts Container -->
+    <div id="validation-alerts" class="validation-alerts-container"></div>
+
+    <!-- Main Content Area with Two Panels -->
+    <div id="main-content" style="display: none;">
+        <!-- Left Panel - YAML Editor (collapsed by default) -->
+        <div id="yaml-panel" class="yaml-panel">
+            <button id="toggle-yaml-btn" class="yaml-toggle-btn">◀ YAML</button>
+            <div id="yaml-editor-container" class="yaml-editor-container">
+                <div class="yaml-editor-header">
+                    <span class="yaml-editor-title">YAML Editor</span>
+                    <button id="copy-yaml-btn" class="copy-yaml-btn" title="Copy to clipboard">📋 Copy</button>
+                </div>
+                <textarea id="yaml-editor" class="yaml-editor" spellcheck="false"></textarea>
+            </div>
+        </div>
+
+        <!-- Right Panel - Resume Output -->
+        <div id="resume-panel" class="resume-panel">
+            <div id="resume-container">
+                <!-- Resume content will be injected here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+// YAML data embedded inline
+const YAML_DATA = `# Resume - Hessam Alizadeh (Hamidreza Lotfalizadeh, Ph.D.)
+# Use markdown-style formatting for **bold** and _italics_
+
+_meta:
+  sections_order: [
+      "section_contact",
+      "section_summary",
+      "section_education",
+      "section_skills",
+      "section_work",
+      "section_research",
+      "section_certificates",
+      "section_publications"
+      ]
+  job_summary:  # a very short summary of the job description
+      "Seeking a Machine Learning Engineer with 3+ years of experience to join {company name or description}."
+
+# ==================== CONTACT ====================
+section_contact:
+  _type: contact
+  name: Hessam Alizadeh
+  full_name: (Hamidreza Lotfalizadeh, Ph.D.)
+  location: Bryan, Tx (willing to relocate)  # Update as needed
+  email: hamidla.ap@gmail.com
+  linkedin: linkedin.com/in/hessamla
+  github: github.com/hessamla
+  scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
+
+# ==================== SUMMARY ====================
+section_summary:
+  _type: summary
+  title: Summary
+  content:
+    ML researcher and engineer. Seeking a role in **ML**, **Data science**, or **GenAI**, with an affinity for systems design and engineering and system programming. Demonstrated ability to integrate ML innovations into complex environments through effective cross-functional collaboration.
+
+# ==================== TECHNICAL SKILLS ====================
+section_skills:
+  _type: skills
+  title: Technical Skills
+  skillset1:
+      title: Proficient
+      items: Python, C, C++
+  skillset2:
+      title: Programming & Databases
+      items: C#, Java, JavaScript, Rust, TypeScript, SQL, Gremlin
+  skillset3:
+      title: Tools & Paradigms
+      items: OOP, Functional, Concurrent & Parallel Programming, Embedded, Linux Programming, Bash, Shell, Make, WAF, Gradle, Spring Boot
+  skillset4:
+      title: AI/ML
+      items: PyTorch, Tensorflow, CUDA, Numpy, Pandas, SciPy, Scikit-Learn, MLFlow, Experiment tracking, Node2Vec, NodeForce, Transformers, CNN, RNN, CRNN, GNN, GCN
+  skillset5:
+      title: NLP/LLM
+      items: Fine-Tuning, PEFT, RAG, LangChain, LangGraph, Prompt Engineering, Context Engineering
+  skillset6:
+      title: Statistical Analysis
+      items: Design of Experiments, Time series analysis, Entropy analysis, Statistical modeling
+  skillset7:
+      title: Infrastructure and DevOps
+      items: Computer architecture, Distributed systems architecture, SLURM, CI/CD, Git, AWS, Neptune, GCP, OCI, RESTful APIs, SQL, Docker, Podman, Kubernetes, MQTT
+
+# ==================== WORK EXPERIENCE ====================
+section_work:
+  _type: work
+  _labels:
+    title: Title
+    company: Company
+    duration: Duration
+    responsibilities: Responsibilities
+  title: Work Experience
+  items:
+    - title: Graph Networks Specialist
+      company: Inertia Systems
+      duration: Apr 2025 - Sep 2025
+      responsibilities:
+        - Developed **graph-based system** for construction tech to manage and resolve conflicts in building plans. Achieved over **95% time efficiency** in conflicts detection and resolution.
+        - Employed **Neptune graph database** with **SQL-like Gremlin queries** for conflict detection and resolution.
+        - Created **graph querying system** and visualization UI for enhanced operability and stakeholder insights.
+        - Delivered features that helped marketing team **attract $3 million investment** through the product presentation.
+
+    - title: Postdoctoral Researcher
+      company: Indiana University
+      duration: Jan 2025 - Present
+      responsibilities:
+        - Researched **diffusion models** on dynamic graphs to simulate structural changes.
+        - Developed models for rumor source detection using graph diffusion.
+        - Applied graph diffusion models to solve **alignment tasks** with results pending publication.
+
+    - title: AI/ML Intern
+      company: Eli Lilly
+      duration: May 2024 - Aug 2024
+      responsibilities:
+        - Built query-based exploration tool integrating **GraphRAG and graph traversal algorithms** for subgraph extraction.
+        - Lead the research and development of ML methods for **large-scale graph analysis** handling **over 1 million nodes**.
+        - Implemented **supervised and semi-supervised methods** for  knowledge discovery. Achieved **over 96% recall** with semi-supervised methods.
+        - **Collaborated with cross-functional and international teams** across chemistry/pharma, finance, and marketing departments.
+        - Created **user-friendly web interface** with interactive features for decision-making processes of field experts.
+
+    - title: Data Science Researcher
+      company: Purdue University
+      duration: Dec 2019 - Apr 2022
+      responsibilities:
+        - Conducted research on **time series analysis and prediction models** for early anomaly detection.
+        - Architected **scalable real-time streaming data pipeline** using MQTT to process distributed IoT sensor data.
+        - Built **fault-tolerant distributed system** for multivariate time series analytics.
+        - Implemented **concurrent multi-threaded operations** for real-time classification and prediction across multiple streams.
+
+    - title: System Software Engineer
+      company: Parsian e-Commerce Co.
+      duration: Sep 2013 - Aug 2016
+      responsibilities:
+        - Maintained Linux based POS (Point-of-Sale) devices
+        - Lead the design and development of reconfigurable embedded printer library, USSD connection, LAN and dial-up embedded applications, and POS to web-app and desktop application connection
+
+
+# Rest of the resume remains unchanged from original...
+# ==================== EDUCATION ====================
+section_education:
+  _type: education
+  _labels:
+    degree: Degree
+    institution: Institution
+    campus: Campus
+    graduation_date: Graduation Date
+  title: Education
+  items:
+    - degree: PhD in Computer Engineering
+      institution: Purdue University
+      campus: Main Campus
+      graduation_date: "Dec 2024"
+
+    - degree: MSc in Computer Engineering
+      institution: Amirkabir University
+      graduation_date: "Feb 2011"
+
+    - degree: BS in Computer Engineering
+      institution: Azad University
+      graduation_date: "Jul 2008"
+
+# ==================== RESEARCH EXPERIENCE ====================
+section_research:
+  _type: research
+  _labels:
+    title: Title
+    references: References
+    institution: Institution
+    type: Type
+    description: Description
+    technical_environment: Technical Environment
+    applied_methods: Applied Methods
+  title: Research Experience
+  items:
+    - title: Graph Embedding and Graph ML
+      # references: "[1,2]"
+      institution: Purdue University
+      type: PhD Thesis
+      description:
+        My PhD thesis at Purdue University. Researched graph embedding methods. Invented a graph embedding methodology using force-directed approach and provided a mathematical proof-of-convergence using Brouwer's fixed point theorem. Optimized complexity of the method from $$O(n^2)$$ to $$O(n \\log n)$$. This method can be employed in supervised or unsupervised learning schemes. Made extensive use of PyTorch framework, CUDA library, GPU unit and memory optimization methods. Implemented parallelized algorithms for multi-GPU execution using SLURM. Improved graph task metrics (link prediction, node classification, etc.) by over 6% compared to state-of-the-art methods. Developed a library to optimize the memory utilization by searching for an optimum batch count during run time. Used "wrapper" design pattern to implement a Python decorator for the batch-count optimizer during run-time. Implemented an experiment tracking system using MLFlow.
+      technical_environment:
+        Deployed models on multi-GPU clusters using SLURM for resource management
+      applied_methods: Force-Directed approach | PyTorch | CUDA | Memory optimization | Multi-GPU scaling | SLURM job orchestration | Experiment tracking
+
+    - title: Large-Scale Knowledge Graph Processing
+      institution: Eli Lilly and Company
+      type: Internship Project
+      description:
+        An internship project at Eli Lilly and Company. Researched optimized methods for extracting subgraphs from large-scale knowledge graph and visualizing it. The objective was to provide a KG tool with search and visual exploration features, helping the user better explore the KG. The users of this tool were scientists and domain experts from various departments (chemistry/pharma, finance, marketing, etc.). In addition, for enhancing user experience, a smooth transition between various levels of visualization granularities was implemented.
+      applied_methods: Force-Directed | ForceAtlas | Community detection | Clustering | GraphViz
+
+    - title: DDoS attack detection and mitigation in SDN
+      # references: "[3,4]"
+      institution: Purdue University
+      type: Research Project
+      description:
+        A research project at Purdue University. Researching on DDoS attacks and development of methods for their detection and mitigation. In this research the network traffic flows were collected in set intervals. Then they were compiled into time series data for processing using entropy analysis and neural network models for classification and prediction. Proposed the idea of partitioning incoming traffic based on various parameters. Then, each partition was effectively a separate time series data.
+      applied_methods: Entropy analysis | Group testing | RNN and CRNN
+
+    - title: Quantum Computer Scheduler
+      institution: Amirkabir University (QDA group)
+      type: Master's Thesis
+      description:
+        A master's thesis at Amirkabir University. Designed and implemented a method and algorithm for scheduling ion-trap quantum computers with the goal of reducing execution latency of quantum program. Reduced the scheduling latency by 50% average compared to the state-of-the-art methods.
+      applied_methods: OOP in C++ | Lee's maze routing
+
+# ==================== CERTIFICATES ====================
+section_certificates:
+  _type: certificates
+  _labels:
+    name: Certificate Name
+    institution: Institution
+    verification_url: Verification
+  title: Certificates
+  items:
+    - name: Machine learning specialization
+      institution: Stanford University.
+      verification_url: https://coursera.org/verify/specialization/HMWE8SJ5U82M
+
+    - name: MLOps
+      institution: Duke University.
+      verification_url: https://coursera.org/verify/specialization/ENSE7V7CKMU7
+
+    - name: Deep learning specialization
+      institution: Stanford University.
+      # verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
+
+# ==================== PUBLICATIONS ====================
+section_publications:
+  _type: publications
+  title: Publications
+  _labels:
+    note: Note
+    scholar_url: Google Scholar
+  note: "Under the name \\"Hamidreza Lotfalizadeh\\""
+  scholar_url: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
+`;
+
+// Store the original YAML text globally
+let originalYamlText = YAML_DATA;
+
+// Load and render resume from embedded YAML data
+async function loadResume() {
+    try {
+        let yamlText = YAML_DATA;
+
+        // Store original YAML text
+        originalYamlText = yamlText;
+
+        // Fix YAML parsing issue: quote lines that start with ** (markdown bold)
+        // to prevent them from being interpreted as YAML aliases
+        yamlText = yamlText.replace(/^(\s+- )(\*\*.+)$/gm, '$1"$2"');
+
+        // Parse YAML using js-yaml library (loaded from CDN)
+        const data = jsyaml.load(yamlText);
+
+        // Render the resume
+        renderResume(data);
+
+        // Hide loading, show main content
+        document.querySelector('.loading').style.display = 'none';
+        document.getElementById('main-content').style.display = 'flex';
+
+        // Show control pane
+        document.getElementById('control-pane').style.display = 'block';
+
+        // Populate YAML editor
+        document.getElementById('yaml-editor').value = originalYamlText;
+
+        // Attach save button handlers
+        setupSaveButtons();
+
+        // Setup control sliders
+        setupControlSliders();
+
+        // Setup pane toggle
+        setupPaneToggle();
+
+        // Setup YAML editor
+        setupYamlEditor();
+
+        // Setup debug button
+        setupDebugButton();
+
+    } catch (error) {
+        document.querySelector('.loading').innerHTML = `
+            <div style="color: #e74c3c;">
+                <h2>Error Loading Resume</h2>
+                <p>${error.message}</p>
+            </div>
+        `;
+        console.error('Error loading resume:', error);
+    }
+}
+
+// Display validation alerts in the UI
+function displayValidationAlerts(alerts) {
+    const alertContainer = document.getElementById('validation-alerts');
+
+    if (!alertContainer) {
+        console.error('Alert container not found in DOM');
+        return;
+    }
+
+    // Clear existing alerts
+    alertContainer.innerHTML = '';
+
+    // If no alerts, hide container
+    if (alerts.length === 0) {
+        alertContainer.style.display = 'none';
+        return;
+    }
+
+    // Position message box below control pane
+    updateAlertPosition();
+
+    // Show container and add alerts
+    alertContainer.style.display = 'block';
+
+    // Icon mapping for different alert types
+    const iconMap = {
+        'info': '-',
+        'warning': '⚠️',
+        'error': '❌'
+    };
+
+    alerts.forEach((alert) => {
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `validation-alert validation-alert-${alert.type}`;
+        alertDiv.innerHTML = `
+            <span class="alert-icon">${iconMap[alert.type] || '-'}</span>
+            <span class="alert-message">${escapeHtml(alert.message)}</span>
+            <button class="alert-close" onclick="this.parentElement.remove(); checkIfAlertsEmpty();">×</button>
+        `;
+        alertContainer.appendChild(alertDiv);
+    });
+}
+
+// Update alert position below control pane
+function updateAlertPosition() {
+    const alertContainer = document.getElementById('validation-alerts');
+    const controlPane = document.getElementById('control-pane');
+
+    if (!alertContainer || !controlPane) return;
+
+    const controlRect = controlPane.getBoundingClientRect();
+    const controlBottom = controlRect.bottom;
+
+    // Position alerts 10px below the control pane
+    alertContainer.style.top = `${controlBottom + 10}px`;
+}
+
+// Helper function to hide alert container if all alerts are dismissed
+function checkIfAlertsEmpty() {
+    const alertContainer = document.getElementById('validation-alerts');
+    if (alertContainer && alertContainer.children.length === 0) {
+        alertContainer.style.display = 'none';
+    }
+}
+
+// Validate section ordering and check for mismatches
+function validateAndReorderSections(data) {
+    const alerts = [];
+
+    // Check if _meta._section_order exists
+    if (!data._meta || !data._meta['sections_order']) {
+        // Add info message if no section order is defined
+        alerts.push({
+            type: 'info',
+            message: 'No sections_order defined in _meta. Sections will render in YAML order.'
+        });
+        return { orderedData: data, alerts: alerts };
+    }
+
+    const sectionOrder = data._meta['sections_order'];
+
+    // Get all section keys from data (excluding _meta and other internal fields)
+    const dataSectionKeys = Object.keys(data).filter(key => !key.startsWith('_'));
+
+    // Type A Validation: Check if keys in _section_order exist in data (RED ERROR)
+    const missingInData = [];
+    sectionOrder.forEach(orderKey => {
+        if (!data.hasOwnProperty(orderKey)) {
+            missingInData.push(orderKey);
+            console.warn(`❌ Section "${orderKey}" specified in _meta._section_order does not exist in data`);
+        }
+    });
+
+    if (missingInData.length > 0) {
+        alerts.push({
+            type: 'error',
+            message: `Missing sections: ${missingInData.map(k => `"${k}"`).join(', ')}`
+        });
+    }
+
+    // Type B Validation: Check if keys in data exist in _section_order (YELLOW WARNING)
+    const missingInOrder = [];
+    dataSectionKeys.forEach(dataKey => {
+        if (!sectionOrder.includes(dataKey)) {
+            missingInOrder.push(dataKey);
+            console.warn(`⚠️ Section "${dataKey}" exists in data but not in _meta._section_order`);
+        }
+    });
+
+    if (missingInOrder.length > 0) {
+        alerts.push({
+            type: 'warning',
+            message: `Unordered sections: ${missingInOrder.map(k => `"${k}"`).join(', ')}`
+        });
+    }
+
+    // Reorder sections according to _section_order
+    const orderedData = {};
+
+    // Add sections in the specified order
+    sectionOrder.forEach(sectionKey => {
+        if (data.hasOwnProperty(sectionKey)) {
+            orderedData[sectionKey] = data[sectionKey];
+        }
+    });
+
+    // Preserve _meta
+    if (data._meta) {
+        orderedData._meta = data._meta;
+    }
+
+    return { orderedData, alerts };
+}
+
+// Main render function - processes sections dynamically based on _type
+function renderResume(data) {
+    const container = document.getElementById('resume-container');
+    let html = '';
+
+    // Type-to-renderer mapping
+    const renderers = {
+        'contact': renderContact,
+        'summary': renderSummary,
+        'education': renderEducation,
+        'skills': renderSkills,
+        'work': renderWork,
+        'research': renderResearch,
+        'certificates': renderCertificates,
+        'publications': renderPublications
+    };
+
+    // Validate and reorder sections if _meta._section_order exists
+    const { orderedData, alerts } = validateAndReorderSections(data);
+    data = orderedData;
+
+    // Display validation alerts
+    displayValidationAlerts(alerts);
+
+    // Iterate through sections in YAML order
+    for (const [sectionKey, sectionData] of Object.entries(data)) {
+        if (!sectionData || typeof sectionData !== 'object') {
+            continue;
+        }
+
+        // Extract metadata
+        const type = sectionData._type;
+        const title = sectionData.title;
+        const labels = sectionData.labels || {};
+
+        // Skip if no type specified
+        if (!type) {
+            console.warn(`Section "${sectionKey}" has no _type field, skipping`);
+            continue;
+        }
+
+        // Get the appropriate renderer
+        const renderer = renderers[type];
+        if (!renderer) {
+            console.warn(`Unknown type "${type}" for section "${sectionKey}"`);
+            continue;
+        }
+
+        // Extract data (excluding metadata fields)
+        const content = extractContent(sectionData);
+
+        // Render section
+        html += renderer(content, title, labels, sectionKey);
+    }
+
+    container.innerHTML = html;
+}
+
+// Extract content from section (remove metadata fields)
+function extractContent(sectionData) {
+    const content = {};
+    for (const [key, value] of Object.entries(sectionData)) {
+        if (!key.startsWith('_')) {
+            content[key] = value;
+        }
+    }
+    return content;
+}
+
+// ==================== RENDERERS ====================
+
+// Render contact/header section
+function renderContact(data, title, labels) {
+    const contactItems = [
+        data.location,
+        `<a href="mailto:${data.email}">${data.email}</a>`,
+        `<a href="https://${data.linkedin}" target="_blank">${data.linkedin}</a>`,
+        `<a href="https://${data.github}" target="_blank">${data.github}</a>`
+    ].filter(Boolean);
+
+    return `
+        <div class="header">
+            <h1>${escapeHtml(data.name)}</h1>
+            ${data.full_name ? `<div class="subtitle">${escapeHtml(data.full_name)}</div>` : ''}
+            <div class="contact-info">
+                ${contactItems.join(' | ')}
+            </div>
+        </div>
+    `;
+}
+
+// Render summary section (inline format)
+function renderSummary(data, title, labels) {
+    return `
+        <p class="summary-inline">
+            <strong>${escapeHtml(title)}:</strong> ${parseFormatting(data.content)}
+        </p>
+    `;
+}
+
+// Render education section
+function renderEducation(data, title, labels) {
+    const items = data.items.map(edu => {
+        const parts = [];
+
+        // Build institution line
+        let institutionLine = escapeHtml(edu.institution);
+        if (edu.campus) {
+            institutionLine += ` - ${escapeHtml(edu.campus)}`;
+        }
+
+        return `
+            <div class="education-item">
+                <span class="date">${escapeHtml(edu.graduation_date)}</span>
+                <div class="degree">${escapeHtml(edu.degree)}</div>
+                <div class="institution">${institutionLine}</div>
+            </div>
+        `;
+    }).join('');
+
+    return `
+        <div class="section">
+            <h2 class="section-title">${escapeHtml(title)}</h2>
+            ${items}
+        </div>
+    `;
+}
+
+// Render skills section with new structure
+function renderSkills(data, title, labels) {
+    let html = `<div class="section"><h2 class="section-title">${escapeHtml(title)}</h2>`;
+
+    // Iterate through all categories in the skills section
+    for (const [categoryKey, categoryData] of Object.entries(data)) {
+        // Skip metadata fields (those starting with _)
+        if (categoryKey.startsWith('_')) {
+            continue;
+        }
+
+        // Skip if not a category object with title and items
+        if (!categoryData || typeof categoryData !== 'object') {
+            continue;
+        }
+
+        const categoryTitle = categoryData.title;
+        const categoryItems = categoryData.items;
+
+        if (!categoryTitle || !categoryItems) {
+            continue;
+        }
+
+        html += `
+            <div class="skills-category">
+                <strong>${escapeHtml(categoryTitle)}:</strong>
+                <span class="skills-list">${parseFormatting(normalizeItems(categoryItems))}</span>
+            </div>
+        `;
+    }
+
+    html += '</div>';
+    return html;
+}
+
+// Render work experience section
+function renderWork(data, title, labels) {
+    // Default labels
+    const defaultLabels = {
+        title: 'Title',
+        company: 'Company',
+        duration: 'Duration',
+        responsibilities: 'Responsibilities'
+    };
+
+    // Merge with custom labels
+    const finalLabels = { ...defaultLabels, ...labels };
+
+    const items = data.items.map(exp => `
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="job-title">${escapeHtml(exp.title)}</span>
+                    <span class="company"> || ${escapeHtml(exp.company)}</span>
+                </div>
+                <div class="duration">${escapeHtml(exp.duration)}</div>
+            </div>
+            ${exp.responsibilities && exp.responsibilities.length > 0 ? `
+                <ul class="responsibilities">
+                    ${exp.responsibilities.map(r => `<li>${parseFormatting(r)}</li>`).join('')}
+                </ul>
+            ` : ''}
+        </div>
+    `).join('');
+
+    return `
+        <div class="section">
+            <h2 class="section-title">${escapeHtml(title)}</h2>
+            ${items}
+        </div>
+    `;
+}
+
+// Render research experience section
+function renderResearch(data, title, labels) {
+    // Default labels
+    const defaultLabels = {
+        title: 'Title',
+        references: 'References',
+        institution: 'Institution',
+        type: 'Type',
+        description: 'Description',
+        technical_environment: 'Technical Environment',
+        applied_methods: 'Applied Methods'
+    };
+
+    // Merge with custom labels
+    const finalLabels = { ...defaultLabels, ...labels };
+
+    const items = data.items.map(exp => {
+        let html = '<div class="research-item">';
+
+        // Title and references
+        html += `<div class="research-title">${escapeHtml(exp.title)}`;
+        if (exp.references) {
+            html += ` ${escapeHtml(exp.references)}`;
+        }
+        html += '</div>';
+
+        // Institution and type
+        html += '<div class="research-type">';
+        html += escapeHtml(exp.institution);
+        if (exp.type) {
+            html += ` | ${escapeHtml(exp.type)}`;
+        }
+        html += '</div>';
+
+        // Description
+        if (exp.description) {
+            html += `<div class="research-description">${parseFormatting(exp.description)}</div>`;
+        }
+
+        // Technical environment with italic label
+        if (exp.technical_environment) {
+            html += `
+                <div class="applied-methods">
+                    <em>${escapeHtml(finalLabels.technical_environment)}:</em>
+                    ${parseFormatting(exp.technical_environment)}
+                </div>
+            `;
+        }
+
+        // Applied methods with italic label
+        if (exp.applied_methods) {
+            let methodsStr = '';
+            // If it is string, then use it directly
+            if (typeof exp.applied_methods === 'string') {
+                methodsStr = parseFormatting(exp.applied_methods);
+            }
+            else if (Array.isArray(exp.applied_methods)) {
+                // If it is array, join with commas
+                const normalizedMethods = normalizeItems(exp.applied_methods, ';;');
+
+                // Split, escape each method individually, then join with pipe
+                const methodsArray = normalizedMethods.split(';;').map(m => m.trim()).filter(m => m);
+                methodsStr = methodsArray.map(escapeHtml).join(' | ');
+
+            }
+            // Normalize to string, handling both formats
+
+            html += `
+                <div class="applied-methods">
+                    <em>${escapeHtml(finalLabels.applied_methods)}:</em>
+                    <span class="methods-list"> ${methodsStr}</span>
+                </div>
+            `;
+        }
+
+        html += '</div>';
+        return html;
+    }).join('');
+
+    return `
+        <div class="section">
+            <h2 class="section-title">${escapeHtml(title)}</h2>
+            ${items}
+        </div>
+    `;
+}
+
+// Render certificates section
+function renderCertificates(data, title, labels) {
+    // Default labels
+    const defaultLabels = {
+        name: 'Certificate Name',
+        institution: 'Institution',
+        verification_url: 'Verification'
+    };
+
+    // Merge with custom labels
+    const finalLabels = { ...defaultLabels, ...labels };
+
+    const items = data.items.map(cert => `
+        <div class="certificate-item">
+            <div class="certificate-name">${escapeHtml(cert.name)}</div>
+            <span class="certificate-institution">${escapeHtml(cert.institution)}</span>
+            ${cert.verification_url ? ` ${escapeHtml(finalLabels.verification_url)}:
+                <a href="${cert.verification_url}" target="_blank" class="certificate-link">
+                    ${cert.verification_url}
+                </a>
+            ` : ''}
+        </div>
+    `).join('');
+
+    return `
+        <div class="section">
+            <h2 class="section-title">${escapeHtml(title)}</h2>
+            ${items}
+        </div>
+    `;
+}
+
+// Render publications section
+function renderPublications(data, title, labels) {
+    // Default labels
+    const defaultLabels = {
+        note: 'Note',
+        scholar_url: 'Google Scholar Profile'
+    };
+
+    // Merge with custom labels
+    const finalLabels = { ...defaultLabels, ...labels };
+
+    let html = `<div class="section"><h2 class="section-title">${escapeHtml(title)}</h2>`;
+
+    if (data.note) {
+        html += `<div class="publications-note">${parseFormatting(data.note)}</div>`;
+    }
+
+    if (data.scholar_url) {
+        html += `
+            <a href="${data.scholar_url}" target="_blank" class="publications-link">
+                ${escapeHtml(finalLabels.scholar_url)}
+            </a>
+        `;
+    }
+
+    html += '</div>';
+    return html;
+}
+
+// ==================== UTILITY FUNCTIONS ====================
+
+// Utility function to escape HTML
+function escapeHtml(text) {
+    if (text === null || text === undefined) return '';
+    const div = document.createElement('div');
+    div.textContent = text.toString();
+    return div.innerHTML;
+}
+
+/**
+ * Parse markdown-style formatting syntax into HTML tags
+ * Supports: **bold**, *italic*, __underline__, `monospace`, $$LaTeX math$$
+ * Security: Math is processed first, then text is escaped, then formatting applied
+ */
+function parseFormatting(text) {
+    if (!text) return '';
+
+    // Process LaTeX math expressions BEFORE escaping HTML
+    // Use placeholders to protect math content from escaping and other replacements
+    const mathPlaceholders = [];
+    text = text.replace(/\$\$(.+?)\$\$/g, (_, mathContent) => {
+        const placeholder = `LATEX_${mathPlaceholders.length}_MATH`;
+        try {
+            // Check if KaTeX is available
+            if (typeof katex === 'undefined') {
+                mathPlaceholders.push(`<span class="math-error" title="KaTeX library not loaded">${escapeHtml(mathContent)}</span>`);
+                return placeholder;
+            }
+
+            // Render LaTeX using KaTeX (inline mode)
+            const rendered = katex.renderToString(mathContent, {
+                throwOnError: false,
+                displayMode: false,
+                output: 'html'
+            });
+            mathPlaceholders.push(rendered);
+        } catch (e) {
+            // If KaTeX fails, store the original content with error styling
+            const errorMsg = e.message || 'Unknown error';
+            mathPlaceholders.push(`<span class="math-error" title="LaTeX Error: ${errorMsg}">${escapeHtml(mathContent)}</span>`);
+        }
+        return placeholder;
+    });
+
+    // Now escape HTML for security (after extracting math)
+    text = escapeHtml(text);
+
+    // Then apply markdown-style formatting
+    text = text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');            // **bold**
+    text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');              // *italic*
+    text = text.replace(/__(.+?)__/g, '<u>$1</u>');                // __underline__
+    text = text.replace(/`(.+?)`/g, '<code class="monospace">$1</code>');  // `monospace`
+
+    // Restore math placeholders (they contain already-rendered HTML from KaTeX)
+    mathPlaceholders.forEach((rendered, index) => {
+        text = text.replace(`LATEX_${index}_MATH`, rendered);
+    });
+
+    return text;
+}
+
+/**
+ * Normalize items to a delimited string
+ * Handles both string format ("item1, item2, item3") and array format (["item1", "item2", "item3"])
+ * @param {string|array} items - Items in string or array format
+ * @param {string} delimiter - Delimiter to use when joining array items (default: ', ')
+ * @returns {string} - Delimited string
+ */
+function normalizeItems(items, delimiter = ', ') {
+    if (!items) return '';
+
+    // If it's already a string, return as-is
+    if (typeof items === 'string') {
+        return items;
+    }
+
+    // If it's an array, join with the specified delimiter
+    if (Array.isArray(items)) {
+        return items.join(delimiter);
+    }
+
+    // Fallback: convert to string
+    return String(items);
+}
+
+// ==================== SAVE FUNCTIONS ====================
+
+// Setup save button event listeners
+function setupSaveButtons() {
+    document.getElementById('save-html-btn').addEventListener('click', saveAsHTML);
+    document.getElementById('save-pdf-btn').addEventListener('click', saveAsPDF);
+}
+
+// Setup control sliders
+function setupControlSliders() {
+    // Read font schemes from CSS custom properties
+    const rootStyles = getComputedStyle(document.documentElement);
+    const fontSchemes = {};
+
+    // Parse schemes from CSS variables (1, 2, 3)
+    for (let i = 1; i <= 3; i++) {
+        fontSchemes[i] = {
+            base: rootStyles.getPropertyValue(`--scheme-${i}-base`).trim(),
+            medium: rootStyles.getPropertyValue(`--scheme-${i}-medium`).trim(),
+            large: rootStyles.getPropertyValue(`--scheme-${i}-large`).trim(),
+            label: rootStyles.getPropertyValue(`--scheme-${i}-label`).trim().replace(/['"]/g, '')
+        };
+    }
+
+    // Margin options: [0.2, 0.3, 0.4, 0.5]
+    const marginOptions = ['0.0in', '0.1in', '0.2in', '0.3in', '0.4in', '0.5in'];
+    // Initialize labels
+    document.getElementById('margin-slider').min = 0;
+    document.getElementById('margin-slider').max = marginOptions.length - 1;
+    document.getElementById('margin-slider').value = 3; // default 0.3in
+    document.getElementById('margin-label').textContent = marginOptions[3];
+
+    // Font size slider
+    const fontSlider = document.getElementById('font-size-slider');
+    const fontLabel = document.getElementById('font-size-label');
+
+    fontSlider.addEventListener('input', (e) => {
+        const value = e.target.value;
+        const scheme = fontSchemes[value];
+
+        // Update CSS variables
+        document.documentElement.style.setProperty('--font-base', scheme.base);
+        document.documentElement.style.setProperty('--font-medium', scheme.medium);
+        document.documentElement.style.setProperty('--font-large', scheme.large);
+
+        // Update label
+        fontLabel.textContent = scheme.label;
+    });
+
+    // Margin slider
+    const marginSlider = document.getElementById('margin-slider');
+    const marginLabel = document.getElementById('margin-label');
+
+    marginSlider.addEventListener('input', (e) => {
+        const value = parseInt(e.target.value);
+        const margin = marginOptions[value];
+
+        // Update container padding for web view
+        document.getElementById('resume-container').style.padding = margin;
+
+        // Update CSS variables for print @page margins
+        document.documentElement.style.setProperty('--print-margin-top', margin);
+        document.documentElement.style.setProperty('--print-margin-bottom', margin);
+        document.documentElement.style.setProperty('--print-margin-side', margin);
+
+        // Update label
+        marginLabel.textContent = margin;
+    });
+}
+
+// Setup pane toggle functionality
+function setupPaneToggle() {
+    const toggleBtn = document.getElementById('toggle-pane-btn');
+    const paneContent = document.getElementById('pane-content');
+    const toggleIcon = toggleBtn.querySelector('.toggle-icon');
+
+    // set toggle icon initial state
+    toggleIcon.textContent = '▲';
+    updateAlertPosition();
+
+    toggleBtn.addEventListener('click', () => {
+        paneContent.classList.toggle('collapsed');
+
+        // Toggle icon between ▼ (expanded) and ▲ (collapsed)
+        if (paneContent.classList.contains('collapsed')) {
+            toggleIcon.textContent = '▼';
+        } else {
+            toggleIcon.textContent = '▲';
+        }
+
+        // Update alert position when pane toggles
+        setTimeout(updateAlertPosition, 300); // Wait for animation to complete
+    });
+}
+
+// Save as HTML file
+function saveAsHTML() {
+    // Get the resume content
+    const resumeContent = document.getElementById('resume-container').innerHTML;
+
+    // Get CSS content from the embedded style tag
+    const styleElement = document.querySelector('style');
+    const cssContent = styleElement ? styleElement.textContent : '';
+
+    // Get personal info for filename
+    const nameElement = document.querySelector('.header h1');
+    const filename = nameElement ?
+        nameElement.textContent.replace(/\s+/g, '_') + '_Resume.html' :
+        'Resume.html';
+
+    // Create complete HTML document
+    const completeHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        ${cssContent}
+
+        /* Remove control pane from saved HTML */
+        #control-pane,
+        #save-buttons,
+        .control-slider,
+        .toggle-btn,
+        .pane-content,
+        #font-size-control,
+        #margin-control {
+            display: none !important;
+        }
+
+        /* Adjust for standalone HTML */
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="resume-container">
+        ${resumeContent}
+    </div>
+</body>
+</html>`;
+
+    // Create blob and download
+    const blob = new Blob([completeHTML], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    console.log('HTML file saved successfully');
+}
+
+// Save as PDF (triggers browser print dialog)
+function saveAsPDF() {
+    // Trigger browser print dialog
+    window.print();
+
+    // Show instructions
+    setTimeout(() => {
+        console.log('Print dialog opened. Select "Save as PDF" as destination.');
+    }, 100);
+}
+
+// Debug print margins
+function debugPrintMargins(showAlert = false) {
+    const resumeContainer = document.getElementById('resume-container');
+    const body = document.body;
+    const mainContent = document.getElementById('main-content');
+    const resumePanel = document.getElementById('resume-panel');
+
+    const computedBody = getComputedStyle(body);
+    const computedMain = getComputedStyle(mainContent);
+    const computedPanel = getComputedStyle(resumePanel);
+    const computedContainer = getComputedStyle(resumeContainer);
+
+    const report = `
+=== PRINT MARGIN DEBUG REPORT ===
+
+BODY:
+  margin: ${computedBody.margin}
+  padding: ${computedBody.padding}
+  background: ${computedBody.background}
+
+MAIN CONTENT:
+  margin: ${computedMain.margin}
+  padding: ${computedMain.padding}
+
+RESUME PANEL:
+  margin: ${computedPanel.margin}
+  padding: ${computedPanel.padding}
+
+RESUME CONTAINER:
+  padding: ${computedContainer.padding}
+  margin: ${computedContainer.margin}
+  width: ${resumeContainer.offsetWidth}px
+  box-shadow: ${computedContainer.boxShadow}
+
+WINDOW:
+  innerWidth: ${window.innerWidth}px
+  innerHeight: ${window.innerHeight}px
+
+PAGE SIZE (letter):
+  8.5in x 11in = 816px x 1056px (at 96dpi)
+    `;
+
+    console.log(report);
+
+    // Only show alert if explicitly requested (debug mode)
+    if (showAlert) {
+        alert('Debug report logged to console. Press F12 to view.');
+    }
+
+    return report;
+}
+
+// Toggle debug mode
+function toggleDebugMode() {
+    const debugBtn = document.getElementById('debug-print-btn');
+    const resumeContainer = document.getElementById('resume-container');
+
+    document.body.classList.toggle('print-debug-mode');
+    debugBtn.classList.toggle('active');
+
+    // Update button text
+    if (document.body.classList.contains('print-debug-mode')) {
+        debugBtn.textContent = '✓ Debug Mode ON';
+        // Add data attribute for CSS content
+        const padding = getComputedStyle(resumeContainer).padding;
+        resumeContainer.setAttribute('data-padding', padding);
+        // Log debug info with alert
+        debugPrintMargins(true);  // Show alert when explicitly enabling debug mode
+    } else {
+        debugBtn.textContent = '🔍 Debug Print Margins';
+        resumeContainer.removeAttribute('data-padding');
+    }
+}
+
+// Setup debug button
+function setupDebugButton() {
+    const debugBtn = document.getElementById('debug-print-btn');
+    debugBtn.addEventListener('click', toggleDebugMode);
+}
+
+// Log debug info before printing
+window.addEventListener('beforeprint', () => {
+    console.log('=== PRINTING ===');
+    debugPrintMargins();
+});
+
+window.addEventListener('afterprint', () => {
+    console.log('=== PRINT DIALOG CLOSED ===');
+});
+
+// Setup YAML editor functionality
+function setupYamlEditor() {
+    const yamlPanel = document.getElementById('yaml-panel');
+    const toggleYamlBtn = document.getElementById('toggle-yaml-btn');
+    const yamlEditor = document.getElementById('yaml-editor');
+    const copyYamlBtn = document.getElementById('copy-yaml-btn');
+    let renderTimeout = null;
+
+    // Toggle YAML panel
+    toggleYamlBtn.addEventListener('click', () => {
+        yamlPanel.classList.toggle('expanded');
+    });
+
+    // Copy YAML to clipboard
+    copyYamlBtn.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(yamlEditor.value);
+            const originalText = copyYamlBtn.textContent;
+            copyYamlBtn.textContent = '✓ Copied!';
+            setTimeout(() => {
+                copyYamlBtn.textContent = originalText;
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+            alert('Failed to copy to clipboard');
+        }
+    });
+
+    // Re-render on YAML changes (with debounce)
+    yamlEditor.addEventListener('input', () => {
+        // Clear existing timeout
+        if (renderTimeout) {
+            clearTimeout(renderTimeout);
+        }
+
+        // Set new timeout for re-rendering (500ms delay)
+        renderTimeout = setTimeout(() => {
+            try {
+                let yamlText = yamlEditor.value;
+
+                // Fix YAML parsing issue: quote lines that start with ** (markdown bold)
+                yamlText = yamlText.replace(/^(\s+- )(\*\*.+)$/gm, '$1"$2"');
+
+                // Parse and render
+                const data = jsyaml.load(yamlText);
+                renderResume(data);
+
+                // Clear any error styling
+                yamlEditor.style.borderLeft = '';
+            } catch (error) {
+                console.error('YAML parsing error:', error);
+                // Add visual indicator of error
+                yamlEditor.style.borderLeft = '3px solid #e74c3c';
+            }
+        }, 500);
+    });
+
+    // Handle tab key in textarea
+    yamlEditor.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            const start = yamlEditor.selectionStart;
+            const end = yamlEditor.selectionEnd;
+            const value = yamlEditor.value;
+
+            // Insert 2 spaces for tab
+            yamlEditor.value = value.substring(0, start) + '  ' + value.substring(end);
+            yamlEditor.selectionStart = yamlEditor.selectionEnd = start + 2;
+        }
+    });
+}
+
+// Load resume when page loads
+document.addEventListener('DOMContentLoaded', loadResume);
+    </script>
+</body>
+</html>
