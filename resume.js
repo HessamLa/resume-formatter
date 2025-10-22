@@ -1,6 +1,9 @@
 // Store the original YAML text globally
 let originalYamlText = '';
 
+// Store the parsed resume data globally for access in save functions
+let globalResumeData = null;
+
 // Load and render resume from YAML file
 async function loadResume() {
     try {
@@ -21,6 +24,9 @@ async function loadResume() {
 
         // Parse YAML using js-yaml library (loaded from CDN)
         const data = jsyaml.load(yamlText);
+
+        // Store data globally for save functions
+        globalResumeData = data;
 
         // Render the resume
         renderResume(data);
@@ -756,16 +762,17 @@ function setupPaneToggle() {
 function saveAsHTML() {
     // Get the resume content
     const resumeContent = document.getElementById('resume-container').innerHTML;
-    
+
     // Read the CSS content
     fetch('style.css')
         .then(response => response.text())
         .then(cssContent => {
-            // Get personal info for filename
-            const nameElement = document.querySelector('.header h1');
-            const filename = nameElement ? 
-                nameElement.textContent.replace(/\s+/g, '_') + '_Resume.html' : 
-                'Resume.html';
+            // Get filename from _meta or use default
+            let baseFilename = 'myresume';
+            if (globalResumeData && globalResumeData._meta && globalResumeData._meta.save_filename) {
+                baseFilename = globalResumeData._meta.save_filename;
+            }
+            const filename = baseFilename + '.html';
             
             // Create complete HTML document
             const completeHTML = `<!DOCTYPE html>
@@ -966,6 +973,10 @@ function setupYamlEditor() {
 
                 // Parse and render
                 const data = jsyaml.load(yamlText);
+
+                // Update global data for save functions
+                globalResumeData = data;
+
                 renderResume(data);
 
                 // Clear any error styling

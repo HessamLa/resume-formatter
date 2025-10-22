@@ -14,6 +14,8 @@ _meta:
       ]
   job_summary:  # a very short summary of the job description
       "Seeking a Machine Learning Engineer with 3+ years of experience to join {company name or description}."
+  save_filename: # Base filename (without extension) for saving the resume. Maximum 4 keywords from the job description (role, company name, expertise, etc), '-' separated, such as ml-vision-google, senior-devops-ny-fadialityco, etc.
+      ''  # {kw1}-{kw2}-{kw3}' # or '{kw1}-{kw2}-{kw3}-{kw4}'
 
 # ==================== CONTACT ====================
 section_contact:
