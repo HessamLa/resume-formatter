@@ -302,6 +302,8 @@ body {
 
 #resume-container {
     max-width: 8.5in;
+    /* min-width: 8.5in ; */
+    
     width: 100%;
     background: white;
     padding: 0.3in;
@@ -315,8 +317,8 @@ body {
     right: 20px;
     z-index: 1000;
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-    min-width: 280px;
-    max-width: 320px;
+    min-width: 140px;
+    max-width: 220px;
 }
 
 /* Toggle Button */
