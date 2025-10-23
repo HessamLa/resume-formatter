@@ -63,8 +63,8 @@ async function loadResume() {
                 <h2>Error Loading Resume</h2>
                 <p>${error.message}</p>
                 <p>Make sure you're running a local server:</p>
-                <p><strong>VSCode:</strong> Right-click index.html → "Show Preview"</p>
-                <p><strong>Command line:</strong> <code>python -m http.server 8000</code></p>
+                <p><b>VSCode:</b> Right-click index.html → "Show Preview"</p>
+                <p><b>Command line:</b> <code>python -m http.server 8000</code></p>
                 <p>Then open: <a href="http://localhost:8000">http://localhost:8000</a></p>
             </div>
         `;
@@ -376,8 +376,8 @@ function renderEducation(data, title, labels) {
         return `
             <div class="education-item">
                 <span class="date">${escapeHtml(edu.graduation_date)}</span>
+                <div class="institution">${institutionLine},</div>
                 <div class="degree">${escapeHtml(edu.degree)}</div>
-                <div class="institution">${institutionLine}</div>
             </div>
         `;
     }).join('');
@@ -415,7 +415,7 @@ function renderSkills(data, title, labels) {
         
         html += `
             <div class="skills-category">
-                <strong>${escapeHtml(categoryTitle)}:</strong>
+                <b>${escapeHtml(categoryTitle)}:</b>
                 <span class="skills-list">${parseFormatting(normalizeItems(categoryItems))}</span>
             </div>
         `;
@@ -647,7 +647,9 @@ function parseFormatting(text) {
                 displayMode: false,
                 output: 'html'
             });
-            mathPlaceholders.push(rendered);
+            // set font size to `var(--font-base);;`
+            // also set .originalContent to `mathContent`
+            mathPlaceholders.push(`<span class="math-container" data-math-content="${escapeHtml(mathContent)}">${rendered}</span>`);
         } catch (e) {
             // If KaTeX fails, store the original content with error styling
             const errorMsg = e.message || 'Unknown error';
@@ -714,6 +716,8 @@ function setupControlSliders() {
     // Parse schemes from CSS variables (1, 2, 3)
     for (let i = 1; i <= 3; i++) {
         fontSchemes[i] = {
+            tiny: rootStyles.getPropertyValue(`--scheme-${i}-tiny`).trim(), 
+            small: rootStyles.getPropertyValue(`--scheme-${i}-small`).trim(), 
             base: rootStyles.getPropertyValue(`--scheme-${i}-base`).trim(),
             medium: rootStyles.getPropertyValue(`--scheme-${i}-medium`).trim(),
             large: rootStyles.getPropertyValue(`--scheme-${i}-large`).trim(),
@@ -737,10 +741,16 @@ function setupControlSliders() {
         const value = e.target.value;
         const scheme = fontSchemes[value];
 
-        // Update CSS variables
-        document.documentElement.style.setProperty('--font-base', scheme.base);
-        document.documentElement.style.setProperty('--font-medium', scheme.medium);
-        document.documentElement.style.setProperty('--font-large', scheme.large);
+        // Update CSS variables by iterating through keys
+        for (const key in scheme) {
+            document.documentElement.style.setProperty(`--font-${key}`, scheme[key]);
+        }
+        
+        // document.documentElement.style.setProperty('--font-tiny', scheme.tiny);
+        // document.documentElement.style.setProperty('--font-small', scheme.small);
+        // document.documentElement.style.setProperty('--font-base', scheme.base);
+        // document.documentElement.style.setProperty('--font-medium', scheme.medium);
+        // document.documentElement.style.setProperty('--font-large', scheme.large);
 
         // Update label
         fontLabel.textContent = scheme.label;
