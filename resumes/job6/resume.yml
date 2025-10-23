@@ -1,0 +1,204 @@
+# Resume - Hessam Alizadeh (Hamidreza Lotfalizadeh, Ph.D.)
+# Use markdown-style formatting for **bold** and _italics_
+
+_meta:
+  sections_order: [
+      "section_contact",
+      "section_summary",
+      "section_education",
+      "section_skills",
+      "section_work",
+      "section_research",
+      "section_certificates",
+      "section_publications"
+      ]
+  job_summary:
+      "Seeking a Senior AI Engineer with production ML experience to join Rapid7's AI Centre of Excellence, building AI systems for cybersecurity threat detection and response."
+  save_filename:
+      'senior-ai-eng-rapid7-cyber'
+
+# ==================== CONTACT ====================
+section_contact:
+  _type: contact
+  name: Hessam Alizadeh
+  full_name: (Hamidreza Lotfalizadeh, Ph.D.)
+  location: Bryan, TX (willing to relocate)
+  email: hamidla.ap@gmail.com
+  linkedin: linkedin.com/in/hessamla
+  github: github.com/hessamla
+  scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
+
+# ==================== SUMMARY ====================
+section_summary:
+  _type: summary
+  title: Summary
+  content:
+    Senior ML engineer with **proven experience building and deploying production AI systems** using **Python**, **PyTorch**, and **TensorFlow**. Expert in **model lifecycle management**, **MLOps**, and **cloud infrastructure (AWS, Sagemaker)** with demonstrated ability to ship high-quality AI models from prototyping through production deployment. Strong background in **anomaly detection and real-time classification systems**, directly transferable to **cybersecurity threat detection**. Experienced in **mentoring engineers**, **cross-functional collaboration**, and delivering AI solutions with **measurable business impact**. Passionate about leveraging cutting-edge AI to solve complex security challenges.
+
+# ==================== TECHNICAL SKILLS ====================      
+section_skills:
+  _type: skills
+  title: Technical Skills
+  skillset1:
+      title: Proficient
+      items: Python, C, C++
+  skillset2:
+      title: Programming & Databases
+      items: C#, Java, JavaScript, Rust, TypeScript, SQL, Gremlin
+  skillset3:
+      title: Tools & Paradigms
+      items: OOP, Functional, Concurrent & Parallel Programming, Embedded, Linux Programming, Bash, Shell, Make, WAF, Gradle, Spring Boot
+  skillset4:
+      title: AI/ML
+      items: PyTorch, TensorFlow, CUDA, NumPy, Pandas, SciPy, Scikit-Learn, MLFlow, Experiment tracking, Node2Vec, NodeForce, Transformers, CNN, RNN, CRNN, GNN, GCN
+  skillset5:
+      title: NLP/LLM
+      items: Fine-Tuning, PEFT, RAG, LangChain, LangGraph, Prompt Engineering, Context Engineering
+  skillset6:
+      title: Statistical Analysis   
+      items: Design of Experiments, Time series analysis, Entropy analysis, Statistical modeling
+  skillset7:
+      title: Infrastructure and DevOps
+      items: Computer architecture, Distributed systems architecture, SLURM, CI/CD, Git, AWS, Neptune, GCP, OCI, RESTful APIs, SQL, Docker, Podman, Kubernetes, MQTT
+
+# ==================== WORK EXPERIENCE ====================
+section_work:
+  _type: work
+  _labels:
+    title: Title
+    company: Company
+    duration: Duration
+    responsibilities: Responsibilities
+  title: Work Experience
+  items:
+    - title: Graph Networks Specialist
+      company: Inertia Systems
+      duration: Apr 2025 - Sep 2025
+      responsibilities:
+        - Designed and **deployed production-ready graph-based AI system** achieving **95%+ efficiency improvement** in conflict detection and resolution, demonstrating strong model performance optimization.
+        - Architected system using **AWS Neptune** with **SQL-like Gremlin queries** and **RESTful APIs**, ensuring scalability and reliability in cloud production environment.
+        - Built **full-stack application** with interactive visualization UI, balancing technical implementation with user experience and stakeholder communication.
+        - **Collaborated with cross-functional teams** (engineering, product, marketing) to deliver AI capabilities that drove **$3M investment**, demonstrating measurable business impact.
+    
+    - title: Postdoctoral Researcher
+      company: Indiana University
+      duration: Jan 2025 - Present
+      responsibilities:
+        - Developed **production-ready diffusion models** on dynamic graphs for structural change detection, demonstrating adaptability to novel AI methods and frameworks.
+        - Prototyped and optimized **graph-based anomaly detection models** for rumor source identification, directly applicable to threat detection and cybersecurity use cases.
+        - Applied **advanced ML techniques** to solve complex alignment problems with results pending publication, showing persistence in tackling challenging technical problems.
+    
+    - title: AI/ML Intern
+      company: Eli Lilly
+      duration: May 2024 - Aug 2024
+      responsibilities:
+        - **Led technical implementation** of production AI system integrating **graph traversal algorithms** and **ML models** for **large-scale analysis (1M+ nodes)** on **AWS infrastructure**.
+        - Developed and **deployed supervised and semi-supervised ML systems** achieving **96%+ recall**, demonstrating strong understanding of model performance, evaluation metrics, and production trade-offs.
+        - **Mentored and collaborated with international cross-functional teams** across chemistry, finance, and marketing, translating complex technical concepts to non-technical stakeholders.
+        - Architected **scalable AI pipeline** with **model monitoring** and **versioning best practices**, ensuring reliability and observability in production systems.
+        - Built **user-facing interfaces** with **RESTful APIs** enabling domain experts to leverage AI capabilities for data-driven decision-making.
+    
+    - title: Data Science Researcher
+      company: Purdue University
+      duration: Dec 2019 - Apr 2022
+      responsibilities:
+        - Developed **real-time anomaly detection models** using **time series analysis**, **entropy analysis**, and **neural networks (RNN, CRNN)**, directly transferable to **cybersecurity threat detection** use cases.
+        - Architected and **deployed production-scale distributed system** with **real-time streaming pipeline (MQTT)** for processing IoT sensor data, demonstrating expertise in building fault-tolerant AI systems.
+        - Implemented **concurrent multi-threaded operations** for **real-time classification and prediction**, balancing latency requirements with model performance for production environments.
+        - Applied **statistical modeling** and **Design of Experiments** methodologies for model evaluation and optimization, ensuring data-driven decision-making.
+
+# ==================== EDUCATION ====================
+section_education:
+  _type: education
+  _labels:
+    degree: Degree
+    institution: Institution
+    campus: Campus
+    graduation_date: Graduation Date
+  title: Education
+  items:
+    - degree: PhD in Computer Engineering
+      institution: Purdue University
+      campus: Main Campus
+      graduation_date: "Dec 2024"
+    
+    - degree: MSc in Computer Engineering
+      institution: Amirkabir University
+      graduation_date: "Feb 2011"
+    
+    - degree: BS in Computer Engineering
+      institution: Azad University
+      graduation_date: "Jul 2008"
+
+# ==================== RESEARCH EXPERIENCE ====================
+section_research:
+  _type: research
+  _labels:
+    title: Title
+    references: References
+    institution: Institution
+    type: Type
+    description: Description
+    technical_environment: Technical Environment
+    applied_methods: Applied Methods
+  title: Research Experience
+  items:
+    - title: Graph Embedding and Graph ML
+      institution: Purdue University
+      type: PhD Thesis
+      description:
+        My PhD thesis at Purdue University. Researched graph embedding methods. Invented a graph embedding methodology using force-directed approach and provided a mathematical proof-of-convergence using Brouwer's fixed point theorem. Optimized complexity of the method from $$O(n^2)$$ to $$O(n \log n)$$. This method can be employed in supervised or unsupervised learning schemes. Made extensive use of PyTorch framework, CUDA library, GPU unit and memory optimization methods. Implemented parallelized algorithms for multi-GPU execution using SLURM. Improved graph task metrics (link prediction, node classification, etc.) by over 6% compared to state-of-the-art methods. Developed a library to optimize the memory utilization by searching for an optimum batch count during run time. Used "wrapper" design pattern to implement a Python decorator for the batch-count optimizer during run-time. Implemented an experiment tracking system using MLFlow.
+      technical_environment:
+        Deployed models on multi-GPU clusters using SLURM for resource management
+      applied_methods: Force-Directed approach | PyTorch | CUDA | Memory optimization | Multi-GPU scaling | SLURM job orchestration | Experiment tracking
+    
+    - title: Large-Scale Knowledge Graph Processing
+      institution: Eli Lilly and Company
+      type: Internship Project
+      description:
+        An internship project at Eli Lilly and Company. Researched optimized methods for extracting subgraphs from large-scale knowledge graph and visualizing it. The objective was to provide a KG tool with search and visual exploration features, helping the user better explore the KG. The users of this tool were scientists and domain experts from various departments (chemistry/pharma, finance, marketing, etc.). In addition, for enhancing user experience, a smooth transition between various levels of visualization granularities was implemented.
+      applied_methods: Force-Directed | ForceAtlas | Community detection | Clustering | GraphViz
+    
+    - title: DDoS attack detection and mitigation in SDN
+      institution: Purdue University
+      type: Research Project
+      description:
+        A research project at Purdue University. Researching on DDoS attacks and development of methods for their detection and mitigation. In this research the network traffic flows were collected in set intervals. Then they were compiled into time series data for processing using entropy analysis and neural network models for classification and prediction. Proposed the idea of partitioning incoming traffic based on various parameters. Then, each partition was effectively a separate time series data.
+      applied_methods: Entropy analysis | Group testing | RNN and CRNN
+    
+    - title: Quantum Computer Scheduler
+      institution: Amirkabir University (QDA group)
+      type: Master's Thesis
+      description:
+        A master's thesis at Amirkabir University. Designed and implemented a method and algorithm for scheduling ion-trap quantum computers with the goal of reducing execution latency of quantum program. Reduced the scheduling latency by 50% average compared to the state-of-the-art methods.
+      applied_methods: OOP in C++ | Lee's maze routing
+
+# ==================== CERTIFICATES ====================
+section_certificates:
+  _type: certificates
+  _labels:
+    name: Certificate Name
+    institution: Institution
+    verification_url: Verification
+  title: Certificates
+  items:
+    - name: Machine learning specialization
+      institution: Stanford University.
+      verification_url: https://coursera.org/verify/specialization/HMWE8SJ5U82M
+    
+    - name: MLOps
+      institution: Duke University.
+      verification_url: https://coursera.org/verify/specialization/ENSE7V7CKMU7
+    
+    - name: Deep learning specialization
+      institution: Stanford University.
+
+# ==================== PUBLICATIONS ====================
+section_publications:
+  _type: publications
+  title: Publications
+  _labels:
+    note: Note
+    scholar_url: Google Scholar
+  note: "Under the name \"Hamidreza Lotfalizadeh\""
+  scholar_url: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en

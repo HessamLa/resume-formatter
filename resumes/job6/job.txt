@@ -1,0 +1,50 @@
+Rapid7
+Senior AI Engineer
+
+## Senior AI Engineer – AI Centre of Excellence
+We are expanding our global AI footprint and looking for a passionate Senior AI Engineer to join Rapid7’s AI Centre of Excellence. You’ll play a key role in designing, prototyping, and delivering production-ready AI models and systems that protect customers’ attack surfaces and strengthen cybersecurity defenses across our product suite.
+If you’re excited by solving complex problems with cutting-edge AI, thrive in fast-moving environments, and want your work to have real-world impact, this is your opportunity.
+
+## About the Team
+The AI Centre of Excellence designs, prototypes, and ships production AI systems that enable smarter detection, faster response, and stronger protection for our customers. Our mission is to leverage the best available technology to secure the digital world.
+We partner closely with Rapid7’s Detection and Response teams, including our MDR service, to enhance customer protection through advanced AI/ML solutions. The team operates in a collaborative, creative, and iterative environment, building on more than 20 years of threat analysis and a growing patent portfolio. Knowledge sharing and continuous learning are at the core of how we work.
+
+## About the Role
+As a Senior AI Engineer, you’ll design, implement, and optimize AI models and systems across a range of cybersecurity use cases. You’ll balance hands-on technical work with cross-functional collaboration, shaping project direction while mentoring other engineers.
+You’ll work across both R&D and production environments, leveraging AWS (Bedrock, Sagemaker) and modern AI frameworks to bring innovative solutions to life. Partnering with teams across data, product, and platform engineering, you’ll ensure AI is seamlessly integrated into Rapid7’s products and services to deliver measurable customer value.
+
+In This Role, You Will:
+* Develop and ship high-quality AI systems that drive real customer impact.
+* Lead the technical implementation of AI projects from prototyping through production deployment.
+* Collaborate closely with product managers, data scientists, and software engineers to align efforts with business goals.
+* Contribute to best practices for model experimentation, evaluation, and observability.
+* Mentor team members on architecture, model design, and debugging.
+* Stay current on emerging AI methods, tools, and frameworks relevant to cybersecurity, sharing learnings across teams.
+* 
+The Skills and Qualities You’ll Bring Include:
+* Proven experience building and deploying AI systems in production using Python and modern ML frameworks.
+* Hands-on expertise with:
+   * scikit-learn, PyTorch, TensorFlow – for model development.
+   * AWS Bedrock, Sagemaker, HuggingFace, or similar cloud AI stacks.
+   * CrewAI or other orchestration frameworks for agentic AI systems.
+   * Pandas, NumPy, Airflow, or Databricks for data engineering and workflow automation.
+* Strong understanding of model lifecycle management, including monitoring, retraining, and versioning.
+* Ability to balance trade-offs between model performance, latency, and interpretability.
+* Familiarity with cybersecurity, or experience in other high-signal domains such as finance, healthcare, or marketplaces, is a strong plus.
+
+You as a Person:
+* Thrive in a dynamic, iterative environment where experimentation drives progress.
+* Balance autonomy with accountability, delivering high-impact results while collaborating openly.
+* Have a strong sense of ownership and focus on delivering AI capabilities that add measurable business value.
+* Communicate complex technical concepts clearly to both technical and non-technical audiences.
+* Demonstrate curiosity, persistence, and adaptability—continually learning new techniques and tools.
+* Value reliability, transparency, and data-driven decision-making in everything you build.
+
+
+About Rapid7
+At Rapid7, we are on a mission to create a secure digital world for our customers, our industry, and our communities. We embrace tenacity, passion, and collaboration to challenge what’s possible and drive extraordinary impact.
+We’re building a dynamic and inclusive workplace where everyone can have the career experience of a lifetime. We learn from our missteps, celebrate our victories, and show up every day ready to push boundaries in cybersecurity.
+Protecting more than 10,000 global customers, we’re continuously innovating to stay ahead of threats and empower security professionals worldwide.
+Join us and bring your unique experiences and perspectives to help shape the future of AI in cybersecurity.
+
+All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, age, national origin, disability, protected veteran status or any other status protected by applicable national, federal, state or local law.

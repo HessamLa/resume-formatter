@@ -1,0 +1,205 @@
+# Resume - Hessam Alizadeh (Hamidreza Lotfalizadeh, Ph.D.)
+# Use markdown-style formatting for **bold** and _italics_
+
+_meta:
+  sections_order: [
+      "section_contact",
+      "section_summary",
+      "section_education",
+      "section_skills",
+      "section_work",
+      "section_research",
+      "section_certificates",
+      "section_publications"
+      ]
+  job_summary:
+      "Seeking a Senior Data Scientist with 4-6+ years of experience to join SentiLink, building fraud detection models and financial risk products with end-to-end ownership."
+  save_filename:
+      'senior-ds-sentilink-fraud'
+
+# ==================== CONTACT ====================
+section_contact:
+  _type: contact
+  name: Hessam Alizadeh
+  full_name: (Hamidreza Lotfalizadeh, Ph.D.)
+  location: Bryan, TX (willing to relocate)
+  email: hamidla.ap@gmail.com
+  linkedin: linkedin.com/in/hessamla
+  github: github.com/hessamla
+  scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
+
+# ==================== SUMMARY ====================
+section_summary:
+  _type: summary
+  title: Summary
+  content:
+    Senior Data Scientist with **6+ years of experience** developing **end-to-end ML solutions** from research through **production deployment**. Expert in **Python**, **AWS infrastructure**, and **SQL** with proven track record building **anomaly detection systems** directly transferable to **fraud detection** and **financial risk modeling**. Strong background in **feature engineering**, **model lifecycle management**, **statistical modeling**, and writing **production-ready code** for real-time decision-making. Experienced in **cross-functional collaboration** with business stakeholders, translating complex problems into high-impact ML solutions. Demonstrated ability to develop **deep domain expertise** through research, deliver measurable business results, and thrive in fast-paced environments solving varied, open-ended problems.
+
+# ==================== TECHNICAL SKILLS ====================      
+section_skills:
+  _type: skills
+  title: Technical Skills
+  skillset1:
+      title: Proficient
+      items: Python, C, C++
+  skillset2:
+      title: Programming & Databases
+      items: C#, Java, JavaScript, Rust, TypeScript, SQL, Gremlin
+  skillset3:
+      title: Tools & Paradigms
+      items: OOP, Functional, Concurrent & Parallel Programming, Embedded, Linux Programming, Bash, Shell, Make, WAF, Gradle, Spring Boot
+  skillset4:
+      title: AI/ML
+      items: PyTorch, TensorFlow, CUDA, NumPy, Pandas, SciPy, Scikit-Learn, MLFlow, Experiment tracking, Node2Vec, NodeForce, Transformers, CNN, RNN, CRNN, GNN, GCN
+  skillset5:
+      title: NLP/LLM
+      items: Fine-Tuning, PEFT, RAG, LangChain, LangGraph, Prompt Engineering, Context Engineering
+  skillset6:
+      title: Statistical Analysis   
+      items: Design of Experiments, Time series analysis, Entropy analysis, Statistical modeling
+  skillset7:
+      title: Infrastructure and DevOps
+      items: Computer architecture, Distributed systems architecture, SLURM, CI/CD, Git, AWS, Neptune, GCP, OCI, RESTful APIs, SQL, Docker, Podman, Kubernetes, MQTT
+
+# ==================== WORK EXPERIENCE ====================
+section_work:
+  _type: work
+  _labels:
+    title: Title
+    company: Company
+    duration: Duration
+    responsibilities: Responsibilities
+  title: Work Experience
+  items:
+    - title: Graph Networks Specialist
+      company: Inertia Systems
+      duration: Apr 2025 - Sep 2025
+      responsibilities:
+        - Developed **end-to-end ML system** for conflict detection achieving **95%+ accuracy**, demonstrating full-stack capabilities from data acquisition through **production deployment** and monitoring.
+        - Architected solution using **AWS Neptune**, **SQL-like Gremlin queries**, and **RESTful APIs**, writing **production-ready code** for real-time decision-making with high reliability.
+        - Applied **feature engineering** and **statistical modeling** to optimize detection performance, iterating through research and experimentation to achieve business goals.
+        - **Collaborated with cross-functional teams** (engineering, product, marketing) to deliver high-impact solution that drove **$3M investment**, demonstrating strong communication with senior stakeholders.
+    
+    - title: Postdoctoral Researcher
+      company: Indiana University
+      duration: Jan 2025 - Present
+      responsibilities:
+        - Developed **anomaly detection models** using **graph diffusion** and **statistical methods** for identifying unusual patterns, directly applicable to **fraud detection** in financial systems.
+        - Conducted **deep research** into complex detection problems with high visibility, developing domain expertise through iterative experimentation and critical thinking.
+        - Employed **Python**, **PyTorch**, and **statistical modeling** for model development, training, and evaluation with rigorous success metrics.
+    
+    - title: AI/ML Intern
+      company: Eli Lilly
+      duration: May 2024 - Aug 2024
+      responsibilities:
+        - Built **end-to-end ML system** from data acquisition through **production deployment** on **AWS infrastructure**, handling **large-scale data (1M+ nodes)** with **SQL** queries and **feature engineering**.
+        - Developed **supervised and semi-supervised models** achieving **96%+ recall**, demonstrating strong practical ML knowledge and ability to optimize business-critical metrics.
+        - Wrote **production-ready Python code** with **CI/CD pipelines** and testing, ensuring reliability for real-time operations and data quality maintenance.
+        - **Collaborated with cross-functional teams** across chemistry, finance, and marketing, presenting analyses and outcomes to senior management to inform product development and strategy.
+        - Designed and performed **analyses** that drove data acquisition decisions, product priorities, and business strategy with measurable impact.
+    
+    - title: Data Science Researcher
+      company: Purdue University
+      duration: Dec 2019 - Apr 2022
+      responsibilities:
+        - Developed **real-time anomaly detection models** using **time series analysis**, **entropy analysis**, and **neural networks (RNN, CRNN)**, directly transferable to **fraud detection** use cases requiring pattern recognition in sequential data.
+        - Architected **end-to-end production system** on **AWS** using **MQTT**, **PostgreSQL**, and distributed architecture, writing **production code** for real-time classification with fault tolerance.
+        - Applied **inventive feature engineering** and **statistical modeling** techniques, achieving success through iteration and integration of new data sources.
+        - Implemented **model monitoring** and data quality checks, ensuring reliable real-time decision-making across multiple concurrent streams.
+        - Demonstrated **deep domain understanding** of time series patterns and anomaly signatures through extensive research and experimentation.
+
+# ==================== EDUCATION ====================
+section_education:
+  _type: education
+  _labels:
+    degree: Degree
+    institution: Institution
+    campus: Campus
+    graduation_date: Graduation Date
+  title: Education
+  items:
+    - degree: PhD in Computer Engineering
+      institution: Purdue University
+      campus: Main Campus
+      graduation_date: "Dec 2024"
+    
+    - degree: MSc in Computer Engineering
+      institution: Amirkabir University
+      graduation_date: "Feb 2011"
+    
+    - degree: BS in Computer Engineering
+      institution: Azad University
+      graduation_date: "Jul 2008"
+
+# ==================== RESEARCH EXPERIENCE ====================
+section_research:
+  _type: research
+  _labels:
+    title: Title
+    references: References
+    institution: Institution
+    type: Type
+    description: Description
+    technical_environment: Technical Environment
+    applied_methods: Applied Methods
+  title: Research Experience
+  items:
+    - title: Graph Embedding and Graph ML
+      institution: Purdue University
+      type: PhD Thesis
+      description:
+        My PhD thesis at Purdue University. Researched graph embedding methods. Invented a graph embedding methodology using force-directed approach and provided a mathematical proof-of-convergence using Brouwer's fixed point theorem. Optimized complexity of the method from $$O(n^2)$$ to $$O(n \log n)$$. This method can be employed in supervised or unsupervised learning schemes. Made extensive use of PyTorch framework, CUDA library, GPU unit and memory optimization methods. Implemented parallelized algorithms for multi-GPU execution using SLURM. Improved graph task metrics (link prediction, node classification, etc.) by over 6% compared to state-of-the-art methods. Developed a library to optimize the memory utilization by searching for an optimum batch count during run time. Used "wrapper" design pattern to implement a Python decorator for the batch-count optimizer during run-time. Implemented an experiment tracking system using MLFlow.
+      technical_environment:
+        Deployed models on multi-GPU clusters using SLURM for resource management
+      applied_methods: Force-Directed approach | PyTorch | CUDA | Memory optimization | Multi-GPU scaling | SLURM job orchestration | Experiment tracking
+    
+    - title: Large-Scale Knowledge Graph Processing
+      institution: Eli Lilly and Company
+      type: Internship Project
+      description:
+        An internship project at Eli Lilly and Company. Researched optimized methods for extracting subgraphs from large-scale knowledge graph and visualizing it. The objective was to provide a KG tool with search and visual exploration features, helping the user better explore the KG. The users of this tool were scientists and domain experts from various departments (chemistry/pharma, finance, marketing, etc.). In addition, for enhancing user experience, a smooth transition between various levels of visualization granularities was implemented.
+      applied_methods: Force-Directed | ForceAtlas | Community detection | Clustering | GraphViz
+    
+    - title: DDoS attack detection and mitigation in SDN
+      institution: Purdue University
+      type: Research Project
+      description:
+        A research project at Purdue University. Researching on DDoS attacks and development of methods for their detection and mitigation. In this research the network traffic flows were collected in set intervals. Then they were compiled into time series data for processing using entropy analysis and neural network models for classification and prediction. Proposed the idea of partitioning incoming traffic based on various parameters. Then, each partition was effectively a separate time series data.
+      applied_methods: Entropy analysis | Group testing | RNN and CRNN
+    
+    - title: Quantum Computer Scheduler
+      institution: Amirkabir University (QDA group)
+      type: Master's Thesis
+      description:
+        A master's thesis at Amirkabir University. Designed and implemented a method and algorithm for scheduling ion-trap quantum computers with the goal of reducing execution latency of quantum program. Reduced the scheduling latency by 50% average compared to the state-of-the-art methods.
+      applied_methods: OOP in C++ | Lee's maze routing
+
+# ==================== CERTIFICATES ====================
+section_certificates:
+  _type: certificates
+  _labels:
+    name: Certificate Name
+    institution: Institution
+    verification_url: Verification
+  title: Certificates
+  items:
+    - name: Machine learning specialization
+      institution: Stanford University.
+      verification_url: https://coursera.org/verify/specialization/HMWE8SJ5U82M
+    
+    - name: MLOps
+      institution: Duke University.
+      verification_url: https://coursera.org/verify/specialization/ENSE7V7CKMU7
+    
+    - name: Deep learning specialization
+      institution: Stanford University.
+
+# ==================== PUBLICATIONS ====================
+section_publications:
+  _type: publications
+  title: Publications
+  _labels:
+    note: Note
+    scholar_url: Google Scholar
+  note: "Under the name \"Hamidreza Lotfalizadeh\""
+  scholar_url: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en

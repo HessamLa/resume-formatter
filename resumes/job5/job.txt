@@ -1,0 +1,47 @@
+Company: Q2
+Role: AI Application Developer
+Location: Austin, TX
+
+As passionate about our people as we are about our mission.
+Why Join Q2?
+Q2 is a leading provider of digital banking and lending solutions to banks, credit unions, alternative finance companies, and fintechs in the U.S. and internationally. Our mission is simple: build strong and diverse communities through innovative financial technology—and we do that by empowering our people to help create success for our customers.
+What Makes Q2 Special?
+Being as passionate about our people as we are about our mission. We celebrate our employees in many ways, including our “Circle of Awesomeness” award ceremony and day of employee celebration among others! We invest in the growth and development of our team members through ongoing learning opportunities, mentorship programs, internal mobility, and meaningful leadership relationships. We also know that nothing builds trust and collaboration like having fun. We hold an annual Dodgeball for Charity event at our Q2 Stadium in Austin, inviting other local companies to play, and community organizations we support to raise money and awareness together.
+We’re looking for an AI Application Developer to join our engineering team in Austin. In this role, you’ll help build next-generation intelligent applications that bring real business impact. You’ll work in a small, collaborative team where you’ll take on meaningful responsibilities, solve complex problems, and grow your skills quickly.
+This is a great opportunity for someone who is passionate about software development, curious about emerging technologies, and eager to apply AI tools in everyday engineering work.
+What You’ll Do
+Build and maintain AI-enabled applications using modern programming languages.
+Integrate large language models (LLMs), APIs, and cloud services into production systems.
+Explore and adopt new AI tools to improve productivity and application performance.
+Collaborate with teammates to translate business needs into technical solutions.
+Solve challenging problems by prototyping, testing, and delivering production-ready software.
+Contribute to discussions on system design, architecture, and best practices.
+What We’re Looking For
+Typically requires a Bachelor's Degree and 5+ years of experience.
+Strong programming skills in at least one modern language (Our stack is mostly Python and TypeScript but demonstrated mastery of any language is fine).
+Deep experience using AI tools in the software development process.
+A growth mindset: adaptable, curious, and eager to learn.
+Demonstrated ability to take on complex, unfamiliar problems and drive them to resolution.
+Nice to Have
+Experience with LLM frameworks (LangGraph, Dspy, Autogen, etc.).
+Familiarity with cloud platforms (AWS, GCP, or Azure).
+Knowledge of containers and deployment (Docker, Kubernetes, ECS).
+Database skills (SQL/NoSQL).
+Understanding of identity and authentication systems (OAuth, SSO, Okta).
+This position requires fluent written and oral communication in English.
+Applicants must be authorized to work for any employer in the U.S. We are unable to sponsor or take over sponsorship of an employment Visa at this time.
+Health & Wellness
+Hybrid Work Opportunities
+Flexible Time Off
+Career Development & Mentoring Programs
+Health & Wellness Benefits, including competitive health insurance offerings and generous paid parental leave for eligible new parents
+Community Volunteering & Company Philanthropy Programs
+Employee Peer Recognition Programs – “You Earned it”
+Click
+here
+to find out more about the benefits we offer.
+Our Culture & Commitment:
+We’re proud to foster a supportive, inclusive environment where career growth, collaboration, and wellness are prioritized. And our benefits go beyond healthcare—offering resources for physical, mental, and professional well-being. Click here to find out more about the benefits we offer. Q2 employees are encouraged to give back through volunteer work and nonprofit support through our Spark Program (
+see more
+). We believe in making an impact—in the industry and in the community.
+We are an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, age, disability, genetic information, or veteran status.

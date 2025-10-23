@@ -1,0 +1,52 @@
+SentiLink
+Senior Data Scientist - Full Stack
+
+About us:
+SentiLink provides innovative identity and risk solutions, empowering institutions and individuals to transact confidently with one another.
+
+By building the future of identity verification in the United States and reinventing the currently clunky, ineffective, and expensive process, we believe strongly that the future will be 10x better.
+
+We’ve had tremendous traction and are growing extremely quickly. Already our real-time APIs have helped verify hundreds of millions of identities, beginning with financial services. In 2021, we raised a $70M Series B round, led by Craft Ventures to rapidly scale our best in class products. We’ve earned coverage and awards from TechCrunch, CNBC, Bloomberg, Forbes, Business Insider, PYMNTS, American Banker, LendIt, and have been named to the Forbes Fintech 50 list consecutively since 2023. Last but not least, we’ve even been a part of history - we were the first company to go live with the eCBSV and testified before the United States House of Representatives.
+
+Role:
+As a Senior Data Scientist at SentiLink, you will build our core products: models that identify fraudsters and also advance our growing suite of products in financial risk. As an experienced researcher you will be relied upon to be technically capable and the definitive owner of your respective domain. You will often work on projects with high visibility and impact that require deep domain understanding, critical thinking and strong technical abilities. You will work with teams across the company to research new types of fraud, develop new products, and provide analysis to drive sales and marketing. This is a full-stack data science role, involving model development, analysis, and writing production code. You should be interested in having end-to-end ownership and a fast-moving environment where deep domain understanding drives development and unusual insights drive our competitive advantage rather than optimization of new machine learning methodologies.
+
+Technologies: Python 3, PostgreSQL, and AWS infrastructure (EC2, S3, RDS, Redshift, etc.)
+
+Responsibilities:
+* Develop and maintain SentiLink’s fraud detection models through the full model development lifespan: from data acquisition decisions through featurization, focusing labeling resources, model training, experimentation, productionalization, and monitoring.
+* Research new types of fraud and develop new SentiLink products around identity verification.
+* Build foundational modeling to drive SentiLink’s expanding suite of Fraud and Financial Risk products.
+* Achieve success by researching / developing through iteration, integration of new data sources and inventive feature engineering.
+* Write production-ready code that can be relied on for real-time decision making by our partners.
+* Design, perform, and present analyses that will inform data acquisition, product development, risk operations priorities, marketing, and sales efforts.
+* Work with engineering, risk operations, and data acquisitions to access necessary data, maintain data quality, and support data access
+
+Requirements:
+* 4+ years relevant work experience & relevant PhD or 6+ years & relevant Masters.
+* Proven track record of solving complex / high profile business problems with DS / ML solutions.
+* Experience in communicating outcomes / progress to senior management / stakeholders.
+* Very strong in “end to end” DS development: Planning, fleshing out success criteria / metrics, getting buy-in, developing the solution, delivering the solution (prod / deck / strategy doc / etc)
+* Strong practical ML / Stats knowledge, i.e. can easily employ the suite of standard ML / stats tools to quickly scope out solutions, and double down where needed. Experience with SOTA ML solutions is a plus
+* Interest in developing deep domain expertise for product-focused work: a background in fraud is not required, but willingness to learn is
+* Experience writing production code and tests
+* Detail oriented and thoughtful - someone we can rely on to make business-changing decisions
+* Bonus for familiarity with: identity solutions, fintech, or adjacent industries
+* Candidates must be legally authorized to work in the United States and must live in the United States
+* Thrive in a fast paced environment characterized by the need to solve extremely varied, high impact, open ended problems.
+* Candidates must be legally authorized to work in the United States and must live in the United States
+
+Salary Range:
+* $180,000/year - $230,000/year + equity + benefits
+Perks:
+* Employer paid group health insurance for you and your dependents
+* 401(k) plan with employer match (or equivalent for non US-based roles)
+* Flexible paid time off
+* Regular company-wide in-person events
+* Home office stipend, and more!
+
+Corporate Values:
+* Follow Through
+* Deep Understanding
+* Whatever It Takes
+* Do Something Smart
