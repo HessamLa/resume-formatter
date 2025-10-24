@@ -22,10 +22,6 @@ async function loadResume() {
         // Store original YAML text
         originalYamlText = yamlText;
 
-        // Fix YAML parsing issue: quote lines that start with ** (markdown bold)
-        // to prevent them from being interpreted as YAML aliases
-        yamlText = yamlText.replace(/^(\s+- )(\*\*.+)$/gm, '$1"$2"');
-
         // Parse YAML using js-yaml library (loaded from CDN)
         const data = jsyaml.load(yamlText);
 
@@ -58,10 +54,16 @@ async function loadResume() {
         setupDebugButton();
 
     } catch (error) {
+        let errorTip='';
+        if (error.message.includes('unidentified alias \"*')) {
+            errorTip = "Make sure to use pair of quotes or double-quores to avoid YAML alias dereferencing.";
+        }
+        // errorTip = `<p>${errorTip}</p>`;
         document.querySelector('.loading').innerHTML = `
             <div style="color: #e74c3c;">
                 <h2>Error Loading Resume</h2>
                 <p>${error.message}</p>
+                ${errorTip ? `<p>${errorTip}</p>` : ''}
                 <p>Make sure you're running a local server:</p>
                 <p><b>VSCode:</b> Right-click index.html → "Show Preview"</p>
                 <p><b>Command line:</b> <code>python -m http.server 8000</code></p>

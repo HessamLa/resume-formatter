@@ -1,5 +1,6 @@
 # Resume - Hessam Alizadeh (Hamidreza Lotfalizadeh, Ph.D.)
 # Use markdown-style formatting for **bold** and _italics_
+# To avoid YAML aliasing a ** at the begining of a line, enclose the line in a pair of ""
 
 _meta:
   sections_order: [
@@ -95,7 +96,7 @@ section_work:
         - Built query-based exploration tool integrating **GraphRAG and graph traversal algorithms** for subgraph extraction.
         - Lead the research and development of ML methods for **large-scale graph analysis** handling **over 1 million nodes**.
         - Implemented **supervised and semi-supervised methods** for  knowledge discovery. Achieved **over 96% recall** with semi-supervised methods.
-        - **Collaborated with cross-functional and international teams** across chemistry/pharma, finance, and marketing departments.
+        - "**Collaborated with cross-functional and international teams** across chemistry/pharma, finance, and marketing departments." # to avoid dereferencing
         - Created **user-friendly web interface** with interactive features for decision-making processes of field experts.
     
     - title: Data Science Researcher
@@ -126,7 +127,7 @@ section_education:
   title: Education
   items:
     - degree: PhD in Computer Engineering
-      institution: Purdue University - Main Campus
+      institution: "**Purdue University - Main Campus**" # Double quotes to avoid yaml alias
       graduation_date: "Dec 2024"
     
     - degree: MSc in Computer Engineering
@@ -176,7 +177,7 @@ section_research:
       applied_methods: Entropy analysis | Group testing | RNN and CRNN
     
     - title: Quantum Computer Scheduler
-      institution: Amirkabir University (QDA group)
+      institution:  Amirkabir University (QDA group)
       type: Master's Thesis
       description:
         A master's thesis at Amirkabir University. Designed and implemented a method and algorithm for scheduling ion-trap quantum computers with the goal of reducing execution latency of quantum program. Reduced the scheduling latency by 50% average compared to the state-of-the-art methods.
