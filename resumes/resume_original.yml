@@ -1,5 +1,6 @@
 # Resume - Hessam Alizadeh (Hamidreza Lotfalizadeh, Ph.D.)
 # Use markdown-style formatting for **bold** and _italics_
+# To avoid YAML aliasing a ** at the begining of a line, enclose the line in a pair of ""
 
 _meta:
   sections_order: [ # This is used to indicate the order of sections. We can also exclude a section from the final output
@@ -13,16 +14,16 @@ _meta:
       "section_publications"
       ]
   job_summary:  # a very short summary of the job description
-      "Seeking a Machine Learning Engineer with 3+ years of experience to join {company name or description}."
+      "Seeking a {job title} with {years or experience} to join {company name or description}."
   save_filename: # Base filename (without extension) for saving the resume. Maximum 4 keywords from the job description (role, company name, expertise, etc), '-' separated, such as ml-vision-google, senior-devops-ny-fadialityco, etc.
-      ''  # {kw1}-{kw2}-{kw3}' # or '{kw1}-{kw2}-{kw3}-{kw4}'
+      'kw1-kw2-kw3'  # {kw1}-{kw2}-{kw3}' # or '{kw1}-{kw2}-{kw3}-{kw4}'
 
 # ==================== CONTACT ====================
 section_contact:
   _type: contact
   name: Hessam Alizadeh
   full_name: (Hamidreza Lotfalizadeh, Ph.D.)
-  location: Bryan, Tx (willing to relocate)  # Update as needed
+  location: Bryan, TX (willing to relocate)  # Update as needed
   email: hamidla.ap@gmail.com
   linkedin: linkedin.com/in/hessamla
   github: github.com/hessamla
@@ -95,7 +96,7 @@ section_work:
         - Built query-based exploration tool integrating **GraphRAG and graph traversal algorithms** for subgraph extraction.
         - Lead the research and development of ML methods for **large-scale graph analysis** handling **over 1 million nodes**.
         - Implemented **supervised and semi-supervised methods** for  knowledge discovery. Achieved **over 96% recall** with semi-supervised methods.
-        - **Collaborated with cross-functional and international teams** across chemistry/pharma, finance, and marketing departments.
+        - "**Collaborated with cross-functional and international teams** across chemistry/pharma, finance, and marketing departments." # to avoid dereferencing
         - Created **user-friendly web interface** with interactive features for decision-making processes of field experts.
     
     - title: Data Science Researcher
@@ -122,13 +123,11 @@ section_education:
   _labels:
     degree: Degree
     institution: Institution
-    campus: Campus
     graduation_date: Graduation Date
   title: Education
   items:
     - degree: PhD in Computer Engineering
-      institution: Purdue University
-      campus: Main Campus
+      institution: "**Purdue University - Main Campus**" # Double quotes to avoid yaml alias
       graduation_date: "Dec 2024"
     
     - degree: MSc in Computer Engineering
