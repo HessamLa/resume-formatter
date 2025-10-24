@@ -365,19 +365,11 @@ function renderSummary(data, title, labels) {
 // Render education section
 function renderEducation(data, title, labels) {
     const items = data.items.map(edu => {
-        const parts = [];
-        
-        // Build institution line
-        let institutionLine = escapeHtml(edu.institution);
-        if (edu.campus) {
-            institutionLine += ` - ${escapeHtml(edu.campus)}`;
-        }
-        
         return `
             <div class="education-item">
-                <span class="date">${escapeHtml(edu.graduation_date)}</span>
-                <div class="institution">${institutionLine},</div>
-                <div class="degree">${escapeHtml(edu.degree)}</div>
+                <span class="date">${parseFormatting(edu.graduation_date)}</span>
+                <div class="institution">${parseFormatting(edu.institution)},</div>
+                <div class="degree">${parseFormatting(edu.degree)}</div>
             </div>
         `;
     }).join('');
