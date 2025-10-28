@@ -3,7 +3,7 @@
 # To avoid YAML aliasing a ** at the begining of a line, enclose the line in a pair of ""
 
 _meta:
-  sections_order: [
+  sections_order: [ # This is used to indicate the order of sections. We can also exclude a section from the final output
       "section_contact",
       "section_summary",
       "section_education",
@@ -177,7 +177,7 @@ section_research:
       applied_methods: Entropy analysis | Group testing | RNN and CRNN
     
     - title: Quantum Computer Scheduler
-      institution:  Amirkabir University (QDA group)
+      institution: Amirkabir University (QDA group)
       type: Master's Thesis
       description:
         A master's thesis at Amirkabir University. Designed and implemented a method and algorithm for scheduling ion-trap quantum computers with the goal of reducing execution latency of quantum program. Reduced the scheduling latency by 50% average compared to the state-of-the-art methods.
