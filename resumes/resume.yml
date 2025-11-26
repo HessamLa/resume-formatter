@@ -1,215 +1,146 @@
 # Resume - Hessam Alizadeh (Hamidreza Lotfalizadeh, Ph.D.)
 # Use markdown-style formatting for **bold** and _italics_
-# To avoid YAML aliasing a ** at the begining of a line, enclose the line in a pair of ""
+# To avoid YAML aliasing a ** at the beginning of a line, enclose the line in a pair of ""
 
+# ==================== CONTACT ====================
+section_contact:
+  _type: contact
+  name: Hamidreza Lotfalizadeh, Ph.D.
+  # full_name: 
+  location: Bay Area, CA
+  phone: (222) 444 2323
+  email: HamidLA.AP@gmail.com
+  linkedin: linkedin.com/in/hessamla
+  scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ
+
+# ==================== SUMMARY ====================
+section_summary:
+  _type: summary
+  title: SUMMARY
+  content:
+    "AI/ML Engineer and researcher with 4+ years building or researching **production GenAI systems** and **ML-powered solutions**. Expertise in **distributed training**, **model optimization** (9x speedups, 6% accuracy improvements), **systems design and engineering**, and **scalable deployment**. Strong foundation in **PyTorch**, **CUDA**, **multi-GPU systems**, and **MLOps practices** for enterprise-scale applications."
+
+# ==================== TECHNICAL SKILLS ====================      
+section_skills:
+  _type: skills
+  title: SKILLS
+  skillset1:
+      title: Languages/Libs
+      items: Python (Proficient), C/C++ (Proficient), Java, JS, TS, SQL, Gremlin
+  skillset2:
+      title: AI/ML
+      items: PyTorch, PyG, TensorFlow, CUDA, Deep Learning, HF Transformers, Time Series Analysis, Statistical Modeling, Anomaly Detection, Numpy, Pandas, Scikit-Learn
+  skillset3:
+      title: LLM/GenAI
+      items: Fine-tuning, PEFT, LoRA, Prompt Engineering, Word Embedding, Graph Embedding, LangChain, LangGraph, Pinecone, FAISS, RAG, Anthropic Claude API
+  skillset4:
+      title: DevOps/Infra
+      items: Full-stack, Django, Flask, Node.js, MySQL, MongoDB, RESTful APIs, Docker, SLURM, Apache Spark, MQTT, CI/CD, AWS, Google Cloud Platform, Oracle Cloud Infra
+  skillset5:
+      title: Software Dev
+      items: OOP, Functional/Multithreaded/Concurrent Programming, Linux, Embedded Systems
+
+# ==================== EDUCATION ====================
+section_education:
+  _type: education
+  title: EDUCATION
+  items:
+    - degree: PhD in Computer Engineering
+      institution: "**Purdue University**"
+      graduation_date: "Dec 2024"
+      note: "**_Specialization_**: Graph NN/ML and Distributed ML Systems"
+
+# ==================== WORK EXPERIENCE ====================
+section_work:
+  _type: work
+  title: EXPERIENCES
+  items:
+    - title: Postdoctoral Researcher
+      company: Indiana University
+      duration: Apr 2025 - present
+      note: "**_Skills_**: PyTorch, PyTorch-Geometric, CUDA, GenAI, GPU Memory Optimization, SLURM, Clustering, Graph algorithms, Python"
+      bullets:
+        - Researching **diffusion models** for temporal graph analysis at **1M+ node scale** with time-varying structure
+        - Developing **distributed PyTorch-Geometric pipeline** for **multi-GPU processing**, targeting graphs exceeding single-GPU memory capacity
+        - Implementing **gradient checkpointing** and **dynamic batching strategies** for memory-efficient large-scale operations
+    
+    - title: Graph Systems Specialist (Part-time consulting role)
+      company: Inertia Systems, Inc.
+      duration: Jul 2025 - Sep 2025
+      note: "**_Skills_**: LLM, Knowledge Graph, AWS Neptune graph database, Pinecone VectorDB, RAG, Gremlin, Python, JavaScript, D3.js"
+      bullets:
+        - Consulted the development of a **graph-based system** for automating project conflict detection and resolution
+        - Developed an **LLM-based PoC pipeline** to ingest (un)structured project data and extract entities and relations to construct the **Knowledge Graph**, deployed on **Amazon Neptune GraphDB** and **Pinecone VectorDB for RAG**
+        - Developed a **graph querying system** using **Gremlin** for enhanced operability
+    
+    - title: AI/ML Engineering Intern
+      company: Eli Lilly and Company
+      duration: May 2024 - Aug 2024
+      note: "**_Skills_**: DevOps, Full-stack, Docker, RESTful API, D3.js, JavaScript, Python, NetworkX, AWS Cloud DB, Graph Algorithms, Graph Visualization, Cross-functional Collaboration"
+      bullets:
+        - Built **full-stack application** for **enterprise knowledge graph analysis** and exploration
+        - Designed **backend services** for handling graph queries with **4M+ nodes** with **milli-second response time**
+        - Optimized methods for visualizing **large-scale knowledge graphs**
+    
+    - title: Graph Embedding and Graph ML (PhD Thesis)
+      company: Purdue University
+      duration: Oct 2022 - Dec 2024
+      note: "**_Skills_**: PyTorch, PyTorch-Geometric, CUDA, GPU memory optimization, Multi-GPU scaling, SLURM, MLFlow, Force-Directed algorithms, Graph Neural Networks"
+      bullets:
+        - Invented **novel graph embedding methodology** using **force-directed approach** with mathematical proof of convergence via Brouwer's fixed point theorem
+        - Achieved **6% improvement over state-of-the-art** on node classification and link prediction benchmarks
+        - "Optimized algorithm from **O(n²) to O(n log n) complexity** through smart sampling, reducing computational requirements by **99.9%** for 20K-node graphs with **9x execution speedup**, enabling billion-node scalability"
+        - Developed **runtime memory optimization library** using dynamic batch-count optimization
+        - Deployed models on **multi-GPU clusters using SLURM** and implemented **experiment tracking with MLFlow**
+    
+    - title: Data Science Researcher (PhD Student)
+      company: Purdue University
+      duration: Dec 2019 - Apr 2022
+      note: "**_Skills_**: MongoDB, MQTT, Python, Numpy, Pandas, Time Series Analysis, Entropy Analysis, Anomaly Detection"
+      bullets:
+        - Conducted research on **time series data analysis and prediction models** for early detection of incidents in urban buildings by analyzing **IoT data**
+        - Built **data pipeline** for collection and analysis of **real-time IoT data via MQTT** as multivariate time series, supporting classification and prediction procedures and underscoring ML fundamentals
+    
+    - title: DDoS attack detection and mitigation
+      company: Purdue University
+      duration: Sep 2017 - Aug 2022
+      note: "**_Skills_**: Entropy Analysis, Time Series Analysis, Anomaly Detection, RNN, CRNN, Network Security, Group Testing, C++"
+      bullets:
+        - Designed a **data partitioning method** and applied on network traffic data for **DDoS attack detection and mitigation**
+        - Used **entropy analysis** to convert the network traffic batches into **time series data**
+        - Developed **deep learning classification and prediction models** (RNN, CRNN, Transformer) for **anomaly detection** on the partitioned time series
+
+# ==================== PUBLICATIONS ====================
+section_publications:
+  _type: publications
+  title: PUBLICATIONS
+  _labels:
+    note: Note
+    scholar_url: Google Scholar
+  note: "Under the name \"Hamidreza Lotfalizadeh\""
+  scholar_url: https://scholar.google.com/citations?user=yPwMRpwAAAAJ
+
+# ==================== META INFORMATION ===============
 _meta:
-  sections_order: [ # This is used to indicate the order of sections. We can also exclude a section from the final output
+  sections_order: [
       "section_contact",
       "section_summary",
       "section_education",
       "section_skills",
       "section_work",
-      "section_research",
-      "section_certificates",
       "section_publications"
       ]
-  job_summary:  # a very short summary of the job description
-      "Seeking a {job title} with {years or experience} to join {company name or description}."
-  save_filename: # Base filename (without extension) for saving the resume. Maximum 4 keywords from the job description (role, company name, expertise, etc), '-' separated, such as ml-vision-google, senior-devops-ny-fadialityco, etc.
-      'kw1-kw2-kw3'  # {kw1}-{kw2}-{kw3}' # or '{kw1}-{kw2}-{kw3}-{kw4}'
+  font_size: large
+  font_face: Calibri
 
-# ==================== CONTACT ====================
-section_contact:
-  _type: contact
-  name: Hessam Alizadeh
-  full_name: (Hamidreza Lotfalizadeh, Ph.D.)
-  location: Bryan, TX (willing to relocate)  # Update as needed
-  email: hamidla.ap@gmail.com
-  linkedin: linkedin.com/in/hessamla
-  github: github.com/hessamla
-  scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
+  margin_sides: 0.5in
+  
+  margin_topbottom: 0.2in
+  # margin_top: 0.in
+  # margin_bottom: 0.1in
 
-# ==================== SUMMARY ====================
-section_summary:
-  _type: summary
-  title: Summary
-  content:
-    ML researcher and engineer. Seeking a role in **ML**, **Data science**, or **GenAI**, with an affinity for systems design and engineering and system programming. Demonstrated ability to integrate ML innovations into complex environments through effective cross-functional collaboration. 
+  job_summary:
+      "Seeking a GenAI/ML Engineer position with 4+ years production experience in distributed systems and LLM applications."
+  save_filename:
+      'genai-ml-engineer-lotfalizadeh'
 
-# ==================== TECHNICAL SKILLS ====================      
-section_skills:
-  _type: skills
-  title: Technical Skills
-  skillset1:
-      title: Proficient
-      items: Python, C, C++
-  skillset2:
-      title: Programming & Databases
-      items: C#, Java, JavaScript, Rust, TypeScript, SQL, Gremlin
-  skillset3:
-      title: Tools & Paradigms
-      items: OOP, Functional, Concurrent & Parallel Programming, Embedded, Linux Programming, Bash, Shell, Make, WAF, Gradle, Spring Boot
-  skillset4:
-      title: AI/ML
-      items: PyTorch, Tensorflow, CUDA, Numpy, Pandas, SciPy, Scikit-Learn, MLFlow, Experiment tracking, Node2Vec, NodeForce, Transformers, CNN, RNN, CRNN, GNN, GCN
-  skillset5:
-      title: NLP/LLM
-      items: Fine-Tuning, PEFT, RAG, LangChain, LangGraph, Prompt Engineering, Context Engineering
-  skillset6:
-      title: Statistical Analysis   
-      items: Design of Experiments, Time series analysis, Entropy analysis, Statistical modeling
-  skillset7:
-      title: Infrastructure and DevOps
-      items: Computer architecture, Distributed systems architecture, SLURM, CI/CD, Git, AWS, Neptune, GCP, OCI, RESTful APIs, SQL, Docker, Podman, Kubernetes, MQTT
-
-# ==================== WORK EXPERIENCE ====================
-section_work:
-  _type: work
-  _labels:
-    title: Title
-    company: Company
-    duration: Duration
-    responsibilities: Responsibilities
-  title: Work Experience
-  items:
-    - title: Graph Networks Specialist
-      company: Inertia Systems
-      duration: Apr 2025 - Sep 2025
-      responsibilities:
-        - Developed **graph-based system** for construction tech to manage and resolve conflicts in building plans. Achieved over **95% time efficiency** in conflicts detection and resolution.
-        - Employed **Neptune graph database** with **SQL-like Gremlin queries** for conflict detection and resolution.
-        - Created **graph querying system** and visualization UI for enhanced operability and stakeholder insights.
-        - Delivered features that helped marketing team **attract $3 million investment** through the product presentation.
-    
-    - title: Postdoctoral Researcher
-      company: Indiana University
-      duration: Jan 2025 - Present
-      responsibilities:
-        - Researched **diffusion models** on dynamic graphs to simulate structural changes.
-        - Developed models for rumor source detection using graph diffusion.
-        - Applied graph diffusion models to solve **alignment tasks** with results pending publication.
-    
-    - title: AI/ML Intern
-      company: Eli Lilly
-      duration: May 2024 - Aug 2024
-      responsibilities:
-        - Built query-based exploration tool integrating **GraphRAG and graph traversal algorithms** for subgraph extraction.
-        - Lead the research and development of ML methods for **large-scale graph analysis** handling **over 1 million nodes**.
-        - Implemented **supervised and semi-supervised methods** for  knowledge discovery. Achieved **over 96% recall** with semi-supervised methods.
-        - "**Collaborated with cross-functional and international teams** across chemistry/pharma, finance, and marketing departments." # to avoid dereferencing
-        - Created **user-friendly web interface** with interactive features for decision-making processes of field experts.
-    
-    - title: Data Science Researcher
-      company: Purdue University
-      duration: Dec 2019 - Apr 2022
-      responsibilities:
-        - Conducted research on **time series analysis and prediction models** for early anomaly detection.
-        - Architected **scalable real-time streaming data pipeline** using MQTT to process distributed IoT sensor data.
-        - Built **fault-tolerant distributed system** for multivariate time series analytics.
-        - Implemented **concurrent multi-threaded operations** for real-time classification and prediction across multiple streams.
-
-    - title: System Software Engineer
-      company: Parsian e-Commerce Co.
-      duration: Sep 2013 - Aug 2016
-      responsibilities:
-        - Maintained Linux based POS (Point-of-Sale) devices
-        - Lead the design and development of reconfigurable embedded printer library, USSD connection, LAN and dial-up embedded applications, and POS to web-app and desktop application connection
-
-
-# Rest of the resume remains unchanged from original...
-# ==================== EDUCATION ====================
-section_education:
-  _type: education
-  _labels:
-    degree: Degree
-    institution: Institution
-    graduation_date: Graduation Date
-  title: Education
-  items:
-    - degree: PhD in Computer Engineering
-      institution: "**Purdue University - Main Campus**" # Double quotes to avoid yaml alias
-      graduation_date: "Dec 2024"
-    
-    - degree: MSc in Computer Engineering
-      institution: Amirkabir University
-      graduation_date: "Feb 2011"
-    
-    - degree: BS in Computer Engineering
-      institution: Azad University
-      graduation_date: "Jul 2008"
-
-# ==================== RESEARCH EXPERIENCE ====================
-section_research:
-  _type: research
-  _labels:
-    title: Title
-    references: References
-    institution: Institution
-    type: Type
-    description: Description
-    technical_environment: Technical Environment
-    applied_methods: Applied Methods
-  title: Research Experience
-  items:
-    - title: Graph Embedding and Graph ML
-      # references: "[1,2]"
-      institution: Purdue University
-      type: PhD Thesis
-      description:
-        My PhD thesis at Purdue University. Researched graph embedding methods. Invented a graph embedding methodology using force-directed approach and provided a mathematical proof-of-convergence using Brouwer's fixed point theorem. Optimized complexity of the method from $$O(n^2)$$ to $$O(n \log n)$$. This method can be employed in supervised or unsupervised learning schemes. Made extensive use of PyTorch framework, CUDA library, GPU unit and memory optimization methods. Implemented parallelized algorithms for multi-GPU execution using SLURM. Improved graph task metrics (link prediction, node classification, etc.) by over 6% compared to state-of-the-art methods. Developed a library to optimize the memory utilization by searching for an optimum batch count during run time. Used "wrapper" design pattern to implement a Python decorator for the batch-count optimizer during run-time. Implemented an experiment tracking system using MLFlow.
-      technical_environment:
-        Deployed models on multi-GPU clusters using SLURM for resource management
-      applied_methods: Force-Directed approach | PyTorch | CUDA | Memory optimization | Multi-GPU scaling | SLURM job orchestration | Experiment tracking
-    
-    - title: Large-Scale Knowledge Graph Processing
-      institution: Eli Lilly and Company
-      type: Internship Project
-      description:
-        An internship project at Eli Lilly and Company. Researched optimized methods for extracting subgraphs from large-scale knowledge graph and visualizing it. The objective was to provide a KG tool with search and visual exploration features, helping the user better explore the KG. The users of this tool were scientists and domain experts from various departments (chemistry/pharma, finance, marketing, etc.). In addition, for enhancing user experience, a smooth transition between various levels of visualization granularities was implemented.
-      applied_methods: Force-Directed | ForceAtlas | Community detection | Clustering | GraphViz
-    
-    - title: DDoS attack detection and mitigation in SDN
-      # references: "[3,4]"
-      institution: Purdue University
-      type: Research Project
-      description:
-        A research project at Purdue University. Researching on DDoS attacks and development of methods for their detection and mitigation. In this research the network traffic flows were collected in set intervals. Then they were compiled into time series data for processing using entropy analysis and neural network models for classification and prediction. Proposed the idea of partitioning incoming traffic based on various parameters. Then, each partition was effectively a separate time series data.
-      applied_methods: Entropy analysis | Group testing | RNN and CRNN
-    
-    - title: Quantum Computer Scheduler
-      institution: Amirkabir University (QDA group)
-      type: Master's Thesis
-      description:
-        A master's thesis at Amirkabir University. Designed and implemented a method and algorithm for scheduling ion-trap quantum computers with the goal of reducing execution latency of quantum program. Reduced the scheduling latency by 50% average compared to the state-of-the-art methods.
-      applied_methods: OOP in C++ | Lee's maze routing
-
-# ==================== CERTIFICATES ====================
-section_certificates:
-  _type: certificates
-  _labels:
-    name: Certificate Name
-    institution: Institution
-    verification_url: Verification
-  title: Certificates
-  items:
-    - name: Machine learning specialization
-      institution: Stanford University.
-      verification_url: https://coursera.org/verify/specialization/HMWE8SJ5U82M
-    
-    - name: MLOps
-      institution: Duke University.
-      verification_url: https://coursera.org/verify/specialization/ENSE7V7CKMU7
-    
-    - name: Deep learning specialization
-      institution: Stanford University.
-      # verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
-
-# ==================== PUBLICATIONS ====================
-section_publications:
-  _type: publications
-  title: Publications
-  _labels:
-    note: Note
-    scholar_url: Google Scholar
-  note: "Under the name \"Hamidreza Lotfalizadeh\""
-  scholar_url: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en

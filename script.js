@@ -41,8 +41,8 @@ async function loadResume() {
         // Attach save button handlers
         setupSaveButtons();
 
-        // Setup control sliders
-        setupControlSliders();
+        // Setup control sliders (pass _meta for initialization)
+        setupControlSliders(data._meta);
 
         // Setup pane toggle
         setupPaneToggle();
@@ -271,7 +271,6 @@ function renderResume(data) {
         'education': renderEducation,
         'skills': renderSkills,
         'work': renderWork,
-        'research': renderResearch,
         'certificates': renderCertificates,
         'publications': renderPublications
     };
@@ -336,12 +335,17 @@ function extractContent(sectionData) {
 // ==================== RENDERERS ====================
 
 // Render contact/header section
-function renderContact(data, title, labels) {
+function renderContact(data, title) {
+    // fa-map-marker-alt <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>
+    // fa-phone Unicode f095
+    // 
+    //
     const contactItems = [
-        data.location,
-        `<a href="mailto:${data.email}">${data.email}</a>`,
-        `<a href="https://${data.linkedin}" target="_blank">${data.linkedin}</a>`,
-        `<a href="https://${data.github}" target="_blank">${data.github}</a>`
+        data.location ? `<span class="contact-item">${escapeHtml(data.location)}</span>` : null,
+        data.phone ? `<span class="contact-item">${escapeHtml(data.phone)}</span>` : null,
+        data.email ? `<span class="contact-item"><a href="mailto:${data.email}">${data.email}</a></span>` : null,
+        data.linkedin ? `<span class="contact-item"><a href="https://${data.linkedin}" target="_blank">${data.linkedin}</a></span>` : null,
+        data.github ? `<span class="contact-item"><a href="https://${data.github}" target="_blank">${data.github}</a></span>` : null
     ].filter(Boolean);
 
     return `
@@ -349,29 +353,29 @@ function renderContact(data, title, labels) {
             <h1>${escapeHtml(data.name)}</h1>
             ${data.full_name ? `<div class="subtitle">${escapeHtml(data.full_name)}</div>` : ''}
             <div class="contact-info">
-                ${contactItems.join(' | ')}
+                ${contactItems.join('   |   ')}
             </div>
         </div>
     `;
 }
 
 // Render summary section (inline format)
-function renderSummary(data, title, labels) {
+function renderSummary(data, title) {
     return `
         <p class="summary-inline">
-            <strong>${escapeHtml(title)}:</strong> ${parseFormatting(data.content)}
+            <strong>${escapeHtml(title)}:</strong>${parseFormatting(data.content)}
         </p>
     `;
 }
 
 // Render education section
-function renderEducation(data, title, labels) {
+function renderEducation(data, title) {
     const items = data.items.map(edu => {
         return `
             <div class="education-item">
                 <span class="date">${parseFormatting(edu.graduation_date)}</span>
-                <div class="institution">${parseFormatting(edu.institution)},</div>
-                <div class="degree">${parseFormatting(edu.degree)}</div>
+                <div class="institution">${parseFormatting(edu.institution)} - ${parseFormatting(edu.degree)}</div>
+                ${edu.note ? `<div class="education-note">${parseFormatting(edu.note)}</div>` : ''}
             </div>
         `;
     }).join('');
@@ -385,7 +389,7 @@ function renderEducation(data, title, labels) {
 }
 
 // Render skills section with new structure
-function renderSkills(data, title, labels) {
+function renderSkills(data, title) {
     let html = `<div class="section"><h2 class="section-title">${escapeHtml(title)}</h2>`;
     
     // Iterate through all categories in the skills section
@@ -420,120 +424,28 @@ function renderSkills(data, title, labels) {
 }
 
 // Render work experience section
-function renderWork(data, title, labels) {
-    // Default labels
-    const defaultLabels = {
-        title: 'Title',
-        company: 'Company',
-        duration: 'Duration',
-        responsibilities: 'Responsibilities'
-    };
-    
-    // Merge with custom labels
-    const finalLabels = { ...defaultLabels, ...labels };
-    
-    const items = data.items.map(exp => `
-        <div class="experience-item">
-            <div class="experience-header">
-                <div>
-                    <span class="job-title">${escapeHtml(exp.title)}</span>
-                    <span class="company"> || ${escapeHtml(exp.company)}</span>
-                </div>
-                <div class="duration">${escapeHtml(exp.duration)}</div>
-            </div>
-            ${exp.responsibilities && exp.responsibilities.length > 0 ? `
-                <ul class="responsibilities">
-                    ${exp.responsibilities.map(r => `<li>${parseFormatting(r)}</li>`).join('')}
-                </ul>
-            ` : ''}
-        </div>
-    `).join('');
-    
-    return `
-        <div class="section">
-            <h2 class="section-title">${escapeHtml(title)}</h2>
-            ${items}
-        </div>
-    `;
-}
-
-// Render research experience section
-function renderResearch(data, title, labels) {
-    // Default labels
-    const defaultLabels = {
-        title: 'Title',
-        references: 'References',
-        institution: 'Institution',
-        type: 'Type',
-        description: 'Description',
-        technical_environment: 'Technical Environment',
-        applied_methods: 'Applied Methods'
-    };
-    
-    // Merge with custom labels
-    const finalLabels = { ...defaultLabels, ...labels };
-    
+function renderWork(data, title) {
     const items = data.items.map(exp => {
-        let html = '<div class="research-item">';
-        
-        // Title and references
-        html += `<div class="research-title">${escapeHtml(exp.title)}`;
-        if (exp.references) {
-            html += ` ${escapeHtml(exp.references)}`;
-        }
-        html += '</div>';
-        
-        // Institution and type
-        html += '<div class="research-type">';
-        html += escapeHtml(exp.institution);
-        if (exp.type) {
-            html += ` | ${escapeHtml(exp.type)}`;
-        }
-        html += '</div>';
-        
-        // Description
-        if (exp.description) {
-            html += `<div class="research-description">${parseFormatting(exp.description)}</div>`;
-        }
+        // Support both 'bullets' (new) and 'responsibilities' (legacy) fields
+        const bulletItems = exp.bullets || exp.responsibilities || [];
 
-        // Technical environment with italic label
-        if (exp.technical_environment) {
-            html += `
-                <div class="applied-methods">
-                    <em>${escapeHtml(finalLabels.technical_environment)}:</em>
-                    ${parseFormatting(exp.technical_environment)}
+        return `
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <span class="job-title">${escapeHtml(exp.title)}</span>
+                        <span class="company"> | ${escapeHtml(exp.company)}</span>
+                    </div>
+                    <div class="duration">${escapeHtml(exp.duration)}</div>
                 </div>
-            `;
-        }
-        
-        // Applied methods with italic label
-        if (exp.applied_methods) {
-            let methodsStr = '';
-            // If it is string, then use it directly
-            if (typeof exp.applied_methods === 'string') {
-                methodsStr = parseFormatting(exp.applied_methods);
-            } 
-            else if (Array.isArray(exp.applied_methods)) {
-                // If it is array, join with commas
-                const normalizedMethods = normalizeItems(exp.applied_methods, ';;');
-                
-                // Split, escape each method individually, then join with pipe
-                const methodsArray = normalizedMethods.split(';;').map(m => m.trim()).filter(m => m);
-                methodsStr = methodsArray.map(escapeHtml).join(' | ');
-                
-            }
-            // Normalize to string, handling both formats
-            
-            html += `
-                <div class="applied-methods">
-                    <em>${escapeHtml(finalLabels.applied_methods)}:</em>
-                    <span class="methods-list"> ${methodsStr}</span>
-                </div>
-            `;
-        }
-        
-        html += '</div>';
-        return html;
+                ${exp.note ? `<div class="experience-note">${parseFormatting(exp.note)}</div>` : ''}
+                ${bulletItems.length > 0 ? `
+                    <ul class="bullets">
+                        ${bulletItems.map(r => `<li>${parseFormatting(r)}</li>`).join('')}
+                    </ul>
+                ` : ''}
+            </div>
+        `;
     }).join('');
     
     return `
@@ -545,7 +457,7 @@ function renderResearch(data, title, labels) {
 }
 
 // Render certificates section
-function renderCertificates(data, title, labels) {
+function renderCertificates(data, title) {
     // Default labels
     const defaultLabels = {
         name: 'Certificate Name',
@@ -578,31 +490,28 @@ function renderCertificates(data, title, labels) {
 
 // Render publications section
 function renderPublications(data, title, labels) {
-    // Default labels
-    const defaultLabels = {
-        note: 'Note',
-        scholar_url: 'Google Scholar Profile'
-    };
-    
-    // Merge with custom labels
-    const finalLabels = { ...defaultLabels, ...labels };
-    
-    let html = `<div class="section"><h2 class="section-title">${escapeHtml(title)}</h2>`;
-    
+    // let html = `<div class="section"><h2 class="section-title">${escapeHtml(title)}</h2>`;
+    let items = '<div class="publication-item">';
     if (data.note) {
-        html += `<div class="publications-note">${parseFormatting(data.note)}</div>`;
+        items += `<div class="publication-note">${parseFormatting(data.note)}</div>`;
     }
     
     if (data.scholar_url) {
-        html += `
+        items += `
             <a href="${data.scholar_url}" target="_blank" class="publications-link">
-                ${escapeHtml(finalLabels.scholar_url)}
+                ${escapeHtml(data.scholar_url)}
             </a>
         `;
     }
     
-    html += '</div>';
-    return html;
+    items += '</div>';
+    // return html;
+    return `
+        <div class="section">
+            <h2 class="section-title">${escapeHtml(title)}</h2>
+            ${items}
+        </div>
+    `;
 }
 
 // ==================== UTILITY FUNCTIONS ====================
@@ -656,9 +565,12 @@ function parseFormatting(text) {
     text = escapeHtml(text);
 
     // Then apply markdown-style formatting
+    // Handle combined bold-italic first: **_text_** or _**text**_
+    // text = text.replace(/\*\*_(.+?)_\*\*/g, '<b><em>$1</em></b>');  // **_bold italic_**
+    // text = text.replace(/_\*\*(.+?)\*\*_/g, '<em><b>$1</b></em>');  // _**bold italic**_
+    // Then handle individual styles
     text = text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');            // **bold**
-    text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');              // *italic*
-    text = text.replace(/__(.+?)__/g, '<u>$1</u>');                // __underline__
+    text = text.replace(/_(.+?)_/g, '<em>$1</em>');                // _italic_
     text = text.replace(/`(.+?)`/g, '<code class="monospace">$1</code>');  // `monospace`
 
     // Restore math placeholders (they contain already-rendered HTML from KaTeX)
@@ -702,72 +614,172 @@ function setupSaveButtons() {
 }
 
 // Setup control sliders
-function setupControlSliders() {
+function setupControlSliders(meta = {}) {
     // Read font schemes from CSS custom properties
     const rootStyles = getComputedStyle(document.documentElement);
     const fontSchemes = {};
 
-    // Parse schemes from CSS variables (1, 2, 3)
-    for (let i = 1; i <= 3; i++) {
+    // Skills label width proportional to font size (base width scales with scheme)
+    const skillsLabelWidths = {
+        1: '70pt',   // Small
+        2: '75pt',   // Medium
+        3: '80pt',   // Large
+        4: '85pt'    // Larger
+    };
+
+    // Parse schemes from CSS variables (1, 2, 3, 4)
+    for (let i = 1; i <= 4; i++) {
         fontSchemes[i] = {
-            tiny: rootStyles.getPropertyValue(`--scheme-${i}-tiny`).trim(), 
-            small: rootStyles.getPropertyValue(`--scheme-${i}-small`).trim(), 
+            tiny: rootStyles.getPropertyValue(`--scheme-${i}-tiny`).trim(),
+            small: rootStyles.getPropertyValue(`--scheme-${i}-small`).trim(),
             base: rootStyles.getPropertyValue(`--scheme-${i}-base`).trim(),
             medium: rootStyles.getPropertyValue(`--scheme-${i}-medium`).trim(),
             large: rootStyles.getPropertyValue(`--scheme-${i}-large`).trim(),
-            label: rootStyles.getPropertyValue(`--scheme-${i}-label`).trim().replace(/['"]/g, '')
+            label: rootStyles.getPropertyValue(`--scheme-${i}-label`).trim().replace(/['"]/g, ''),
+            skillsWidth: skillsLabelWidths[i]
         };
     }
 
-    // Margin options: [0.2, 0.3, 0.4, 0.5]
-    const marginOptions = ['0.0in', '0.1in', '0.2in', '0.3in', '0.4in', '0.5in'];
-    // Initialize labels
-    document.getElementById('margin-slider').min = 0;
-    document.getElementById('margin-slider').max = marginOptions.length - 1;
-    document.getElementById('margin-slider').value = 3; // default 0.3in
-    document.getElementById('margin-label').textContent = marginOptions[3];
+    // Font size name to scheme index mapping
+    const fontSizeMap = {
+        'small': 1,
+        'medium': 2,
+        'large': 3,
+        'larger': 4
+    };
 
-    // Font size slider
+    // Font face name to CSS value mapping
+    const fontFaceMap = {
+        'Calibri': "'Calibri', 'Segoe UI', sans-serif",
+        'Times New Roman': "'Times New Roman', Times, serif",
+        'Arial': "'Arial', Helvetica, sans-serif",
+        'Consolas': "'Consolas', 'Monaco', monospace"
+    };
+
+    // Margin options
+    const marginOptions = ['0.0in', '0.1in', '0.2in', '0.3in', '0.4in', '0.5in'];
+
+    // Helper to parse margin value (e.g., "0.3in" -> 3)
+    function marginValueToIndex(value) {
+        if (!value) return null;
+        const numValue = parseFloat(value);
+        const index = marginOptions.findIndex(opt => parseFloat(opt) === numValue);
+        return index >= 0 ? index : null;
+    }
+
+    // ==================== FONT SIZE SLIDER ====================
     const fontSlider = document.getElementById('font-size-slider');
     const fontLabel = document.getElementById('font-size-label');
 
-    fontSlider.addEventListener('input', (e) => {
-        const value = e.target.value;
-        const scheme = fontSchemes[value];
+    // Initialize from _meta if available
+    const initialFontSize = meta.font_size ? fontSizeMap[meta.font_size.toLowerCase()] : 2;
+    fontSlider.value = initialFontSize || 2;
 
-        // Update CSS variables by iterating through keys
-        for (const key in scheme) {
-            document.documentElement.style.setProperty(`--font-${key}`, scheme[key]);
-        }
-        
-        // document.documentElement.style.setProperty('--font-tiny', scheme.tiny);
-        // document.documentElement.style.setProperty('--font-small', scheme.small);
-        // document.documentElement.style.setProperty('--font-base', scheme.base);
-        // document.documentElement.style.setProperty('--font-medium', scheme.medium);
-        // document.documentElement.style.setProperty('--font-large', scheme.large);
+    // Apply initial font size
+    function applyFontScheme(schemeIndex) {
+        const scheme = fontSchemes[schemeIndex];
+        if (!scheme) return;
 
-        // Update label
+        document.documentElement.style.setProperty('--font-tiny', scheme.tiny);
+        document.documentElement.style.setProperty('--font-small', scheme.small);
+        document.documentElement.style.setProperty('--font-base', scheme.base);
+        document.documentElement.style.setProperty('--font-medium', scheme.medium);
+        document.documentElement.style.setProperty('--font-large', scheme.large);
+        document.documentElement.style.setProperty('--skills-label-width', scheme.skillsWidth);
         fontLabel.textContent = scheme.label;
+    }
+
+    applyFontScheme(fontSlider.value);
+
+    fontSlider.addEventListener('input', (e) => {
+        applyFontScheme(e.target.value);
     });
 
-    // Margin slider
-    const marginSlider = document.getElementById('margin-slider');
-    const marginLabel = document.getElementById('margin-label');
+    // ==================== SIDE MARGINS SLIDER ====================
+    const sideMarginSlider = document.getElementById('side-margin-slider');
+    const sideMarginLabel = document.getElementById('side-margin-label');
 
-    marginSlider.addEventListener('input', (e) => {
-        const value = parseInt(e.target.value);
-        const margin = marginOptions[value];
+    // Initialize side margins from _meta
+    let initialSideMargin = marginValueToIndex(meta.margin_sides);
+    if (initialSideMargin === null) {
+        initialSideMargin = 3; // default 0.3in
+    }
 
-        // Update container padding for web view
-        document.getElementById('resume-container').style.padding = margin;
+    sideMarginSlider.min = 0;
+    sideMarginSlider.max = marginOptions.length - 1;
+    sideMarginSlider.value = initialSideMargin;
+    sideMarginLabel.textContent = marginOptions[initialSideMargin];
+
+    // ==================== TOP/BOTTOM MARGINS SLIDER ====================
+    const topBottomMarginSlider = document.getElementById('topbottom-margin-slider');
+    const topBottomMarginLabel = document.getElementById('topbottom-margin-label');
+
+    // Initialize top/bottom margins from _meta (supports margin_topbottom, margin_top, or margin_bottom)
+    let initialTopBottomMargin = marginValueToIndex(meta.margin_topbottom)
+        ?? marginValueToIndex(meta.margin_top)
+        ?? marginValueToIndex(meta.margin_bottom);
+    if (initialTopBottomMargin === null) {
+        initialTopBottomMargin = 1; // default 0.1in
+    }
+
+    topBottomMarginSlider.min = 0;
+    topBottomMarginSlider.max = marginOptions.length - 1;
+    topBottomMarginSlider.value = initialTopBottomMargin;
+    topBottomMarginLabel.textContent = marginOptions[initialTopBottomMargin];
+
+    // Function to apply margins
+    function applyMargins() {
+        const sideMargin = marginOptions[sideMarginSlider.value];
+        const topBottomMargin = marginOptions[topBottomMarginSlider.value];
+
+        // Update container padding for web view (top/bottom, left/right)
+        document.getElementById('resume-container').style.padding = `${topBottomMargin} ${sideMargin}`;
 
         // Update CSS variables for print @page margins
-        document.documentElement.style.setProperty('--print-margin-top', margin);
-        document.documentElement.style.setProperty('--print-margin-bottom', margin);
-        document.documentElement.style.setProperty('--print-margin-side', margin);
+        document.documentElement.style.setProperty('--print-margin-top', topBottomMargin);
+        document.documentElement.style.setProperty('--print-margin-bottom', topBottomMargin);
+        document.documentElement.style.setProperty('--print-margin-side', sideMargin);
 
-        // Update label
-        marginLabel.textContent = margin;
+        // Update labels
+        sideMarginLabel.textContent = sideMargin;
+        topBottomMarginLabel.textContent = topBottomMargin;
+    }
+
+    // Apply initial margins
+    applyMargins();
+
+    // Side margin slider event
+    sideMarginSlider.addEventListener('input', applyMargins);
+
+    // Top/bottom margin slider event
+    topBottomMarginSlider.addEventListener('input', applyMargins);
+
+    // ==================== FONT FACE SELECTOR ====================
+    const fontFaceSelect = document.getElementById('font-face-select');
+
+    // Initialize from _meta if available
+    if (meta.font_face) {
+        const targetValue = fontFaceMap[meta.font_face];
+        if (targetValue) {
+            // Find and select the matching option
+            for (let i = 0; i < fontFaceSelect.options.length; i++) {
+                if (fontFaceSelect.options[i].value === targetValue) {
+                    fontFaceSelect.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Apply initial font face
+    const currentFontFace = fontFaceSelect.options[fontFaceSelect.selectedIndex].value;
+    document.documentElement.style.setProperty('--font-family', currentFontFace);
+    document.getElementById('resume-container').style.fontFamily = currentFontFace;
+
+    fontFaceSelect.addEventListener('change', (e) => {
+        const fontFamily = e.target.value;
+        document.documentElement.style.setProperty('--font-family', fontFamily);
+        document.getElementById('resume-container').style.fontFamily = fontFamily;
     });
 }
 

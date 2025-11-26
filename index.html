@@ -38,17 +38,39 @@
             <div class="pane-section">
                 <div class="pane-section-title">Font Size</div>
                 <div id="font-size-control" class="control-slider">
-                    <input type="range" id="font-size-slider" min="1" max="3" value="2" step="1">
+                    <input type="range" id="font-size-slider" min="1" max="4" value="2" step="1">
                     <span id="font-size-label">Medium</span>
                 </div>
             </div>
 
-            <!-- Margin Slider -->
+            <!-- Side Margins Slider -->
             <div class="pane-section">
-                <div class="pane-section-title">Margins</div>
-                <div id="margin-control" class="control-slider">
-                    <input type="range" id="margin-slider" min="0" max="5" value="1" step="1">
-                    <span id="margin-label"></span>
+                <div class="pane-section-title">Side Margins</div>
+                <div id="side-margin-control" class="control-slider">
+                    <input type="range" id="side-margin-slider" min="0" max="5" value="3" step="1">
+                    <span id="side-margin-label"></span>
+                </div>
+            </div>
+
+            <!-- Top/Bottom Margins Slider -->
+            <div class="pane-section">
+                <div class="pane-section-title">Top/Bottom Margins</div>
+                <div id="topbottom-margin-control" class="control-slider">
+                    <input type="range" id="topbottom-margin-slider" min="0" max="5" value="1" step="1">
+                    <span id="topbottom-margin-label"></span>
+                </div>
+            </div>
+
+            <!-- Font Face Selector -->
+            <div class="pane-section">
+                <div class="pane-section-title">Font Face</div>
+                <div id="font-face-control">
+                    <select id="font-face-select" class="control-select">
+                        <option value="'Calibri', 'Segoe UI', sans-serif">Calibri</option>
+                        <option value="'Times New Roman', Times, serif">Times New Roman</option>
+                        <option value="'Arial', Helvetica, sans-serif">Arial</option>
+                        <option value="'Consolas', 'Monaco', monospace">Consolas</option>
+                    </select>
                 </div>
             </div>
         </div>

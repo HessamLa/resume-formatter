@@ -35,6 +35,16 @@
     --scheme-3-medium: 12pt;
     --scheme-3-large: 18pt;
     --scheme-3-label: 'Large';
+
+    --scheme-4-tiny: 10pt;
+    --scheme-4-small: 11pt;
+    --scheme-4-base: 12pt;
+    --scheme-4-medium: 13pt;
+    --scheme-4-large: 20pt;
+    --scheme-4-label: 'Larger';
+
+    /* Skills label width - proportional to font size */
+    --skills-label-width: 10em;
 }
 
 body {
@@ -576,6 +586,43 @@ body {
     border-radius: 4px;
 }
 
+/* Control Select Dropdown */
+.control-select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #ecf0f1;
+    background: #34495e;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ecf0f1' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+.control-select:hover {
+    background-color: #415b76;
+}
+
+.control-select:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.3);
+    outline-offset: 2px;
+}
+
+.control-select option {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 10px;
+}
+
 /* ==================== FORMATTING STYLES ==================== */
 
 /* Monospace code styling */
@@ -668,7 +715,7 @@ code.monospace {
     gap: 0.3em;                  /* Regular space between text and line */
 }
 
-.section-title::after {
+.section-title::after_ {
   content: "";                 /* Empty pseudo-element */
   flex-grow: 1;                /* Stretch to fill remaining space */
   height: 1pt;                 /* Line thickness (matching old border) */
@@ -693,7 +740,7 @@ code.monospace {
 .education-item {
     margin-bottom: 0pt;
     position: relative;
-    padding-left: 6pt;
+    padding-left: 15pt;
 }
 
 .education-item .degree {
@@ -710,19 +757,35 @@ code.monospace {
     font-weight: normal;
 }
 
+.education-note {
+    font-style: italic;
+    padding-left: 0pt;
+    margin-bottom: 0pt;
+}
+
 /* ==================== SKILLS ==================== */
 .skills-category {
+    display: flex;
     margin-bottom: 0pt;
     line-height: 1.3;
-    padding-left: 6pt;
+    padding-left: 15pt;
+    padding-right: 15pt;
+}
+
+.skills-category b {
+    min-width: var(--skills-label-width);
+    flex-shrink: 0;
 }
 
 .skills-list {
+    flex: 1;
 }
 
 /* ==================== EXPERIENCE ==================== */
-.experience-item, .research-item {
-    margin-bottom: 3pt;
+.experience-item, .research-item, .publication-item {
+    margin-bottom: 6pt;
+    padding-left: 15pt;
+    padding-right: 15pt;
     page-break-inside: avoid;
 }
 
@@ -731,7 +794,6 @@ code.monospace {
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 0pt;
-    padding-left: 6pt;
 }
 
 .job-title {
@@ -749,16 +811,27 @@ code.monospace {
     font-weight: normal;
 }
 
-.responsibilities {
+.responsibilities,
+.bullets {
     list-style-position: outside;
-    margin-left: 15pt;
     margin-top: 0pt;
-    padding-left: 6pt;
+    /* text-indent: -1em; */
+    padding-left: 1em;
+    /* padding-left: 15pt; */
 }
 
-.responsibilities li {
+.responsibilities li,
+.bullets li {
     margin-bottom: 0pt;
     line-height: 1.3;
+}
+
+.experience-note, 
+.publication-note {
+    /* font-style: italic; */
+    /* margin-left: 6pt;
+    padding-left: 6pt; */
+    margin-bottom: 0pt;
 }
 
 /* ==================== RESEARCH ==================== */
@@ -807,15 +880,15 @@ code.monospace {
 }
 
 /* ==================== PUBLICATIONS ==================== */
-.publications-note {
+/* .publications-note {
     margin-bottom: 2pt;
     padding-left: 6pt;
-}
+} */
 
 .publications-link {
     color: #0000EE;
     text-decoration: underline;
-    padding-left: 6pt;
+    /* padding-left: 6pt; */
 }
 
 /* ==================== DEBUG MODE ==================== */
@@ -894,11 +967,21 @@ body.print-debug-mode::after {
 @media print {
     /* Default: Use @page margins for consistent spacing across pages */
     @page {
-        margin: var(--print-margin-top, 0.3in) 
-                var(--print-margin-side, 0.3in) 
-                var(--print-margin-bottom, 0.3in) 
+        margin: var(--print-margin-top, 0.3in)
+                var(--print-margin-side, 0.3in)
+                var(--print-margin-bottom, 0.3in)
                 var(--print-margin-side, 0.3in);
         size: letter;
+
+        /* Page numbers at bottom center */
+        @bottom-center {
+            content: "Page " counter(page) "/" counter(pages);
+            font-size: 8pt;
+            margin-top: 3pt;
+            margin-bottom: 3pt;
+            font-family: var(--font-family, 'Times New Roman', Times, serif);
+            /* color: #666; */
+        }
     }
 
     /* Force zero margins and padding on body */
@@ -955,14 +1038,36 @@ body.print-debug-mode::after {
         display: none !important;
     }
 
-    .section {
+    /* Prevent page breaks inside these elements */
+    .summary-inline {
         page-break-inside: avoid;
     }
 
-    .experience-item, .research-item {
+    .skills-category {
         page-break-inside: avoid;
     }
-        
+
+    .experience-item {
+        page-break-inside: avoid;
+    }
+
+    .research-item {
+        page-break-inside: avoid;
+    }
+
+    .publications-note,
+    .publications-link {
+        page-break-inside: avoid;
+    }
+
+    .certificate-item {
+        page-break-inside: avoid;
+    }
+
+    .education-item {
+        page-break-inside: avoid;
+    }
+
     a {
         color: #0000EE !important;
         text-decoration: underline;
