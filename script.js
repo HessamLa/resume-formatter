@@ -413,7 +413,7 @@ function renderSkills(data, title) {
         
         html += `
             <div class="skills-category">
-                <b>${escapeHtml(categoryTitle)}:</b>
+                <b>${escapeHtml(categoryTitle)}: </b>
                 <span class="skills-list">${parseFormatting(normalizeItems(categoryItems))}</span>
             </div>
         `;
