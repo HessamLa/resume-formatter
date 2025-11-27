@@ -133,7 +133,7 @@ _meta:
   font_size: large
   font_face: Calibri
 
-  margin_sides: 0.5in
+  margin_sides: 0.4in
   
   margin_topbottom: 0.2in
   # margin_top: 0.in
