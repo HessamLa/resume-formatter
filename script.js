@@ -363,7 +363,7 @@ function renderContact(data, title) {
 function renderSummary(data, title) {
     return `
         <p class="summary-inline">
-            <strong>${escapeHtml(title)}:</strong>${parseFormatting(data.content)}
+            <strong>${escapeHtml(title)}:</strong> ${parseFormatting(data.content)}
         </p>
     `;
 }
