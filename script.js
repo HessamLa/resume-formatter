@@ -619,14 +619,6 @@ function setupControlSliders(meta = {}) {
     const rootStyles = getComputedStyle(document.documentElement);
     const fontSchemes = {};
 
-    // Skills label width proportional to font size (base width scales with scheme)
-    const skillsLabelWidths = {
-        1: '70pt',   // Small
-        2: '75pt',   // Medium
-        3: '80pt',   // Large
-        4: '85pt'    // Larger
-    };
-
     // Parse schemes from CSS variables (1, 2, 3, 4)
     for (let i = 1; i <= 4; i++) {
         fontSchemes[i] = {
@@ -636,7 +628,6 @@ function setupControlSliders(meta = {}) {
             medium: rootStyles.getPropertyValue(`--scheme-${i}-medium`).trim(),
             large: rootStyles.getPropertyValue(`--scheme-${i}-large`).trim(),
             label: rootStyles.getPropertyValue(`--scheme-${i}-label`).trim().replace(/['"]/g, ''),
-            skillsWidth: skillsLabelWidths[i]
         };
     }
 
@@ -685,7 +676,6 @@ function setupControlSliders(meta = {}) {
         document.documentElement.style.setProperty('--font-base', scheme.base);
         document.documentElement.style.setProperty('--font-medium', scheme.medium);
         document.documentElement.style.setProperty('--font-large', scheme.large);
-        document.documentElement.style.setProperty('--skills-label-width', scheme.skillsWidth);
         fontLabel.textContent = scheme.label;
     }
 

@@ -44,7 +44,7 @@
     --scheme-4-label: 'Larger';
 
     /* Skills label width - proportional to font size */
-    --skills-label-width: 10em;
+    --skills-label-width: 15em;
 }
 
 body {
@@ -773,6 +773,7 @@ code.monospace {
 }
 
 .skills-category b {
+    /* min-width: 15em; */
     min-width: var(--skills-label-width);
     flex-shrink: 0;
 }
