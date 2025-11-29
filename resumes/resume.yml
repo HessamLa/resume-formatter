@@ -63,7 +63,8 @@ section_work:
         - Researching **diffusion models** for temporal graph analysis at **1M+ node scale** with time-varying structure
         - Developing **distributed PyTorch-Geometric pipeline** for **multi-GPU processing**, targeting graphs exceeding single-GPU memory capacity
         - Implementing **gradient checkpointing** and **dynamic batching strategies** for memory-efficient large-scale operations
-    
+        - Targeting applications in disease or rumor propagation modeling and **dynamic network analysis**
+
     - title: Graph Systems Specialist (Part-time consulting role)
       company: Inertia Systems, Inc.
       duration: Jul 2025 - Sep 2025
