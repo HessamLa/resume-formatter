@@ -8,7 +8,7 @@ section_contact:
   name: Hamidreza Lotfalizadeh, Ph.D.
   # full_name: 
   location: Bay Area, CA
-  phone: (222) 444 2323
+  phone: (424) 434 8454
   email: HamidLA.AP@gmail.com
   linkedin: linkedin.com/in/hessamla
   scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ
@@ -68,7 +68,7 @@ section_work:
     - title: Graph Systems Specialist (Part-time consulting role)
       company: Inertia Systems, Inc.
       duration: Jul 2025 - Sep 2025
-      note: "**_Skills_**: LLM, Knowledge Graph, AWS Neptune graph database, Pinecone VectorDB, RAG, Gremlin, Python, JavaScript, D3.js"
+      note: "**_Skills_**: LLM, Knowledge Graph, AWS Neptune, Pinecone, RAG, Gremlin, Python, JavaScript, D3.js"
       bullets:
         - Consulted the development of a **graph-based system** for automating project conflict detection and resolution
         - Developed an **LLM-based PoC pipeline** to ingest (un)structured project data and extract entities and relations to construct the **Knowledge Graph**, deployed on **Amazon Neptune GraphDB** and **Pinecone VectorDB for RAG**
@@ -143,5 +143,5 @@ _meta:
   job_summary:
       "Seeking a GenAI/ML Engineer position with 4+ years production experience in distributed systems and LLM applications."
   save_filename:
-      'genai-ml-engineer-lotfalizadeh'
+      'h-lotfalizadeh-genai'
 
