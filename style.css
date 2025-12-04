@@ -44,7 +44,7 @@
     --scheme-4-label: 'Larger';
 
     /* Skills label width - proportional to font size */
-    --skills-label-width: 8em;
+    --skills-label-width: 10em;
 }
 
 body {
@@ -689,6 +689,8 @@ code.monospace {
 /* ==================== SECTIONS ==================== */
 .section {
     margin-bottom: 3pt;
+    page-break-inside: avoid;    /* Try to keep entire section together */
+    break-inside: avoid;         /* Modern alternative for page-break-inside */
 }
 
 
@@ -710,9 +712,11 @@ code.monospace {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.5pt;
-    display: flex;               
+    display: flex;
     align-items: center;         /* Center line vertically with text */
     gap: 0.3em;                  /* Regular space between text and line */
+    page-break-after: avoid;     /* Keep section title with following content */
+    break-after: avoid;          /* Modern alternative for page-break-after */
 }
 
 .section-title::after_ {
@@ -727,6 +731,8 @@ code.monospace {
     line-height: 1.3;
     text-align: justify;
     margin-bottom: 3pt;
+    page-break-inside: avoid;    /* Keep summary paragraph together */
+    break-inside: avoid;         /* Modern alternative */
 }
 
 .summary-inline strong {
@@ -734,6 +740,8 @@ code.monospace {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.5pt;
+    page-break-after: avoid;     /* Keep title with content */
+    break-after: avoid;          /* Modern alternative */
 }
 
 /* ==================== EDUCATION ==================== */
@@ -787,7 +795,8 @@ code.monospace {
     margin-bottom: 6pt;
     padding-left: 15pt;
     padding-right: 15pt;
-    page-break-inside: avoid;
+    page-break-inside: avoid;    /* Keep experience items together */
+    break-inside: avoid;         /* Modern alternative */
 }
 
 .experience-header {
@@ -795,6 +804,8 @@ code.monospace {
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 0pt;
+    page-break-after: avoid;     /* Keep header with content below */
+    break-after: avoid;          /* Modern alternative */
 }
 
 .job-title {

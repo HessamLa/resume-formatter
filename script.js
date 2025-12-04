@@ -457,14 +457,14 @@ function renderWork(data, title) {
 }
 
 // Render certificates section
-function renderCertificates(data, title) {
+function renderCertificates(data, title, labels) {
     // Default labels
     const defaultLabels = {
         name: 'Certificate Name',
         institution: 'Institution',
         verification_url: 'Verification'
     };
-    
+
     // Merge with custom labels
     const finalLabels = { ...defaultLabels, ...labels };
     
@@ -490,26 +490,51 @@ function renderCertificates(data, title) {
 
 // Render publications section
 function renderPublications(data, title, labels) {
-    // let html = `<div class="section"><h2 class="section-title">${escapeHtml(title)}</h2>`;
-    let items = '<div class="publication-item">';
-    if (data.note) {
-        items += `<div class="publication-note">${parseFormatting(data.note)}</div>`;
+    let itemsHtml = '';
+
+    // Support both new structured format (items array) and legacy format (note field)
+    if (data.items && data.items.length > 0) {
+        // New structured format with individual publication entries
+        itemsHtml = data.items.map(pub => {
+            let pubHtml = '<div class="publication-item">';
+
+            if (pub.citation) {
+                pubHtml += `<div class="publication-note">${parseFormatting(pub.citation)}</div>`;
+            }
+
+            if (pub.url) {
+                pubHtml += `<a href="${pub.url}" target="_blank" class="publications-link">[Link]</a>`;
+            }
+
+            pubHtml += '</div>';
+            return pubHtml;
+        }).join('');
+    } else {
+        // Legacy format with single note field
+        itemsHtml = '<div class="publication-item">';
+        if (data.note) {
+            itemsHtml += `<div class="publication-note">${parseFormatting(data.note)}</div>`;
+        }
+        itemsHtml += '</div>';
     }
-    
+
+    // Add Google Scholar link if provided
+    let scholarLink = '';
     if (data.scholar_url) {
-        items += `
-            <a href="${data.scholar_url}" target="_blank" class="publications-link">
-                ${escapeHtml(data.scholar_url)}
-            </a>
+        scholarLink = `
+            <div class="publication-item">
+                <a href="${data.scholar_url}" target="_blank" class="publications-link">
+                    Google Scholar Profile
+                </a>
+            </div>
         `;
     }
-    
-    items += '</div>';
-    // return html;
+
     return `
         <div class="section">
             <h2 class="section-title">${escapeHtml(title)}</h2>
-            ${items}
+            ${itemsHtml}
+            ${scholarLink}
         </div>
     `;
 }
