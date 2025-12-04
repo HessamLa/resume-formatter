@@ -1,216 +1,214 @@
-# Resume - Hessam Alizadeh (Hamidreza Lotfalizadeh, Ph.D.)
+# Resume - Hamidreza Lotfalizadeh, Ph.D. (Postdoctoral Researcher)
 # Use markdown-style formatting for **bold** and _italics_
-
-_meta:
-  sections_order: [
-      "section_contact",
-      "section_summary",
-      "section_education",
-      "section_skills",
-      "section_work",
-      "section_research",
-      "section_certificates",
-      "section_publications"
-      ]
-  job_summary:  # a very short summary of the job description
-      "Seeking a {job title} with {years or experience} to join {company name or description}."
-  save_filename: # Base filename (without extension) for saving the resume. Maximum 4 keywords from the job description (role, company name, expertise, etc), '-' separated, such as ml-vision-google, senior-devops-ny-fadialityco, etc.
-      'my-resume'  # {kw1}-{kw2}-{kw3}' # or '{kw1}-{kw2}-{kw3}-{kw4}'
+# To avoid YAML aliasing a ** at the beginning of a line, enclose the line in a pair of ""
 
 # ==================== CONTACT ====================
 section_contact:
   _type: contact
-  name: Joe Trib
-  full_name: (Dr. Joseph Tribbiani)
-  location: USA  # Update as needed
-  email: my@friends.com
-  linkedin: linkedin.com/in/joey
-  github: github.com/jstalin
-  scholar: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
+  name: H Alz, Ph.D.
+  location: Mountain View, CA
+  phone: (424) 424 444
+  email: H.Al@gmail.com
+  linkedin: linkedin.com/in/hal
+  github: github.com/hal
+  scholar: https://scholar.google.com/citations?user=hal
 
-# ==================== SUMMARY ====================
-section_summary:
+# ==================== RESEARCH INTERESTS ====================
+section_research_interests:
   _type: summary
-  title: Summary
+  title: RESEARCH INTERESTS
   content:
-    ML researcher and engineer. Seeking a role in **ML**, **Data science**, or **GenAI**, with an affinity for systems design and engineering and system programming. Demonstrated ability to integrate ML innovations into complex environments through effective cross-functional collaboration. 
+    "Graph machine learning with focus on **force-directed embedding methodologies**, **diffusion models on dynamic graphs**, and **graph neural networks**. Research interests include developing **theoretically-grounded, computationally-efficient algorithms** for large-scale graph analysis with applications in **temporal network dynamics**, **disease propagation modeling**, and **knowledge graph systems**."
 
-# ==================== TECHNICAL SKILLS ====================      
-section_skills:
-  _type: skills
-  title: Technical Skills
-  skillset1:
-      title: Proficient
-      items: Python, C, C++
-  skillset2:
-      title: Programming & Databases
-      items: C#, Java, JavaScript, Rust, TypeScript, SQL, Gremlin
-  skillset3:
-      title: Tools & Paradigms
-      items: OOP, Functional, Concurrent & Parallel Programming, Embedded, Linux Programming, Bash, Shell, Make, WAF, Gradle, Spring Boot
-  skillset4:
-      title: AI/ML
-      items: PyTorch, Tensorflow, CUDA, Numpy, Pandas, SciPy, Scikit-Learn, MLFlow, Experiment tracking, Node2Vec, NodeForce, Transformers, CNN, RNN, CRNN, GNN, GCN
-  skillset5:
-      title: NLP/LLM
-      items: Fine-Tuning, PEFT, RAG, LangChain, LangGraph, Prompt Engineering, Context Engineering
-  skillset6:
-      title: Statistical Analysis   
-      items: Design of Experiments, Time series analysis, Entropy analysis, Statistical modeling
-  skillset7:
-      title: Infrastructure and DevOps
-      items: Computer architecture, Distributed systems architecture, SLURM, CI/CD, Git, AWS, Neptune, GCP, OCI, RESTful APIs, SQL, Docker, Podman, Kubernetes, MQTT
-
-# ==================== WORK EXPERIENCE ====================
-section_work:
-  _type: work
-  _labels:
-    title: Title
-    company: Company
-    duration: Duration
-    responsibilities: Responsibilities
-  title: Work Experience
-  items:
-    - title: Graph Networks Specialist
-      company: Inertia Systems
-      duration: Apr 2025 - Sep 2025
-      responsibilities:
-        - Developed **graph-based system** for construction tech to manage and resolve conflicts in building plans. Achieved over **95% time efficiency** in conflicts detection and resolution.
-        - Employed **Neptune graph database** with **SQL-like Gremlin queries** for conflict detection and resolution.
-        - Created **graph querying system** and visualization UI for enhanced operability and stakeholder insights.
-        - Delivered features that helped marketing team **attract $3 million investment** through the product presentation.
-    
-    - title: Postdoctoral Researcher
-      company: Indiana University
-      duration: Jan 2025 - Present
-      responsibilities:
-        - Researched **diffusion models** on dynamic graphs to simulate structural changes.
-        - Developed models for rumor source detection using graph diffusion.
-        - Applied graph diffusion models to solve **alignment tasks** with results pending publication.
-    
-    - title: AI/ML Intern
-      company: Eli Lilly
-      duration: May 2024 - Aug 2024
-      responsibilities:
-        - Built query-based exploration tool integrating **GraphRAG and graph traversal algorithms** for subgraph extraction.
-        - Lead the research and development of ML methods for **large-scale graph analysis** handling **over 1 million nodes**.
-        - Implemented **supervised and semi-supervised methods** for  knowledge discovery. Achieved **over 96% recall** with semi-supervised methods.
-        - **Collaborated with cross-functional and international teams** across chemistry/pharma, finance, and marketing departments.
-        - Created **user-friendly web interface** with interactive features for decision-making processes of field experts.
-    
-    - title: Data Science Researcher
-      company: Purdue University
-      duration: Dec 2019 - Apr 2022
-      responsibilities:
-        - Conducted research on **time series analysis and prediction models** for early anomaly detection.
-        - Architected **scalable real-time streaming data pipeline** using MQTT to process distributed IoT sensor data.
-        - Built **fault-tolerant distributed system** for multivariate time series analytics.
-        - Implemented **concurrent multi-threaded operations** for real-time classification and prediction across multiple streams.
-
-    - title: System Software Engineer
-      company: Parsian e-Commerce Co.
-      duration: Sep 2013 - Aug 2016
-      responsibilities:
-        - Maintained Linux based POS (Point-of-Sale) devices
-        - Lead the design and development of reconfigurable embedded printer library, USSD connection, LAN and dial-up embedded applications, and POS to web-app and desktop application connection
-
-
-# Rest of the resume remains unchanged from original...
 # ==================== EDUCATION ====================
 section_education:
   _type: education
-  _labels:
-    degree: Degree
-    institution: Institution
-    campus: Campus
-    graduation_date: Graduation Date
-  title: Education
+  title: EDUCATION
   items:
-    - degree: PhD in Computer Engineering
-      institution: Purdue University
-      campus: Main Campus
+    - degree: "Ph.D. in Computer Engineering"
+      institution: "**Purdue University**, West Lafayette, IN"
       graduation_date: "Dec 2024"
-    
-    - degree: MSc in Computer Engineering
-      institution: Amirkabir University
+      
+    - degree: "M.Sc. in Computer Engineering"
+      institution: "**Amirkabir University of Technology**, Tehran, Iran"
       graduation_date: "Feb 2011"
-    
-    - degree: BS in Computer Engineering
-      institution: Azad University
+      
+    - degree: "B.S. in Computer Engineering"
+      institution: "**Islamic Azad University**, Tehran, Iran"
       graduation_date: "Jul 2008"
 
 # ==================== RESEARCH EXPERIENCE ====================
 section_research:
-  _type: research
-  _labels:
-    title: Title
-    references: References
-    institution: Institution
-    type: Type
-    description: Description
-    technical_environment: Technical Environment
-    applied_methods: Applied Methods
-  title: Research Experience
+  _type: work
+  title: RESEARCH EXPERIENCE
   items:
-    - title: Graph Embedding and Graph ML
-      # references: "[1,2]"
-      institution: Purdue University
-      type: PhD Thesis
-      description:
-        My PhD thesis at Purdue University. Researched graph embedding methods. Invented a graph embedding methodology using force-directed approach and provided a mathematical proof-of-convergence using Brouwer's fixed point theorem. Optimized complexity of the method from $$O(n^2)$$ to $$O(n \log n)$$. This method can be employed in supervised or unsupervised learning schemes. Made extensive use of PyTorch framework, CUDA library, GPU unit and memory optimization methods. Implemented parallelized algorithms for multi-GPU execution using SLURM. Improved graph task metrics (link prediction, node classification, etc.) by over 6% compared to state-of-the-art methods. Developed a library to optimize the memory utilization by searching for an optimum batch count during run time. Used "wrapper" design pattern to implement a Python decorator for the batch-count optimizer during run-time. Implemented an experiment tracking system using MLFlow.
-      technical_environment:
-        Deployed models on multi-GPU clusters using SLURM for resource management
-      applied_methods: Force-Directed approach | PyTorch | CUDA | Memory optimization | Multi-GPU scaling | SLURM job orchestration | Experiment tracking
-    
-    - title: Large-Scale Knowledge Graph Processing
-      institution: Eli Lilly and Company
-      type: Internship Project
-      description:
-        An internship project at Eli Lilly and Company. Researched optimized methods for extracting subgraphs from large-scale knowledge graph and visualizing it. The objective was to provide a KG tool with search and visual exploration features, helping the user better explore the KG. The users of this tool were scientists and domain experts from various departments (chemistry/pharma, finance, marketing, etc.). In addition, for enhancing user experience, a smooth transition between various levels of visualization granularities was implemented.
-      applied_methods: Force-Directed | ForceAtlas | Community detection | Clustering | GraphViz
-    
-    - title: DDoS attack detection and mitigation in SDN
-      # references: "[3,4]"
-      institution: Purdue University
-      type: Research Project
-      description:
-        A research project at Purdue University. Researching on DDoS attacks and development of methods for their detection and mitigation. In this research the network traffic flows were collected in set intervals. Then they were compiled into time series data for processing using entropy analysis and neural network models for classification and prediction. Proposed the idea of partitioning incoming traffic based on various parameters. Then, each partition was effectively a separate time series data.
-      applied_methods: Entropy analysis | Group testing | RNN and CRNN
-    
-    - title: Quantum Computer Scheduler
-      institution: Amirkabir University (QDA group)
-      type: Master's Thesis
-      description:
-        A master's thesis at Amirkabir University. Designed and implemented a method and algorithm for scheduling ion-trap quantum computers with the goal of reducing execution latency of quantum program. Reduced the scheduling latency by 50% average compared to the state-of-the-art methods.
-      applied_methods: OOP in C++ | Lee's maze routing
+    - title: Postdoctoral Researcher
+      company: Indiana University, Indianapolis, IN
+      duration: Apr 2025 - Present
+      note: "_Advisor_: Dr. Mohammad Al Hasan | **_Research Focus_**: Diffusion models on dynamic graphs for temporal network analysis"
+      bullets:
+        - "Developing **graph diffusion models** for simulating **disease propagation** on dynamic network structures"
+        - "Investigating **diffusion-based approaches for graph alignment tasks**"
+        - "Extending **force-directed embedding methodology** to temporal graph settings with structural changes"
+        - "Advancing **theoretical foundations for diffusion processes** on time-evolving graphs"
 
-# ==================== CERTIFICATES ====================
-section_certificates:
-  _type: certificates
-  _labels:
-    name: Certificate Name
-    institution: Institution
-    verification_url: Verification
-  title: Certificates
+    - title: "PhD Research: Force-Directed Graph Embedding"
+      company: Purdue University, West Lafayette, IN
+      duration: Oct 2022 - Dec 2024
+      note: "_Advisor_: Dr. Mohammad Al Hasan | **_Skills_**: PyTorch, PyTorch-Geometric, CUDA, Multi-GPU, SLURM, MLFlow"
+      bullets:
+        - "Innovated **kinematic-based force-directed methodology** for unsupervised graph embedding, providing **rigorous mathematical proof of convergence** using Brouwer's fixed point theorem"
+        - "Engineered **highly scalable framework** achieving **9x speedup** through algorithmic complexity optimization (O(n²) → O(n log n))"
+        - "Implemented **GPU-accelerated algorithm** using PyTorch and CUDA with **distributed multi-GPU execution** via SLURM on HPC clusters"
+        - "Demonstrated **6% improvement in link prediction and node classification** metrics compared to state-of-the-art embedding methods (Node2Vec, DeepWalk, GraphSAGE)"
+        - "Developed **memory optimization library** using wrapper design pattern via Python decorators"
+        - "Implemented **comprehensive experiment tracking system** using MLFlow"
+
+    - title: "DDoS Attack Detection in Software-Defined Networks"
+      company: Purdue University, West Lafayette, IN
+      duration: Sep 2017 - Aug 2022
+      note: "_Advisor_: Dr. Mohammad Al Hasan | **_Skills_**: Entropy Analysis, Time Series, RNN, CRNN, Network Security, C++"
+      bullets:
+        - "Designed **real-time detection and mitigation system** using entropy-based time series analysis"
+        - "Developed **recurrent neural network models** (RNN, CRNN) for traffic classification and attack detection"
+        - "Proposed **novel traffic partitioning scheme** based on flow characteristics for improved detection accuracy"
+        - "Analyzed **temporal patterns in network traffic** using group testing methodologies"
+
+    - title: "IoT Data Analysis for Building Safety Systems"
+      company: Purdue University (FireEvac Group), West Lafayette, IN
+      duration: Dec 2019 - Apr 2022
+      note: "**_Skills_**: Python, MQTT, IoT sensors, Time Series Analysis, Anomaly Detection"
+      bullets:
+        - "Developed **time series prediction models** for early incident detection in urban buildings using environmental sensor data"
+        - "Engineered **end-to-end data pipeline** integrating real-time IoT sensor streams via MQTT protocol"
+        - "Applied **multivariate time series analysis** techniques for anomaly detection and predictive modeling"
+        - "Compiled sensor data into structured time series supporting classification and prediction procedures"
+
+    - title: "Quantum Computing Scheduler Design (Master's Thesis)"
+      company: Amirkabir University of Technology (QDA Group), Tehran, Iran
+      duration: 2009 - 2011
+      note: "**_Skills_**: C++, OOP design, Graph algorithms, Maze routing, Scheduling optimization"
+      bullets:
+        - "Designed **scheduling algorithm for ion-trap quantum computers** using graph-based routing approaches"
+        - "Applied **Lee's maze routing algorithm** to quantum gate scheduling problem"
+        - "Achieved **50% reduction in scheduling latency** through algorithmic optimization"
+        - "Implemented **object-oriented design in C++** for quantum computer simulation"
+
+# ==================== INDUSTRY EXPERIENCE ====================
+section_industry:
+  _type: work
+  title: INDUSTRY RESEARCH EXPERIENCE
   items:
-    - name: Machine learning specialization
-      institution: Stanford University.
-      verification_url: https://coursera.org/verify/specialization/HMWE8SJ5U82M
-    
-    - name: MLOps
-      institution: Duke University.
-      verification_url: https://coursera.org/verify/specialization/ENSE7V7CKMU7
-    
-    - name: Deep learning specialization
-      institution: Stanford University.
-      # verification_url: https://coursera.org/share/8472b6c042e27a28374512f169eb175a
+    - title: Research Intern
+      company: Eli Lilly and Company, Indianapolis, IN
+      duration: May 2024 - Aug 2024
+      note: "_Group_: Advanced Analytics and Data Science (AADS) | **_Project_**: LLM-Enhanced Knowledge Graph Exploration"
+      bullets:
+        - "Investigated **machine learning and large language model methods** for scalable knowledge graph analysis and query-based exploration"
+        - "Developed **hybrid RAG-graph traversal architecture** combining retrieval-augmented generation with intelligent subgraph extraction"
+        - "Optimized algorithms to handle **enterprise knowledge graphs exceeding 1M nodes** with real-time query performance"
+        - "Researched **fusion approaches combining semantic search (RAG)** with structural graph algorithms"
+        - "Collaborated with **cross-functional research teams** spanning chemistry, pharmaceutical sciences, and data science"
+        - "Implemented **web-based interface for interactive knowledge graph exploration**"
+
+    - title: Software Developer
+      company: Purdue University (TASI Group), West Lafayette, IN
+      duration: May 2018 - Aug 2020
+      bullets:
+        - "Developed **network communication infrastructure** between server and simulated client nodes"
+        - "Implemented **socket programming in Python** for distributed system communication"
+        - "Designed and deployed **web server using Django framework**"
+
+    - title: System Software Engineer
+      company: Parsian e-Commerce Co., Tehran, Iran
+      duration: Sep 2013 - Aug 2016
+      bullets:
+        - "Maintained **Linux-based Point-of-Sale (POS) embedded systems**"
+        - "Designed and implemented **USSD connection protocols** for secure transaction processing"
+        - "Developed **embedded applications for LAN and dial-up connectivity**"
+        - "Created **reconfigurable embedded printer system** with modular architecture"
+        - "Engineered **communication interfaces between POS devices** and web/desktop applications"
+
+    - title: Digital Design Engineer
+      company: Rahnama Systems, Tehran, Iran
+      duration: May 2012 - Sep 2013
+      bullets:
+        - "Implemented **digital signal processing (DSP) algorithms** on Virtex4 FPGA development boards"
+        - "Developed **hardware-accelerated signal processing solutions**"
 
 # ==================== PUBLICATIONS ====================
 section_publications:
   _type: publications
-  title: Publications
-  _labels:
-    note: Note
-    scholar_url: Google Scholar
-  note: "Under the name \"Hamidreza Lotfalizadeh\""
-  scholar_url: https://scholar.google.com/citations?user=yPwMRpwAAAAJ&hl=en
+  title: PUBLICATIONS
+  items:
+    - citation: "**[1]** Hamidreza Lotfalizadeh and Mohammad Al Hasan. \"Kinematic-Based Force-Directed Graph Embedding.\" _International Conference on Complex Networks and Their Applications (ComplexNetworks)_, 2024. Springer Nature Switzerland."
+
+    - citation: "**[2]** Hamidreza Lotfalizadeh and Mohammad Al Hasan. \"Force-directed graph embedding with hops distance.\" _IEEE International Conference on Big Data (BigData)_, 2023."
+
+    - citation: "**[3]** Hamidreza Lotfalizadeh, et al. \"Investigating real-time entropy features of DDoS attack based on categorized partial-flows.\" _International Conference on Ubiquitous Information Management and Communication (IMCOM)_, 2020. IEEE."
+
+    - citation: "**[4]** Hamidreza Lotfalizadeh, et al. \"Toward network-based DDoS detection in software-defined networks.\" _IMCOM_, 2018."
+
+  scholar_url: https://scholar.google.com/citations?user=yPwMRpwAAAAJ
+
+# ==================== TECHNICAL SKILLS ====================
+section_skills:
+  _type: skills
+  title: TECHNICAL RESEARCH SKILLS
+  skillset1:
+      title: ML Frameworks
+      items: PyTorch, TensorFlow, PyTorch Geometric, Hugging Face Transformers, Node2Vec, GNN, GCN, GraphSAGE, NumPy, SciPy, Scikit-learn, Pandas, MATLAB
+  skillset2:
+      title: HPC & GPU
+      items: CUDA programming, Multi-GPU optimization, Memory management, SLURM cluster management, Parallel algorithm design, Algorithmic complexity reduction
+  skillset3:
+      title: NLP & LLMs
+      items: Fine-tuning, PEFT, RAG architectures, Prompt engineering, LangChain, LangGraph, Claude API, LLaMA, Transformer architectures
+  skillset4:
+      title: Programming
+      items: Python (Expert), C/C++ (Expert), MATLAB, Rust, Java, JavaScript, TypeScript, C#, VHDL, OOP, Functional programming, Concurrent/parallel programming
+  skillset5:
+      title: Statistical Analysis
+      items: Time series analysis, Entropy analysis, Multivariate statistics, Design of experiments (DOE), Hypothesis testing, Statistical modeling, Predictive analytics
+  skillset6:
+      title: Development Tools
+      items: Git, CI/CD, Docker, Podman, Kubernetes, AWS, REST APIs, SQL, Graph databases, MLFlow, MQTT
+
+# ==================== TEACHING EXPERIENCE ====================
+section_teaching:
+  _type: work
+  title: TEACHING EXPERIENCE
+  items:
+    - title: Graduate Teaching Assistant
+      company: Purdue University, West Lafayette, IN
+      duration: 2017 - 2024
+      bullets:
+        - "**Courses Taught (with laboratory sections):** Computer Architecture, C Programming, Python Programming, Unix Programming, Logic Circuits Design"
+        - "**Courses Taught (lecture):** Theory of Machines and Languages, Software Engineering, Calculus"
+        - "Designed and delivered **lectures, laboratory exercises, and programming assignments**"
+        - "Mentored students in **debugging, algorithm design, and systems programming**"
+        - "Held regular **office hours** providing individualized academic support"
+        - "Developed **course materials and assessment instruments**"
+
+# ==================== META INFORMATION ===============
+_meta:
+  sections_order: [
+      "section_contact",
+      "section_research_interests",
+      "section_education",
+      "section_research",
+      "section_industry",
+      "section_publications",
+      "section_skills",
+      "section_teaching"
+      ]
+  font_size: medium
+  font_face: Times New Roman
+
+  margin_sides: 0.3in
+  margin_topbottom: 0.2in
+
+  job_summary:
+      "Postdoctoral researcher specializing in graph machine learning, force-directed embeddings, and diffusion models on dynamic graphs."
+  save_filename:
+      'h-lotfalizadeh-postdoc-resume'
