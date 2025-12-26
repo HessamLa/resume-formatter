@@ -750,11 +750,11 @@ code.monospace {
     font-weight: normal;
 }
 
-.education-note {
+/* .education-note {
     font-style: italic;
     padding-left: 0pt;
     margin-bottom: 0pt;
-}
+} */
 
 /* ==================== SKILLS ==================== */
 .skills-category {
@@ -824,7 +824,8 @@ code.monospace {
 }
 
 .experience-note, 
-.publication-note {
+.publication-note,
+.education-note {
     /* font-style: italic; */
     /* margin-left: 6pt;
     padding-left: 6pt; */
