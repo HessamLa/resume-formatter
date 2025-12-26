@@ -689,22 +689,7 @@ code.monospace {
 /* ==================== SECTIONS ==================== */
 .section {
     margin-bottom: 3pt;
-    page-break-inside: avoid;    /* Try to keep entire section together */
-    break-inside: avoid;         /* Modern alternative for page-break-inside */
 }
-
-
-/* This is for section titles with bottom border */
-/* .section-title {
-    font-size: var(--font-medium);;
-    font-weight: bold;
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: 0.5pt;
-    margin-bottom: 1pt;
-    padding-bottom: 1pt;
-    border-bottom: 1pt solid #000;
-} */
 
 /* The following two are for section titles with horizontal line extending to the right */
 .section-title {
