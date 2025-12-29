@@ -1047,6 +1047,7 @@ window.addEventListener('afterprint', () => {
 function setupYamlEditor() {
     const yamlPanel = document.getElementById('yaml-panel');
     const toggleYamlBtn = document.getElementById('toggle-yaml-btn');
+    const yamlToggleIcon = toggleYamlBtn.querySelector('.yaml-toggle-icon');
     const yamlEditor = document.getElementById('yaml-editor');
     const copyYamlBtn = document.getElementById('copy-yaml-btn');
     let renderTimeout = null;
@@ -1057,13 +1058,22 @@ function setupYamlEditor() {
     // Apply initial state
     if (initialExpanded) {
         yamlPanel.classList.add('expanded');
+        yamlToggleIcon.textContent = '◀';
     } else {
         yamlPanel.classList.remove('expanded');
+        yamlToggleIcon.textContent = '▶';
     }
 
     // Toggle YAML panel
     toggleYamlBtn.addEventListener('click', () => {
         yamlPanel.classList.toggle('expanded');
+
+        // Toggle icon between ◀ (collapsed) and ▶ (expanded)
+        if (yamlPanel.classList.contains('expanded')) {
+            yamlToggleIcon.textContent = '◀';
+        } else {
+            yamlToggleIcon.textContent = '▶';
+        }
     });
 
     // Copy YAML to clipboard
