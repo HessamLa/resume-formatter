@@ -804,20 +804,29 @@ function setupPaneToggle() {
     const paneContent = document.getElementById('pane-content');
     const toggleIcon = toggleBtn.querySelector('.toggle-icon');
 
-    // set toggle icon initial state
-    toggleIcon.textContent = '▲';
+    // Initial state: control pane starts expanded (not collapsed)
+    const initialCollapsed = true;
+
+    // Apply initial state
+    if (initialCollapsed) {
+        paneContent.classList.add('collapsed');
+        toggleIcon.textContent = '▼';
+    } else {
+        paneContent.classList.remove('collapsed');
+        toggleIcon.textContent = '▲';
+    }
     updateAlertPosition();
-    
+
     toggleBtn.addEventListener('click', () => {
         paneContent.classList.toggle('collapsed');
-        
-        // Toggle icon between ▼ (expanded) and ▲ (collapsed)
+
+        // Toggle icon between ▼ (collapsed) and ▲ (expanded)
         if (paneContent.classList.contains('collapsed')) {
             toggleIcon.textContent = '▼';
         } else {
             toggleIcon.textContent = '▲';
         }
-        
+
         // Update alert position when pane toggles
         setTimeout(updateAlertPosition, 300); // Wait for animation to complete
     });
@@ -1041,6 +1050,16 @@ function setupYamlEditor() {
     const yamlEditor = document.getElementById('yaml-editor');
     const copyYamlBtn = document.getElementById('copy-yaml-btn');
     let renderTimeout = null;
+
+    // Initial state: YAML panel starts collapsed (not expanded)
+    const initialExpanded = false;
+
+    // Apply initial state
+    if (initialExpanded) {
+        yamlPanel.classList.add('expanded');
+    } else {
+        yamlPanel.classList.remove('expanded');
+    }
 
     // Toggle YAML panel
     toggleYamlBtn.addEventListener('click', () => {
