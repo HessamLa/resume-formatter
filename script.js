@@ -345,6 +345,7 @@ function renderContact(data, title) {
         data.phone ? `<span class="contact-item">${escapeHtml(data.phone)}</span>` : null,
         data.email ? `<span class="contact-item"><a href="mailto:${data.email}">${data.email}</a></span>` : null,
         data.linkedin ? `<span class="contact-item"><a href="https://${data.linkedin}" target="_blank">${data.linkedin}</a></span>` : null,
+        data.personal ? `<span class="contact-item"><a href="https://${data.personal}" target="_blank">${data.personal}</a></span>` : null,
         data.github ? `<span class="contact-item"><a href="https://${data.github}" target="_blank">${data.github}</a></span>` : null
     ].filter(Boolean);
 
