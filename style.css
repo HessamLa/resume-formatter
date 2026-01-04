@@ -1043,32 +1043,16 @@ body.print-debug-mode::after {
     }
 
     /* Prevent page breaks inside these elements */
-    .summary-inline {
-        page-break-inside: avoid;
-    }
-
-    .skills-category {
-        page-break-inside: avoid;
-    }
-
-    .experience-item {
-        page-break-inside: avoid;
-    }
-
-    .research-item {
-        page-break-inside: avoid;
-    }
-
+    
+    .summary-inline,
+    .skills-category,
+    .education-item,
+    .experience-item,
+    .research-item,
+    .publication-item,
     .publications-note,
-    .publications-link {
-        page-break-inside: avoid;
-    }
-
+    .publications-link,
     .certificate-item {
-        page-break-inside: avoid;
-    }
-
-    .education-item {
         page-break-inside: avoid;
     }
 
