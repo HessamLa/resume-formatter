@@ -1,126 +1,204 @@
-# Resume - Hessam Alizadeh (Industry ML/AI positions)
+# Resume - John Doe (Tutorial Example)
 # Use markdown-style formatting for **bold** and _italics_
+# To avoid YAML aliasing a ** at the beginning of a line, enclose the line in a pair of ""
+# NOTE: All information in this resume is FICTIONAL for tutorial purposes only
 
 # ==================== CONTACT ====================
 section_contact:
   _type: contact
-  name: Hessam Alizadeh
-  # full_name: Hamidreza Lotfalizadeh
-  location: Mountain View, CA
-  # phone: (424) 434 8454
-  email: HamidLA.AP@gmail.com
-  linkedin: linkedin.com/in/hessamla
-  personal: hessamla.github.io
+  name: John Doe
+  # full_name: Jonathan Michael Doe  # Optional: legal name if different
+  location: San Francisco, CA
+  phone: (555) 123-4567
+  email: john.doe@email.com
+  linkedin: linkedin.com/in/johndoe
+  github: github.com/johndoe
+  scholar: https://scholar.google.com/citations?user=XXXXXXXXX
+  website: johndoe.dev  # Optional: personal website
 
 # ==================== SUMMARY ====================
 section_summary:
   _type: summary
   title: SUMMARY
   content:
-    "**Software systems engineer** seeking opportunities in AI/ML systems design and development. Strong foundation in **PyTorch**, **CUDA**, **distributed systems**, and **full-stack development**. Experienced in building **data ingestion pipelines**, design and development of distributed algorithms and systems, and backend orchestration for agentic systems."
+    "Backend engineer looking for a mid-level role in distributed systems. Experienced in building microservices architectures and database optimization for high-throughput applications."
 
-# ==================== TECHNICAL SKILLS ====================
+# ==================== RESEARCH INTERESTS ====================
+# Use this section for academic/research-focused resumes
+section_research_interests:
+  _type: summary
+  title: RESEARCH INTERESTS
+  content:
+    "Distributed systems with focus on **consensus protocols**, **fault-tolerant architectures**, and **database replication**. Research interests include **CAP theorem applications**, **eventual consistency models**, and **real-time data synchronization**."
+
+# ==================== TECHNICAL SKILLS ====================      
 section_skills:
   _type: skills
   title: SKILLS
   skillset1:
     title: Languages
-    items: Python, C/C++, JavaScript, TypeScript, SQL, Gremlin
+    items: Python (Proficient), Go (Proficient), Java, Rust, SQL
   skillset2:
-    title: AI/ML
-    items: PyTorch, PyTorch Geometric, TensorFlow, CUDA, Scikit-Learn, NumPy, Pandas, MLFlow
+    title: Databases
+    items: PostgreSQL, Redis, MongoDB, Cassandra, DynamoDB
   skillset3:
-    title: LLM/GenAI
-    items: RAG, LangChain, LangGraph, Prompt Engineering, Fine-tuning, PEFT
-  skillset4:
     title: Infrastructure
-    items: Docker, SLURM, REST APIs, Git, CI/CD, AWS, GCI, OCI, MongoDB, Amazon Neptune, Pinecone
+    items: Docker, Kubernetes, Terraform, AWS, GCP, CI/CD
+  skillset4:
+    title: Frameworks
+    items: FastAPI, gRPC, Kafka, RabbitMQ, Celery
+  skillset5:
+    title: Practices
+    items: Microservices, Event-driven Architecture, TDD, Agile
 
 # ==================== EDUCATION ====================
 section_education:
   _type: education
   title: EDUCATION
   items:
-    - degree: PhD in Computer Engineering
-      institution: "**Purdue University**"
-      graduation_date: "Dec 2024"
-      note: "Focus: Graph ML and Distributed Systems"
+    - degree: M.S. in Computer Science
+      institution: "**University of California, Berkeley**"
+      graduation_date: "May 2020"
+      note: "**_Focus_**: Distributed Systems and Databases"
+      gpa: "3.8/4.0"  # Optional field
+
+    - degree: B.S. in Computer Science
+      institution: "**University of Washington**"
+      graduation_date: "Jun 2018"
+      note: "_Minor_: Mathematics"
 
 # ==================== WORK EXPERIENCE ====================
 section_work:
   _type: work
   title: EXPERIENCE
   items:
-    - title: ML Researcher (Remote)
-      company: Indiana University
-      duration: Apr 2025 - present
-      note: "**_Skills_**: PyTorch, PyTorch-Geometric, CUDA, Multi-GPU, SLURM"
+    - title: Software Engineer
+      company: TechCorp Inc.
+      duration: Jun 2020 - Present
+      location: San Francisco, CA  # Optional field
+      note: "**_Skills_**: Go, Kubernetes, PostgreSQL, Kafka, gRPC"
       bullets:
-        - Developing **distributed PyTorch-Geometric pipelines** for graphs at **1M+ node scale**
-        - Implementing **gradient checkpointing** and **dynamic batching** for memory-efficient operations
-        - Researching **diffusion models on dynamic graphs** for temporal network analysis
+        - Developed **microservices** for payment processing handling **50K transactions/day**
+        - Implemented **event-driven architecture** using Kafka for real-time notifications
+        - Optimized database queries reducing **API latency by 40%**
+        - Collaborated with frontend team to design **RESTful APIs** serving mobile and web clients
 
-    - title: Graph Systems Specialist
-      company: Inertia Systems, Inc.
-      duration: Jul 2025 - Sep 2025
-      note: "**_Skills_**: AWS Neptune, Pinecone, RAG, Gremlin, LLM, Docker, Python"
+    - title: Software Engineering Intern
+      company: StartupXYZ
+      duration: May 2019 - Aug 2019
+      note: "**_Skills_**: Python, FastAPI, Redis, Docker"
       bullets:
-        - Developed **LLM-based PoC pipeline** to extract entities and relations into **Knowledge Graph**
-        - Deployed system on **Amazon Neptune** with **Pinecone VectorDB for RAG**
-        - Built **graph querying interface** using **Gremlin** for conflict detection workflows
-        - Implemented **containerized ML preprocessing** with message queues for independent scaling
+        - Built **caching layer** using Redis for frequently accessed user data
+        - Developed **automated testing suite** covering critical payment flows
+        - Contributed to **CI/CD pipeline** improvements using GitHub Actions
 
-    - title: AI/ML Engineering Intern
-      company: Eli Lilly and Company
-      duration: May 2024 - Aug 2024
-      note: "**_Skills_**: Python, JavaScript, TypeScript, Docker, REST APIs, Graph Algorithms"
+# ==================== PROJECTS ====================
+section_projects:
+  _type: work
+  title: PROJECTS
+  items:
+    - title: Distributed Key-Value Store
+      company: Personal Project
+      duration: 2021
+      note: "**_Technologies_**: Rust, gRPC, Raft consensus"
       bullets:
-        - Led development of **query-based exploration tool** for enterprise knowledge graphs with **4M+ nodes**
-        - Developed **hybrid GraphRAG and graph traversal method**, improving **hit rate @10 from 45% to 78%**
-        - Optimized **intelligent subgraph extraction**, reducing response time from **~2 seconds to ~500ms**
-        - Built **web-based interface** for interactive knowledge graph exploration across departments
-        - Collaborated with **cross-functional and international teams**, reducing frontend dev time from 2 weeks to 3 days
+        - Implemented **Raft consensus protocol** for leader election and log replication
+        - Designed **partitioning scheme** supporting horizontal scaling
+        - Open-sourced on GitHub with **200+ stars**
 
-    - title: ML Engineering Project (PhD Research)
-      company: Purdue University
-      duration: Oct 2022 - Dec 2024
-      note: "**_Skills_**: PyTorch, CUDA, Multi-GPU, SLURM, MLFlow, Algorithm Optimization"
+    - title: Real-time Chat Application
+      company: Hackathon Project
+      duration: 2019
+      note: "**_Technologies_**: Node.js, WebSocket, MongoDB"
       bullets:
-        - Invented **force-directed graph embedding methodology** achieving **6% improvement over state-of-the-art**
-        - Optimized algorithm from **O(n²) to O(n log n)** complexity, achieving **9x execution speedup**
-        - Implemented **GPU-accelerated training** with PyTorch and CUDA on **multi-GPU HPC clusters**
-        - Built **memory optimization library** using wrapper design pattern via Python decorators
+        - Built **WebSocket server** supporting 1000+ concurrent connections
+        - Implemented **message persistence** with MongoDB
 
-    - title: Data Science Researcher
-      company: Purdue University
-      duration: Dec 2019 - Apr 2022
-      note: "**_Skills_**: Python, MQTT, Time Series Analysis, Anomaly Detection, RNN, CRNN"
+# ==================== PUBLICATIONS ====================
+section_publications:
+  _type: publications
+  title: PUBLICATIONS
+  items:
+    - citation: "Doe, J., & Smith, A. (2020). Optimizing Distributed Consensus in High-Latency Networks. _Proceedings of ACM Symposium on Distributed Computing_, 45-52."
+      url: https://doi.org/10.1234/example
+
+    - citation: "Doe, J. (2019). A Survey of Modern Database Replication Techniques. _Journal of Database Management_, 12(3), 78-95."
+
+# ==================== TEACHING EXPERIENCE ====================
+section_teaching:
+  _type: work
+  title: TEACHING EXPERIENCE
+  items:
+    - title: Teaching Assistant
+      company: UC Berkeley, CS 162 (Operating Systems)
+      duration: Fall 2019
       bullets:
-        - Built **end-to-end data pipeline** integrating real-time IoT sensor streams via **MQTT protocol**
-        - Developed **time series prediction models** (RNN, CRNN) for early incident detection
-        - Applied **entropy analysis** and **anomaly detection** on multivariate time series
+        - Led weekly discussion sections for **30 students**
+        - Held office hours and graded assignments on process scheduling and memory management
 
-# # ==================== PUBLICATIONS ====================
-# section_publications:
-#   _type: publications
-#   title: PUBLICATIONS
-#   _labels:
-#     scholar_url: Google Scholar
-#   note: "4 peer-reviewed papers in graph ML and network security"
-#   scholar_url: https://scholar.google.com/citations?user=yPwMRpwAAAAJ
+# ==================== CERTIFICATIONS ====================
+section_certifications:
+  _type: certifications
+  title: CERTIFICATIONS
+  items:
+    - name: AWS Solutions Architect Associate
+      institution: Amazon Web Services, 2022
+      verification_url: https://aws.amazon.com/verification/XXXXX
 
-# ==================== META INFORMATION ===============
+    - name: Kubernetes Administrator (CKA)
+      institution: Cloud Native Computing Foundation, 2021
+      verification_url: https://training.linuxfoundation.org/verification/XXXXX
+
+# ==================== AWARDS & HONORS ====================
+section_awards:
+  _type: list
+  title: AWARDS & HONORS
+  items:
+    - "Dean's List, University of Washington (2016-2018)"
+    - "Best Technical Project, HackBerkeley 2019"
+    - "Graduate Research Fellowship, UC Berkeley (2019-2020)"
+
+# ==================== LANGUAGES ====================
+section_languages:
+  _type: list
+  title: LANGUAGES
+  items:
+    - "English (Native)"
+    - "Spanish (Conversational)"
+    - "Mandarin (Basic)"
+
+# ==================== META INFORMATION ====================
 _meta:
+  # Define the order sections appear in the rendered resume
   sections_order: [
     "section_contact",
     "section_summary",
+    "section_research_interests",
     "section_skills",
     "section_education",
     "section_work",
-    # "section_publications"
+    "section_projects",
+    "section_teaching",
+    "section_publications",
+    "section_certifications",
+    "section_awards",
+    "section_languages"
   ]
-  font_size: medium
-  font_face: Calibri
-  margin_sides: 0.4in
-  margin_topbottom: 0.2in
-  save_filename: 'h-lotfalizadeh-industry'
+  
+  # Typography settings
+  font_size: medium        # Options: small, medium, large
+  font_face: Times New Roman
+  
+  # Page margins
+  margin_sides: 0.5in
+  margin_topbottom: 0.4in
+  
+  # For ATS/application systems
+  job_summary: "Backend software engineer with expertise in distributed systems, microservices, and database optimization."
+  
+  # Output filename (without extension)
+  save_filename: "john-doe-resume"
+  
+  # Optional: Target role for tailoring
+  target_role: "Senior Backend Engineer"
+  target_company: "Example Corp"
