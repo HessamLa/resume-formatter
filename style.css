@@ -318,10 +318,25 @@ body {
     overflow-y: auto;
 }
 
+/* resume-wrapper aligns the position of the rendered resume */
+.resume-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center on large screens */
+}
+
+/* On narrow screens, align left instead */
+@media (max-width: 1024px) {
+    .resume-wrapper {
+        justify-content: flex-start;
+    }
+}
+
 #resume-container {
     max-width: 8.5in;
+    min-width: 8.5in;
     /* min-width: 8.5in ; */
-    
+
     width: 100%;
     background: white;
     padding: 0.3in;
