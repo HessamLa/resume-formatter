@@ -748,6 +748,7 @@ code.monospace {
     margin-bottom: 0pt;
     position: relative;
     padding-left: 15pt;
+    padding-right: 15pt;
 }
 
 .education-item .degree {
