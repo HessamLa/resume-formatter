@@ -977,6 +977,13 @@ body.print-debug-mode::after {
                 var(--print-margin-side, 0.3in);
         size: letter;
 
+        /* Suppress browser default headers/footers */
+        @top-left { content: none; }
+        @top-center { content: none; }
+        @top-right { content: none; }
+        @bottom-left { content: none; }
+        @bottom-right { content: none; }
+
         /* Page numbers at bottom center */
         @bottom-center {
             content: "Page " counter(page) "/" counter(pages);
@@ -1012,9 +1019,19 @@ body.print-debug-mode::after {
         background: white !important;
     }
 
-    /* Remove container padding - @page margins handle all spacing */
+    /* Remove container constraints - @page margins handle all spacing */
+    .resume-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
     #resume-container {
-        max-width: 100%;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        width: 100% !important;
         box-shadow: none !important;
         margin: 0 !important;
         padding: 0 !important;
