@@ -187,7 +187,7 @@ _meta:
   
   # Typography settings
   font_size: medium        # Options: small, medium, large
-  font_face: Times New Roman
+  font_face: Calibri
   
   # Page margins
   margin_sides: 0.5in
