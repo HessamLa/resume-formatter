@@ -136,9 +136,10 @@ section_teaching:
     - title: Teaching Assistant
       company: UC Berkeley, CS 162 (Operating Systems)
       duration: Fall 2019
-      bullets:
-        - Led weekly discussion sections for **30 students**
-        - Held office hours and graded assignments on process scheduling and memory management
+      content:
+        - bullets:
+          - Led weekly discussion sections for **30 students**
+          - Held office hours and graded assignments on process scheduling and memory management
 
 # ==================== CERTIFICATIONS ====================
 section_certifications:
