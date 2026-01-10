@@ -76,21 +76,24 @@ section_work:
       company: TechCorp Inc.
       duration: Jun 2020 - Present
       location: San Francisco, CA  # Optional field
-      note: "**_Skills_**: Go, Kubernetes, PostgreSQL, Kafka, gRPC"
-      bullets:
-        - Developed **microservices** for payment processing handling **50K transactions/day**
-        - Implemented **event-driven architecture** using Kafka for real-time notifications
-        - Optimized database queries reducing **API latency by 40%**
-        - Collaborated with frontend team to design **RESTful APIs** serving mobile and web clients
-
+      content:
+        - note: "**_Skills_**: Go, Kubernetes, PostgreSQL, Kafka, gRPC"
+        - bullets:
+          - Developed **microservices** for payment processing handling **50K transactions/day**
+          - Implemented **event-driven architecture** using Kafka for real-time notifications
+          - Optimized database queries reducing **API latency by 40%**
+          - Collaborated with frontend team to design **RESTful APIs** serving mobile and web clients
+        - note: "**_URL_**: https://github.com/jondewey"
+        
     - title: Software Engineering Intern
       company: StartupXYZ
       duration: May 2019 - Aug 2019
-      note: "**_Skills_**: Python, FastAPI, Redis, Docker"
-      bullets:
-        - Built **caching layer** using Redis for frequently accessed user data
-        - Developed **automated testing suite** covering critical payment flows
-        - Contributed to **CI/CD pipeline** improvements using GitHub Actions
+      content:
+        - note: "**_Skills_**: Python, FastAPI, Redis, Docker"
+        - bullets:
+          - Built **caching layer** using Redis for frequently accessed user data
+          - Developed **automated testing suite** covering critical payment flows
+          - Contributed to **CI/CD pipeline** improvements using GitHub Actions
 
 # ==================== PROJECTS ====================
 section_projects:
@@ -100,12 +103,13 @@ section_projects:
     - title: Distributed Key-Value Store
       company: Personal Project
       duration: 2021
-      note: "**_Technologies_**: Rust, gRPC, Raft consensus"
-      bullets:
-        - Implemented **Raft consensus protocol** for leader election and log replication
-        - Designed **partitioning scheme** supporting horizontal scaling
-        - Open-sourced on GitHub with **200+ stars**
-
+      content:
+        - note: "**_Technologies_**: Rust, gRPC, Raft consensus"
+        - bullets:
+          - Implemented **Raft consensus protocol** for leader election and log replication
+          - Designed **partitioning scheme** supporting horizontal scaling
+          - Open-sourced on GitHub with **200+ stars**
+        
     - title: Real-time Chat Application
       company: Hackathon Project
       duration: 2019

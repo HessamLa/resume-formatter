@@ -427,8 +427,40 @@ function renderSkills(data, title) {
 // Render work experience section
 function renderWork(data, title) {
     const items = data.items.map(exp => {
-        // Support both 'bullets' (new) and 'responsibilities' (legacy) fields
-        const bulletItems = exp.bullets || exp.responsibilities || [];
+        let contentHtml = '';
+
+        // Check for 'content' array for interleaved notes/bullets
+        if (exp.content && Array.isArray(exp.content)) {
+            contentHtml = exp.content.map(block => {
+                let html = '';
+                if (block.note) {
+                    html += `<div class="experience-note">${parseFormatting(block.note)}</div>`;
+                }
+                if (block.bullets && Array.isArray(block.bullets)) {
+                    html += `
+                    <ul class="bullets">
+                        ${block.bullets.map(r => `<li>${parseFormatting(r)}</li>`).join('')}
+                    </ul>
+                    `;
+                }
+                return html;
+            }).join('');
+        } else {
+            // Legacy behavior
+            const bulletItems = exp.bullets || exp.responsibilities || [];
+            
+            if (exp.note) {
+                contentHtml += `<div class="experience-note">${parseFormatting(exp.note)}</div>`;
+            }
+            
+            if (bulletItems.length > 0) {
+                contentHtml += `
+                    <ul class="bullets">
+                        ${bulletItems.map(r => `<li>${parseFormatting(r)}</li>`).join('')}
+                    </ul>
+                `;
+            }
+        }
 
         return `
             <div class="experience-item">
@@ -439,12 +471,7 @@ function renderWork(data, title) {
                     </div>
                     <div class="duration">${escapeHtml(exp.duration)}</div>
                 </div>
-                ${exp.note ? `<div class="experience-note">${parseFormatting(exp.note)}</div>` : ''}
-                ${bulletItems.length > 0 ? `
-                    <ul class="bullets">
-                        ${bulletItems.map(r => `<li>${parseFormatting(r)}</li>`).join('')}
-                    </ul>
-                ` : ''}
+                ${contentHtml}
             </div>
         `;
     }).join('');
